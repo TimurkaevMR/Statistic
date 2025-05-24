@@ -6,54 +6,82 @@
 //
 
 import Foundation
+import RealmSwift
 
-final class User: Decodable {
-    let id: Int
-    let sex: Sex
-    let username: String
-    let isOnline: Bool
-    let age: Int
-    let files: [UserFile]
+final class User: Object, Decodable {
+    @Persisted(primaryKey: true) var id: Int
+    @Persisted private var rawSex: String?
+    @Persisted var username: String
+    @Persisted var isOnline: Bool
+    @Persisted var age: Int
+    @Persisted var files: List<UserFile>
     
-    init(id: Int,
-         sex: Sex,
-         username: String,
-         isOnline: Bool,
-         age: Int,
-         files: [UserFile]) {
+    var sex: Sex {
+        get {
+            guard let rawSex = rawSex,
+                  let sex = Sex(rawValue: rawSex) else { return .other }
+            return sex
+        }
+        set {
+            rawSex = newValue.rawValue
+        }
+    }
+    
+    enum Sex: String, Codable, PersistableEnum {
+        case male = "M"
+        case female = "W"
+        case other = "O"
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            let rawValue = try container.decode(String.self)
+            self = Sex(rawValue: rawValue) ?? .other
+        }
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case id, sex, username, isOnline, age, files
+    }
+    
+    convenience init(id: Int, sex: Sex, username: String, isOnline: Bool, age: Int, files: [UserFile]) {
+        self.init()
         self.id = id
         self.sex = sex
         self.username = username
         self.isOnline = isOnline
         self.age = age
-        self.files = files
+        self.files.append(objectsIn: files)
     }
     
-    ///Тип создан для безопасного получения и отправки пола
-    enum Sex: String, Codable {
-        case male = "M"
-        case female = "W"
-        case other = "O"
-        ///.other на случай если пол не указан
+    required convenience init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let id = try container.decode(Int.self, forKey: .id)
+        let sex = try container.decode(Sex.self, forKey: .sex)
+        let username = try container.decode(String.self, forKey: .username)
+        let isOnline = try container.decode(Bool.self, forKey: .isOnline)
+        let age = try container.decode(Int.self, forKey: .age)
+        let files = try container.decode([UserFile].self, forKey: .files)
         
-        init(from decoder: any Decoder) throws {
-            let container = try decoder.singleValueContainer()
-            let rawValue = try container.decode(String.self)
-            self = Sex(rawValue: rawValue) ?? .other
-        }
+        self.init(id: id, sex: sex, username: username, isOnline: isOnline, age: age, files: files)
     }
 }
 
 // MARK: - Mock Data
 extension User {
     static var mock: User {
-        User(
+        let url = "https://img.freepik.com/free-photo/smiley-man-relaxing-outdoors_23-2148739334.jpg"
+        
+        return User(
             id: 1,
             sex: .male,
             username: "ivan",
             isOnline: true,
             age: 15,
-            files: [UserFile(avatarURL:  "https://img.freepik.com/free-photo/smiley-man-relaxing-outdoors_23-2148739334.jpg")]
+            files: [
+                UserFile(id: 1,
+                         url: url,
+                         type: "avatar")
+            ]
         )
     }
 }

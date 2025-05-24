@@ -9,5 +9,5 @@ import Foundation
 
 enum Path: String {
     case users = "/users"
-    case statistic = "/statistics"
+    case statistics = "/statistics"
 }

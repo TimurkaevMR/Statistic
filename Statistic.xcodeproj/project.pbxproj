@@ -105,13 +105,13 @@
 				BCD902102DE1E869005744D6 /* Helpers */,
 				BCD902092DE1DF05005744D6 /* Models */,
 				BCD901FA2DE1C128005744D6 /* Services */,
+				BC8EDCBB2DE1F97700CCC92B /* Screens */,
 				BC3F6EE42DE191E200580363 /* AppDelegate.swift */,
 				BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */,
 				BC3F6EE52DE191E200580363 /* Assets.xcassets */,
 				BC3F6EE62DE191E200580363 /* Info.plist */,
 				BC3F6EE82DE191E200580363 /* LaunchScreen.storyboard */,
 				BC3F6EEA2DE191E200580363 /* Main.storyboard */,
-				BC3F6EEC2DE191E200580363 /* ViewController.swift */,
 			);
 			path = Statistic;
 			sourceTree = "<group>";
@@ -135,11 +135,35 @@
 			path = Statistic;
 			sourceTree = "<group>";
 		};
-		BCD901FA2DE1C128005744D6 /* Services */ = {
+		BC8EDCBB2DE1F97700CCC92B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				BC3F6EEC2DE191E200580363 /* ViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		BC8EDCBC2DE1FA3C00CCC92B /* RealmService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RealmService;
+			sourceTree = "<group>";
+		};
+		BC8EDCBD2DE1FA4900CCC92B /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
 				BCD902002DE1C44D005744D6 /* NetworkService.swift */,
 				BCD901FB2DE1C138005744D6 /* RequestModels */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		BCD901FA2DE1C128005744D6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BC8EDCBD2DE1FA4900CCC92B /* NetworkService */,
+				BC8EDCBC2DE1FA3C00CCC92B /* RealmService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
