@@ -13,7 +13,26 @@
 		BC3F6EF12DE191E200580363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC3F6EE52DE191E200580363 /* Assets.xcassets */; };
 		BC3F6EF32DE191E200580363 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC3F6EE82DE191E200580363 /* LaunchScreen.storyboard */; };
 		BC3F6EF42DE191E200580363 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC3F6EEA2DE191E200580363 /* Main.storyboard */; };
+		BC3F6EF92DE1998800580363 /* DGChartsDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EF82DE1998800580363 /* DGChartsDynamic */; };
+		BC3F6EFA2DE19B6500580363 /* DGChartsDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EF82DE1998800580363 /* DGChartsDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BC3F6F002DE19E2900580363 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EFF2DE19E2900580363 /* RealmSwift */; };
+		BC3F6F022DE19E3E00580363 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EFF2DE19E2900580363 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BC3F6EFB2DE19B6500580363 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BC3F6F022DE19E3E00580363 /* RealmSwift in Embed Frameworks */,
+				BC3F6EFA2DE19B6500580363 /* DGChartsDynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3F6F002DE19E2900580363 /* RealmSwift in Frameworks */,
+				BC3F6EF92DE1998800580363 /* DGChartsDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +98,7 @@
 				BC3F6EC82DE191D500580363 /* Sources */,
 				BC3F6EC92DE191D500580363 /* Frameworks */,
 				BC3F6ECA2DE191D500580363 /* Resources */,
+				BC3F6EFB2DE19B6500580363 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -84,6 +106,8 @@
 			);
 			name = Statistic;
 			packageProductDependencies = (
+				BC3F6EF82DE1998800580363 /* DGChartsDynamic */,
+				BC3F6EFF2DE19E2900580363 /* RealmSwift */,
 			);
 			productName = Statistic;
 			productReference = BC3F6ECC2DE191D500580363 /* Statistic.app */;
@@ -113,6 +137,10 @@
 			);
 			mainGroup = BC3F6EC32DE191D500580363;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				BC3F6EF52DE1998800580363 /* XCRemoteSwiftPackageReference "Charts" */,
+				BC3F6EFC2DE19E2900580363 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BC3F6ECD2DE191D500580363 /* Products */;
 			projectDirPath = "";
@@ -182,8 +210,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -191,9 +219,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.Timurkaev.Statistic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -210,8 +242,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -219,9 +251,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.Timurkaev.Statistic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -368,6 +404,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BC3F6EF52DE1998800580363 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+		BC3F6EFC2DE19E2900580363 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC3F6EF82DE1998800580363 /* DGChartsDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC3F6EF52DE1998800580363 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGChartsDynamic;
+		};
+		BC3F6EFF2DE19E2900580363 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC3F6EFC2DE19E2900580363 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BC3F6EC42DE191D500580363 /* Project object */;
 }
