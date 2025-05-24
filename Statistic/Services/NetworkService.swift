@@ -46,7 +46,7 @@ final class NetworkService: NetworkServiceProtocol {
         do {
             return try decoder.decode(T.self, from: data)
         } catch let error as NSError {
-            throw ServiceError.operation(.retrieve,
+            throw ServiceError.operation(.decode,
                                          code: "\(error.code)")
         }
     }

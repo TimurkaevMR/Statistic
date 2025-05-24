@@ -24,5 +24,6 @@ enum ServiceError: Error {
         case retrieve
         case deletion
         case update
+        case decode
     }
 }

@@ -7,14 +7,14 @@
 
 import Foundation
 
-final class UserFile: Codable, Identifiable {
-    let avatarURL: URL
+final class UserFile: Decodable {
+    let avatarURL: String
     
-    enum FileType: String, Codable {
+    enum CodingKeys: String, CodingKey {
         case avatarURL = "url"
     }
     
-    init(avatarURL: URL) {
+    init(avatarURL: String) {
         self.avatarURL = avatarURL
     }
 }
