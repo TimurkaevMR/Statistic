@@ -19,6 +19,10 @@
 		BC3F6F022DE19E3E00580363 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EFF2DE19E2900580363 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BCD901FD2DE1C148005744D6 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD901FC2DE1C144005744D6 /* EndPoint.swift */; };
 		BCD901FF2DE1C411005744D6 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD901FE2DE1C411005744D6 /* HttpMethod.swift */; };
+		BCD902012DE1C473005744D6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902002DE1C44D005744D6 /* NetworkService.swift */; };
+		BCD902032DE1C4BD005744D6 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902022DE1C4BD005744D6 /* Path.swift */; };
+		BCD902052DE1D80F005744D6 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902042DE1D80F005744D6 /* ServiceError.swift */; };
+		BCD902082DE1D84D005744D6 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902072DE1D84D005744D6 /* NetworkServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +51,10 @@
 		BC3F6EEC2DE191E200580363 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BCD901FC2DE1C144005744D6 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BCD901FE2DE1C411005744D6 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		BCD902002DE1C44D005744D6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BCD902022DE1C4BD005744D6 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		BCD902042DE1D80F005744D6 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		BCD902072DE1D84D005744D6 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 		BC3F6EED2DE191E200580363 /* Statistic */ = {
 			isa = PBXGroup;
 			children = (
+				BCD902062DE1D83D005744D6 /* Protocols */,
 				BCD901FA2DE1C128005744D6 /* Services */,
 				BC3F6EE42DE191E200580363 /* AppDelegate.swift */,
 				BC3F6EE52DE191E200580363 /* Assets.xcassets */,
@@ -96,6 +105,7 @@
 		BCD901FA2DE1C128005744D6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BCD902002DE1C44D005744D6 /* NetworkService.swift */,
 				BCD901FB2DE1C138005744D6 /* RequestModels */,
 			);
 			path = Services;
@@ -104,10 +114,20 @@
 		BCD901FB2DE1C138005744D6 /* RequestModels */ = {
 			isa = PBXGroup;
 			children = (
+				BCD902022DE1C4BD005744D6 /* Path.swift */,
 				BCD901FC2DE1C144005744D6 /* EndPoint.swift */,
 				BCD901FE2DE1C411005744D6 /* HttpMethod.swift */,
+				BCD902042DE1D80F005744D6 /* ServiceError.swift */,
 			);
 			path = RequestModels;
+			sourceTree = "<group>";
+		};
+		BCD902062DE1D83D005744D6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BCD902072DE1D84D005744D6 /* NetworkServiceProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,10 +211,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCD902052DE1D80F005744D6 /* ServiceError.swift in Sources */,
 				BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */,
+				BCD902032DE1C4BD005744D6 /* Path.swift in Sources */,
 				BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */,
 				BCD901FF2DE1C411005744D6 /* HttpMethod.swift in Sources */,
+				BCD902082DE1D84D005744D6 /* NetworkServiceProtocol.swift in Sources */,
 				BCD901FD2DE1C148005744D6 /* EndPoint.swift in Sources */,
+				BCD902012DE1C473005744D6 /* NetworkService.swift in Sources */,
 				BC3F6EF02DE191E200580363 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

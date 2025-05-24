@@ -18,9 +18,4 @@ enum EndPoint {
             URL(string: EndPoint.baseURL + path.rawValue)
         }
     }
-    
-    enum Path: String {
-        case users = "/users"
-        case statistic = "/statistic"
-    }
 }
