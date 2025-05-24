@@ -9,26 +9,11 @@ import Foundation
 
 final class User: Decodable {
     let id: Int
-//    let sex: Sex
+    let sex: Sex
     let username: String
     let isOnline: Bool
     let age: Int
     let files: [UserFile]
-    
-    ///Безопасное получение пола
-    enum Sex: String, Codable {
-        case male = "M"
-        case female = "F"
-        case other = "O"
-/// Todo: УДАЛИТЬ
-//        var displayName: String {
-//            switch self {
-//            case .male: return "Male"
-//            case .female: return "Female"
-//            case .other: return "Other"
-//            }
-//        }
-    }
     
     init(id: Int,
          sex: Sex,
@@ -37,11 +22,25 @@ final class User: Decodable {
          age: Int,
          files: [UserFile]) {
         self.id = id
-//        self.sex = sex
+        self.sex = sex
         self.username = username
         self.isOnline = isOnline
         self.age = age
         self.files = files
+    }
+    
+    ///Тип создан для безопасного получения и отправки пола
+    enum Sex: String, Codable {
+        case male = "M"
+        case female = "W"
+        case other = "O"
+        ///.other на случай если пол не указан
+        
+        init(from decoder: any Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            let rawValue = try container.decode(String.self)
+            self = Sex(rawValue: rawValue) ?? .other
+        }
     }
 }
 
