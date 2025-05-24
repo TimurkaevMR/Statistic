@@ -17,6 +17,8 @@
 		BC3F6EFA2DE19B6500580363 /* DGChartsDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EF82DE1998800580363 /* DGChartsDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BC3F6F002DE19E2900580363 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EFF2DE19E2900580363 /* RealmSwift */; };
 		BC3F6F022DE19E3E00580363 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EFF2DE19E2900580363 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BCD901FD2DE1C148005744D6 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD901FC2DE1C144005744D6 /* EndPoint.swift */; };
+		BCD901FF2DE1C411005744D6 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD901FE2DE1C411005744D6 /* HttpMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +45,8 @@
 		BC3F6EE92DE191E200580363 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EEC2DE191E200580363 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BCD901FC2DE1C144005744D6 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		BCD901FE2DE1C411005744D6 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		BC3F6EED2DE191E200580363 /* Statistic */ = {
 			isa = PBXGroup;
 			children = (
+				BCD901FA2DE1C128005744D6 /* Services */,
 				BC3F6EE42DE191E200580363 /* AppDelegate.swift */,
 				BC3F6EE52DE191E200580363 /* Assets.xcassets */,
 				BC3F6EE62DE191E200580363 /* Info.plist */,
@@ -86,6 +91,23 @@
 				BC3F6EEC2DE191E200580363 /* ViewController.swift */,
 			);
 			path = Statistic;
+			sourceTree = "<group>";
+		};
+		BCD901FA2DE1C128005744D6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BCD901FB2DE1C138005744D6 /* RequestModels */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BCD901FB2DE1C138005744D6 /* RequestModels */ = {
+			isa = PBXGroup;
+			children = (
+				BCD901FC2DE1C144005744D6 /* EndPoint.swift */,
+				BCD901FE2DE1C411005744D6 /* HttpMethod.swift */,
+			);
+			path = RequestModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +193,8 @@
 			files = (
 				BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */,
 				BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */,
+				BCD901FF2DE1C411005744D6 /* HttpMethod.swift in Sources */,
+				BCD901FD2DE1C148005744D6 /* EndPoint.swift in Sources */,
 				BC3F6EF02DE191E200580363 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
