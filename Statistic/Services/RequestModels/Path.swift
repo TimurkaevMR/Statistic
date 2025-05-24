@@ -8,6 +8,6 @@
 import Foundation
 
 enum Path: String {
-        case users = "/users"
-        case statistic = "/statistic"
-    }
+    case users = "/users"
+    case statistic = "/statistics"
+}

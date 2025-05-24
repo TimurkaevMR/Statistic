@@ -17,6 +17,8 @@
 		BC3F6EFA2DE19B6500580363 /* DGChartsDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EF82DE1998800580363 /* DGChartsDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BC3F6F002DE19E2900580363 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EFF2DE19E2900580363 /* RealmSwift */; };
 		BC3F6F022DE19E3E00580363 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EFF2DE19E2900580363 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BC8EDCB82DE1F87200CCC92B /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EDCB72DE1F87200CCC92B /* Statistics.swift */; };
+		BC8EDCBA2DE1F8BE00CCC92B /* UserStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EDCB92DE1F8BE00CCC92B /* UserStatistic.swift */; };
 		BCD901FD2DE1C148005744D6 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD901FC2DE1C144005744D6 /* EndPoint.swift */; };
 		BCD901FF2DE1C411005744D6 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD901FE2DE1C411005744D6 /* HttpMethod.swift */; };
 		BCD902012DE1C473005744D6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902002DE1C44D005744D6 /* NetworkService.swift */; };
@@ -53,6 +55,8 @@
 		BC3F6EE92DE191E200580363 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EEC2DE191E200580363 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BC8EDCB72DE1F87200CCC92B /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		BC8EDCB92DE1F8BE00CCC92B /* UserStatistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatistic.swift; sourceTree = "<group>"; };
 		BCD901FC2DE1C144005744D6 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BCD901FE2DE1C411005744D6 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		BCD902002DE1C44D005744D6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -112,6 +116,25 @@
 			path = Statistic;
 			sourceTree = "<group>";
 		};
+		BC8EDCB52DE1F84100CCC92B /* User */ = {
+			isa = PBXGroup;
+			children = (
+				BCD9020A2DE1DF54005744D6 /* User.swift */,
+				BCD902112DE1E8F3005744D6 /* UserList.swift */,
+				BCD9020C2DE1E22B005744D6 /* UserFile.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		BC8EDCB62DE1F84C00CCC92B /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				BC8EDCB72DE1F87200CCC92B /* Statistics.swift */,
+				BC8EDCB92DE1F8BE00CCC92B /* UserStatistic.swift */,
+			);
+			path = Statistic;
+			sourceTree = "<group>";
+		};
 		BCD901FA2DE1C128005744D6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,9 +165,8 @@
 		BCD902092DE1DF05005744D6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BCD9020A2DE1DF54005744D6 /* User.swift */,
-				BCD902112DE1E8F3005744D6 /* UserList.swift */,
-				BCD9020C2DE1E22B005744D6 /* UserFile.swift */,
+				BC8EDCB62DE1F84C00CCC92B /* Statistic */,
+				BC8EDCB52DE1F84100CCC92B /* User */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,6 +267,7 @@
 				BCD9020F2DE1E618005744D6 /* Достижения.swift in Sources */,
 				BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */,
 				BCD901FF2DE1C411005744D6 /* HttpMethod.swift in Sources */,
+				BC8EDCBA2DE1F8BE00CCC92B /* UserStatistic.swift in Sources */,
 				BCD902082DE1D84D005744D6 /* NetworkServiceProtocol.swift in Sources */,
 				BCD901FD2DE1C148005744D6 /* EndPoint.swift in Sources */,
 				BCD902012DE1C473005744D6 /* NetworkService.swift in Sources */,
@@ -252,6 +275,7 @@
 				BCD9020B2DE1DF57005744D6 /* User.swift in Sources */,
 				BCD9020D2DE1E22B005744D6 /* UserFile.swift in Sources */,
 				BC3F6EF02DE191E200580363 /* ViewController.swift in Sources */,
+				BC8EDCB82DE1F87200CCC92B /* Statistics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
