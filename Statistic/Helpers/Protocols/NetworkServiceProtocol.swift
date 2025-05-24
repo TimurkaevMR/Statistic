@@ -8,7 +8,7 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func fetchData<T: Decodable>(_ path: Path) async throws -> T
+    func retrieveData<T: Decodable>(_ path: Path) async throws -> T
 }
 
 extension NetworkServiceProtocol {

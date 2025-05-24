@@ -18,7 +18,7 @@ final class NetworkService: NetworkServiceProtocol {
         self.session = session
     }
     
-    func fetchData<T: Decodable>(_ path: Path) async throws -> T {
+    func retrieveData<T: Decodable>(_ path: Path) async throws -> T {
         
         guard let url = EndPoint.path(path).url else {
             throw ServiceError.operation(.retrieve)
