@@ -50,4 +50,13 @@ final class NetworkService: NetworkServiceProtocol {
                                          code: "\(error.code)")
         }
     }
+    
+    private func makeRequest(_ method: HttpMethod,
+                     for url: URL) -> URLRequest {
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        
+        return request
+    }
 }

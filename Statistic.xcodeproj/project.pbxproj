@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
-		BC3F6EF02DE191E200580363 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* ViewController.swift */; };
+		BC3F6EF02DE191E200580363 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeScreenController.swift */; };
 		BC3F6EF12DE191E200580363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC3F6EE52DE191E200580363 /* Assets.xcassets */; };
 		BC3F6EF32DE191E200580363 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC3F6EE82DE191E200580363 /* LaunchScreen.storyboard */; };
 		BC3F6EF42DE191E200580363 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC3F6EEA2DE191E200580363 /* Main.storyboard */; };
@@ -19,6 +19,9 @@
 		BC3F6F022DE19E3E00580363 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EFF2DE19E2900580363 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BC8EDCB82DE1F87200CCC92B /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EDCB72DE1F87200CCC92B /* Statistics.swift */; };
 		BC8EDCBA2DE1F8BE00CCC92B /* UserStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EDCB92DE1F8BE00CCC92B /* UserStatistic.swift */; };
+		BC8EDCBF2DE216BE00CCC92B /* UsersRealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EDCBE2DE216BE00CCC92B /* UsersRealmService.swift */; };
+		BC8EDCC12DE21B7600CCC92B /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EDCC02DE21B6800CCC92B /* DataViewModel.swift */; };
+		BC8EDCC32DE238E900CCC92B /* StatisticsRealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EDCC22DE238E900CCC92B /* StatisticsRealmService.swift */; };
 		BCD901FD2DE1C148005744D6 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD901FC2DE1C144005744D6 /* EndPoint.swift */; };
 		BCD901FF2DE1C411005744D6 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD901FE2DE1C411005744D6 /* HttpMethod.swift */; };
 		BCD902012DE1C473005744D6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902002DE1C44D005744D6 /* NetworkService.swift */; };
@@ -54,9 +57,12 @@
 		BC3F6EE72DE191E200580363 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC3F6EE92DE191E200580363 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BC3F6EEC2DE191E200580363 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BC3F6EEC2DE191E200580363 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 		BC8EDCB72DE1F87200CCC92B /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		BC8EDCB92DE1F8BE00CCC92B /* UserStatistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatistic.swift; sourceTree = "<group>"; };
+		BC8EDCBE2DE216BE00CCC92B /* UsersRealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRealmService.swift; sourceTree = "<group>"; };
+		BC8EDCC02DE21B6800CCC92B /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
+		BC8EDCC22DE238E900CCC92B /* StatisticsRealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRealmService.swift; sourceTree = "<group>"; };
 		BCD901FC2DE1C144005744D6 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BCD901FE2DE1C411005744D6 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		BCD902002DE1C44D005744D6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -138,7 +144,8 @@
 		BC8EDCBB2DE1F97700CCC92B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				BC3F6EEC2DE191E200580363 /* ViewController.swift */,
+				BC8EDCC02DE21B6800CCC92B /* DataViewModel.swift */,
+				BC3F6EEC2DE191E200580363 /* HomeScreenController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -146,6 +153,8 @@
 		BC8EDCBC2DE1FA3C00CCC92B /* RealmService */ = {
 			isa = PBXGroup;
 			children = (
+				BC8EDCC22DE238E900CCC92B /* StatisticsRealmService.swift */,
+				BC8EDCBE2DE216BE00CCC92B /* UsersRealmService.swift */,
 			);
 			path = RealmService;
 			sourceTree = "<group>";
@@ -287,6 +296,7 @@
 			files = (
 				BCD902052DE1D80F005744D6 /* ServiceError.swift in Sources */,
 				BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */,
+				BC8EDCC32DE238E900CCC92B /* StatisticsRealmService.swift in Sources */,
 				BCD902032DE1C4BD005744D6 /* Path.swift in Sources */,
 				BCD9020F2DE1E618005744D6 /* Достижения.swift in Sources */,
 				BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */,
@@ -298,7 +308,9 @@
 				BCD902122DE1E8F6005744D6 /* UserList.swift in Sources */,
 				BCD9020B2DE1DF57005744D6 /* User.swift in Sources */,
 				BCD9020D2DE1E22B005744D6 /* UserFile.swift in Sources */,
-				BC3F6EF02DE191E200580363 /* ViewController.swift in Sources */,
+				BC8EDCC12DE21B7600CCC92B /* DataViewModel.swift in Sources */,
+				BC8EDCBF2DE216BE00CCC92B /* UsersRealmService.swift in Sources */,
+				BC3F6EF02DE191E200580363 /* HomeScreenController.swift in Sources */,
 				BC8EDCB82DE1F87200CCC92B /* Statistics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

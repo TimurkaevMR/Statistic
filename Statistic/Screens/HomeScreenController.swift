@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeScreenController.swift
 //  Statistic
 //
 //  Created by Malik Timurkaev on 24.05.2025.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeScreenController: UIViewController {
     let service = NetworkService()
     
     override func viewDidLoad() {

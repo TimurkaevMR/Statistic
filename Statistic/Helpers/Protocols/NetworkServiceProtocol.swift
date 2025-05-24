@@ -10,14 +10,3 @@ import Foundation
 protocol NetworkServiceProtocol {
     func retrieveData<T: Decodable>(_ path: Path) async throws -> T
 }
-
-extension NetworkServiceProtocol {
-    func makeRequest(_ method: HttpMethod,
-                     for url: URL) -> URLRequest {
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
-        
-        return request
-    }
-}
