@@ -10,24 +10,13 @@ import RealmSwift
 
 final class User: Object, Decodable {
     @Persisted(primaryKey: true) var id: Int
-    @Persisted private var rawSex: String?
+    @Persisted var sex: Sex
     @Persisted var username: String
     @Persisted var isOnline: Bool
     @Persisted var age: Int
     @Persisted var files: List<UserFile>
     
-    var sex: Sex {
-        get {
-            guard let rawSex = rawSex,
-                  let sex = Sex(rawValue: rawSex) else { return .other }
-            return sex
-        }
-        set {
-            rawSex = newValue.rawValue
-        }
-    }
-    
-    enum Sex: String, Codable, PersistableEnum {
+    enum Sex: String, Decodable, PersistableEnum {
         case male = "M"
         case female = "W"
         case other = "O"

@@ -15,9 +15,9 @@ class ViewController: UIViewController {
         
         Task {
             do {
-                let arr: UserList = try await service.fetchData(.users)
+                let arr: Statistics = try await service.fetchData(.statistics)
                 
-                dump(arr.users.first!.files)
+                dump(arr.statistics.first!)
             } catch let error as ServiceError {
                 print(error)
             } catch let error as NSError {
