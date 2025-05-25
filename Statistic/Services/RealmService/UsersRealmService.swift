@@ -30,7 +30,7 @@ actor UsersRealmService: UsersBaseProtocol {
                         let realm = try Realm(configuration: self.configuration)
                         
                         let users = Array(realm.objects(User.self).freeze())
-                                          
+                        
                         continuation.resume(returning: users)
                     } catch {
                         continuation.resume(throwing: error)
@@ -41,19 +41,15 @@ actor UsersRealmService: UsersBaseProtocol {
     }
     
     func saveUsers(_ data: [User]) async throws {
-        
-        let refs = data.map({ ThreadSafeReference(to: $0)})
-        
+
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {
                 autoreleasepool {
                     do {
                         let realm = try Realm(configuration: self.configuration)
-                        
-                        let objects = refs.compactMap({ realm.resolve($0) })
-                        
                         try realm.write {
-                            realm.add(objects, update: .modified)
+                            
+                            realm.add(data, update: .modified)
                         }
                         continuation.resume()
                     } catch {
@@ -63,4 +59,27 @@ actor UsersRealmService: UsersBaseProtocol {
             }
         }
     }
+    
+//    func saveUsers(_ data: [User]) async throws {
+//        // Замораживаем объекты перед передачей в другой поток
+//        let frozenUsers = data.map { $0.freeze() }
+//        
+//        try await withCheckedThrowingContinuation { continuation in
+//            DispatchQueue.global(qos: .userInitiated).async {
+//                autoreleasepool {
+//                    do {
+//                        let realm = try Realm(configuration: self.configuration)
+//                        try realm.write {
+//                            
+//                            
+//                            realm.add(thawed, update: .modified)
+//                        }
+//                        continuation.resume()
+//                    } catch {
+//                        continuation.resume(throwing: error)
+//                    }
+//                }
+//            }
+//        }
+//    }
 }

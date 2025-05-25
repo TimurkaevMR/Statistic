@@ -15,11 +15,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
         let window = UIWindow(windowScene: windowScene)
         
+        ///Создаем NetworkService для моделей
         let networkService = NetworkService()
+        
+        ///Создаем StatisticsViewModel
+        let statisticsBase = StatisticsRealmService()
+        let statisticsViewModel = StatisticsViewModel(
+            networkService: networkService, statisticsBase: statisticsBase)
+        
+        ///Создаем UsersViewModel
         let userBase = UsersRealmService()
-        let viewModel = UsersViewModel(networkService: networkService,
-                                       usersBase: userBase)
-        let viewController = HomeViewController(viewModel: viewModel)
+        let usersViewModel = UsersViewModel(
+            networkService: networkService, usersBase: userBase)
+        
+        ///Создаем HomeViewModel, который принимает выше созданные модели
+        let homeViewModel = HomeViewModel(
+            usersViewModel: usersViewModel,
+            statisticsViewModel: statisticsViewModel)
+        
+        ///Инициализируем HomeViewController
+        let viewController = HomeViewController(viewModel: homeViewModel)
         
         window.rootViewController = viewController
         self.window = window

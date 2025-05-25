@@ -42,19 +42,15 @@ actor StatisticsRealmService: StatisticsBaseProtocol {
     }
     
     func saveStatistics(_ data: [UserStatistic]) async throws {
-        
-        let refs = data.map({ ThreadSafeReference(to: $0)})
-        
+                
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {
                 autoreleasepool {
                     do {
                         let realm = try Realm(configuration: self.configuration)
                         
-                        let objects = refs.compactMap({ realm.resolve($0) })
-                        
                         try realm.write {
-                            realm.add(objects, update: .modified)
+                            realm.add(data, update: .modified)
                         }
                         continuation.resume()
                     } catch {

@@ -5,24 +5,25 @@
 //  Created by Malik Timurkaev on 24.05.2025.
 //
 
+
 import UIKit
 import RxSwift
+import RxCocoa
 
 final class HomeViewController: UIViewController {
-    private let tableView = UITableView()
-    private let activityIndicator = UIActivityIndicatorView(style: .large)
     
-    private let usersViewModel: UsersViewModelProtocol
-    private let statisticsViewModel: StatisticsViewModelProtocol
-    private let disposeBag = DisposeBag()
-    private var currentUsers: [User] = []
+    private let viewModel: HomeViewModelProtocol
+    private let bag = DisposeBag()
     
+    private lazy var loadingView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .large)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.hidesWhenStopped = true
+        return view
+    }()
     
-    init(usersViewModel: UsersViewModelProtocol,
-         statisticsViewModel: StatisticsViewModelProtocol) {
-
-        self.usersViewModel = usersViewModel
-        self.statisticsViewModel = statisticsViewModel
+    init(viewModel: HomeViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -32,71 +33,61 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .ypWhite
         setupUI()
         bindViewModel()
-        usersViewModel.loadUsers()
+        viewModel.loadData()
     }
     
-    // MARK: - Настройка UI
     private func setupUI() {
-        view.addSubview(tableView)
-        view.addSubview(activityIndicator)
+        view.backgroundColor = .white
+        view.addSubview(loadingView)
+        
+        NSLayoutConstraint.activate([
+            loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
-    // MARK: - Привязка ViewModel
     private func bindViewModel() {
-        // Загрузка данных
-        viewModel.users
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] users in
-                
-                guard let self else { return }
-                self.currentUsers = users
-                self.tableView.reloadData()
-            })
-            .disposed(by: disposeBag)
-        
+        ///Подписка на загрузку
         viewModel.isLoading
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] isLoading in
-                
-                guard let self else { return }
-                isLoading ? activityIndicator.startAnimating() :
-                activityIndicator.stopAnimating()
+                isLoading ? self?.loadingView.startAnimating() : self?.loadingView.stopAnimating()
             })
-            .disposed(by: disposeBag)
+            .disposed(by: bag)
         
+        ///Подписка на ошибки
         viewModel.errorOccurred
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] error in
-                
-                guard let self else { return }
-                self.showErrorAlert(error: error)
+                self?.showErrorAlert(message: error.message)
             })
-            .disposed(by: disposeBag)
+            .disposed(by: bag)
+        
+        ///Подписка на Users с выводом в консоль
+        viewModel.usersViewModel.users
+            .subscribe(onNext: { users in
+                print("Получены Users: \(users)")
+            })
+            .disposed(by: bag)
+        
+        ///Подписка на Statistics с выводом в консоль
+        viewModel.statisticsViewModel.statistics
+            .subscribe(onNext: { statistics in
+                print("Получены Statistics: \(statistics)")
+            })
+            .disposed(by: bag)
     }
     
-    private func showErrorAlert(error: ServiceError) {
+    private func showErrorAlert(message: String) {
         let alert = UIAlertController(
             title: "Ошибка",
-            message: error.message,
+            message: message,
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
-    }
-}
-
-extension HomeViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        currentUsers.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let user = currentUsers[indexPath.row]
-        cell.textLabel?.text = user.username
-        return cell
     }
 }

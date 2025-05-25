@@ -16,18 +16,6 @@ final class User: Object, Decodable {
     @Persisted var age: Int
     @Persisted var files: List<UserFile>
     
-    enum Sex: String, Decodable, PersistableEnum {
-        case male = "M"
-        case female = "W"
-        case other = "O"
-        
-        init(from decoder: Decoder) throws {
-            let container = try decoder.singleValueContainer()
-            let rawValue = try container.decode(String.self)
-            self = Sex(rawValue: rawValue) ?? .other
-        }
-    }
-    
     enum CodingKeys: String, CodingKey {
         case id, sex, username, isOnline, age, files
     }
@@ -54,6 +42,19 @@ final class User: Object, Decodable {
         self.init(id: id, sex: sex, username: username, isOnline: isOnline, age: age, files: files)
     }
 }
+
+enum Sex: String, Decodable, PersistableEnum {
+    case male = "M"
+    case female = "W"
+    case other = "O"
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(String.self)
+        self = Sex(rawValue: rawValue) ?? .other
+    }
+}
+
 
 // MARK: - Mock Data
 extension User {
