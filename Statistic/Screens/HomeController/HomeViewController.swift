@@ -22,13 +22,26 @@ final class HomeViewController: UIViewController {
         return view
     }()
     
-    init(viewModel: HomeViewModelProtocol) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        ///Создаем NetworkService для моделей
+        let networkService = NetworkService()
+        
+        ///Создаем StatisticsViewModel
+        let statisticsBase = StatisticsRealmService()
+        let statisticsViewModel = StatisticsViewModel(
+            networkService: networkService, statisticsBase: statisticsBase)
+        
+        ///Создаем UsersViewModel
+        let userBase = UsersRealmService()
+        let usersViewModel = UsersViewModel(
+            networkService: networkService, usersBase: userBase)
+        
+        ///Создаем HomeViewModel, который принимает выше созданные модели
+        viewModel = HomeViewModel(
+            usersViewModel: usersViewModel,
+            statisticsViewModel: statisticsViewModel)
+        
+        super.init(coder: coder)
     }
     
     override func viewDidLoad() {
