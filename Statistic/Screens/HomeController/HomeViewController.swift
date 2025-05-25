@@ -12,7 +12,7 @@ import RxCocoa
 
 final class HomeViewController: UIViewController {
     
-    private let viewModel: HomeViewModelProtocol
+    private let vm: HomeViewModelProtocol
     private let bag = DisposeBag()
     
     private lazy var loadingView: UIActivityIndicatorView = {
@@ -22,26 +22,13 @@ final class HomeViewController: UIViewController {
         return view
     }()
     
+    init(vm: HomeViewModelProtocol) {
+        self.vm = vm
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     required init?(coder: NSCoder) {
-        ///Создаем NetworkService для моделей
-        let networkService = NetworkService()
-        
-        ///Создаем StatisticsViewModel
-        let statisticsBase = StatisticsRealmService()
-        let statisticsViewModel = StatisticsViewModel(
-            networkService: networkService, statisticsBase: statisticsBase)
-        
-        ///Создаем UsersViewModel
-        let userBase = UsersRealmService()
-        let usersViewModel = UsersViewModel(
-            networkService: networkService, usersBase: userBase)
-        
-        ///Создаем HomeViewModel, который принимает выше созданные модели
-        viewModel = HomeViewModel(
-            usersViewModel: usersViewModel,
-            statisticsViewModel: statisticsViewModel)
-        
-        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -67,7 +54,7 @@ final class HomeViewController: UIViewController {
     
     private func bindViewModel() {
         ///Подписка на загрузку
-        viewModel.isLoading
+        vm.isLoading
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] isLoading in
                 isLoading ? self?.loadingView.startAnimating() : self?.loadingView.stopAnimating()
@@ -75,7 +62,7 @@ final class HomeViewController: UIViewController {
             .disposed(by: bag)
         
         ///Подписка на ошибки
-        viewModel.errorOccurred
+        vm.errorOccurred
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] error in
                 self?.showErrorAlert(message: error.message)
@@ -83,14 +70,14 @@ final class HomeViewController: UIViewController {
             .disposed(by: bag)
         
         ///Подписка на Users с выводом в консоль
-        viewModel.usersViewModel.users
+        vm.usersViewModel.users
             .subscribe(onNext: { users in
                 print("Получены Users: \(users)")
             })
             .disposed(by: bag)
         
         ///Подписка на Statistics с выводом в консоль
-        viewModel.statisticsViewModel.statistics
+        vm.statisticsViewModel.statistics
             .subscribe(onNext: { statistics in
                 print("Получены Statistics: \(statistics)")
             })
