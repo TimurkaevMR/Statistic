@@ -9,6 +9,11 @@
 import Foundation
 import RealmSwift
 
+protocol StatisticsBaseProtocol {
+    func retrieveStatistics() async throws -> [UserStatistic]
+    func saveStatistics(_ data: [UserStatistic]) async throws
+}
+
 actor StatisticsRealmService: StatisticsBaseProtocol {
     private let configuration: Realm.Configuration
     
@@ -17,19 +22,46 @@ actor StatisticsRealmService: StatisticsBaseProtocol {
     }
     
     func retrieveStatistics() async throws -> [UserStatistic] {
-        let realm = try getRealm()
-        
-        return Array(realm.objects(UserStatistic.self).freeze())
-    }
-    
-    func saveStatistics(_ data: [UserStatistic]) async throws {
-        let realm = try getRealm()
-        try await realm.asyncWrite {
-            realm.add(data, update: .modified)
+        try await withCheckedThrowingContinuation { continuation in
+            
+            DispatchQueue.global(qos: .userInitiated).async {
+                autoreleasepool {
+                    
+                    do {
+                        let realm = try Realm(configuration: self.configuration)
+                        
+                        let statistic = Array(realm.objects(UserStatistic.self).freeze())
+                                          
+                        continuation.resume(returning: statistic)
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                }
+            }
         }
     }
     
-    private func getRealm() throws -> Realm {
-        try Realm(configuration: configuration)
+    func saveStatistics(_ data: [UserStatistic]) async throws {
+        
+        let refs = data.map({ ThreadSafeReference(to: $0)})
+        
+        try await withCheckedThrowingContinuation { continuation in
+            DispatchQueue.global(qos: .userInitiated).async {
+                autoreleasepool {
+                    do {
+                        let realm = try Realm(configuration: self.configuration)
+                        
+                        let objects = refs.compactMap({ realm.resolve($0) })
+                        
+                        try realm.write {
+                            realm.add(objects, update: .modified)
+                        }
+                        continuation.resume()
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                }
+            }
+        }
     }
 }

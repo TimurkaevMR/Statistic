@@ -13,11 +13,6 @@ protocol UsersBaseProtocol {
     func saveUsers(_ data: [User]) async throws
 }
 
-protocol StatisticsBaseProtocol {
-    func retrieveStatistics() async throws -> [UserStatistic]
-    func saveStatistics(_ data: [UserStatistic]) async throws
-}
-
 actor UsersRealmService: UsersBaseProtocol {
     private let configuration: Realm.Configuration
     
@@ -25,49 +20,47 @@ actor UsersRealmService: UsersBaseProtocol {
         self.configuration = configuration
     }
     
-    private func getRealm() throws -> Realm {
-        try Realm(configuration: configuration)
-    }
-    
     func retrieveUsers() async throws -> [User] {
-        let realm = try getRealm()
-        return Array(realm.objects(User.self).freeze())
+        try await withCheckedThrowingContinuation { continuation in
+            
+            DispatchQueue.global(qos: .userInitiated).async {
+                autoreleasepool {
+                    
+                    do {
+                        let realm = try Realm(configuration: self.configuration)
+                        
+                        let users = Array(realm.objects(User.self).freeze())
+                                          
+                        continuation.resume(returning: users)
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                }
+            }
+        }
     }
     
     func saveUsers(_ data: [User]) async throws {
-        let realm = try getRealm()
-        try await realm.asyncWrite {
-            realm.add(data, update: .modified)
+        
+        let refs = data.map({ ThreadSafeReference(to: $0)})
+        
+        try await withCheckedThrowingContinuation { continuation in
+            DispatchQueue.global(qos: .userInitiated).async {
+                autoreleasepool {
+                    do {
+                        let realm = try Realm(configuration: self.configuration)
+                        
+                        let objects = refs.compactMap({ realm.resolve($0) })
+                        
+                        try realm.write {
+                            realm.add(objects, update: .modified)
+                        }
+                        continuation.resume()
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                }
+            }
         }
     }
 }
-
-
-//protocol DataBaseProtocol {
-//    func retrieveData<T: Object>() async throws -> [T]
-//    func save<T: Object>(_ object: T) async throws
-//}
-//
-//actor RealmService: DataBaseProtocol {
-//    private let configuration: Realm.Configuration
-//    
-//    init(configuration: Realm.Configuration = .defaultConfiguration) {
-//        self.configuration = configuration
-//    }
-//    
-//    private func getRealm() throws -> Realm {
-//        try Realm(configuration: configuration)
-//    }
-//    
-//    func retrieveData<T: Object>() async throws -> [T] {
-//        let realm = try getRealm()
-//        return Array(realm.objects(T.self).freeze())
-//    }
-//    
-//    func save<T: Object>(_ object: T) async throws {
-//        let realm = try getRealm()
-//        try await realm.asyncWrite {
-//            realm.add(object, update: .modified)
-//        }
-//    }
-//}

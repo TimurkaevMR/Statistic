@@ -8,7 +8,7 @@
 import Foundation
 
 enum ServiceError: Error {
-    case operation(_ type: OperationType,
+    case operation(_ type: ServiceOperation,
                    code: String = "uknown")
     
     var message: String {
@@ -17,13 +17,5 @@ enum ServiceError: Error {
         case .operation(let type, let code):
             "Task \(type.rawValue) operation failed. Error: \(code)"
         }
-    }
-    
-    enum OperationType: String {
-        case insertion
-        case retrieve
-        case deletion
-        case update
-        case decode
     }
 }
