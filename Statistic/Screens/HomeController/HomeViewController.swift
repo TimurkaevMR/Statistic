@@ -46,14 +46,17 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .ypWhite
+        
         setupUI()
-        bindViewModel()
-        viewModel.loadData()
+//        bindViewModel()
+//        viewModel.loadData()
     }
     
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .ypWhite
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Статистика"
+        
         view.addSubview(loadingView)
         
         NSLayoutConstraint.activate([
