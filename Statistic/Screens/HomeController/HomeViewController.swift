@@ -1,5 +1,5 @@
 //
-//  HomeScreenController.swift
+//  HomeViewController.swift
 //  Statistic
 //
 //  Created by Malik Timurkaev on 24.05.2025.
@@ -9,19 +9,20 @@ import UIKit
 import RxSwift
 
 final class HomeViewController: UIViewController {
-    // MARK: - UI
     private let tableView = UITableView()
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     
-    // MARK: - Модели
-    private let viewModel: UsersViewModelProtocol
+    private let usersViewModel: UsersViewModelProtocol
+    private let statisticsViewModel: StatisticsViewModelProtocol
     private let disposeBag = DisposeBag()
     private var currentUsers: [User] = []
     
-    // MARK: - Инициализация
-    init(viewModel: UsersViewModelProtocol) {
-        
-        self.viewModel = viewModel
+    
+    init(usersViewModel: UsersViewModelProtocol,
+         statisticsViewModel: StatisticsViewModelProtocol) {
+
+        self.usersViewModel = usersViewModel
+        self.statisticsViewModel = statisticsViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -29,20 +30,18 @@ final class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Жизненный цикл
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupUI()
         bindViewModel()
-        viewModel.loadUsers()
+        usersViewModel.loadUsers()
     }
     
     // MARK: - Настройка UI
     private func setupUI() {
         view.addSubview(tableView)
         view.addSubview(activityIndicator)
-        // ... конфигурация constraints и стилей
     }
     
     // MARK: - Привязка ViewModel
@@ -101,22 +100,3 @@ extension HomeViewController: UITableViewDataSource {
         return cell
     }
 }
-
-//class HomeScreenController: UIViewController {
-//    let usersViewModel: UsersViewModelProtocol
-//
-//    init(usersViewModel: UsersViewModelProtocol) {
-//        self.usersViewModel = usersViewModel
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        usersViewModel.loadUsers()
-//    }
-//}
