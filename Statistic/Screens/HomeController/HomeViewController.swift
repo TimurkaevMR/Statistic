@@ -12,8 +12,7 @@ import RxCocoa
 
 final class HomeViewController: UIViewController {
     
-    private let vm: HomeViewModelProtocol
-    private let bag = DisposeBag()
+    private lazy var visitorsSection = VisitorsSection()
     
     private lazy var loadingView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .large)
@@ -21,6 +20,9 @@ final class HomeViewController: UIViewController {
         view.hidesWhenStopped = true
         return view
     }()
+    
+    private let vm: HomeViewModelProtocol
+    private let bag = DisposeBag()
     
     init(vm: HomeViewModelProtocol) {
         self.vm = vm
@@ -35,21 +37,13 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-//        bindViewModel()
-//        viewModel.loadData()
     }
     
     private func setupUI() {
         view.backgroundColor = .ypWhite
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Статистика"
         
-        view.addSubview(loadingView)
-        
-        NSLayoutConstraint.activate([
-            loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+        setupNavigationTitle()
+        setupVisitorsSection()
     }
     
     private func bindViewModel() {
@@ -92,5 +86,19 @@ final class HomeViewController: UIViewController {
         )
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
+    }
+    
+    private func setupNavigationTitle() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Статистика"
+    }
+    
+    private func setupVisitorsSection() {
+        view.addSubview(visitorsSection)
+        NSLayoutConstraint.activate([
+            visitorsSection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            visitorsSection.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            visitorsSection.heightAnchor.constraint(equalToConstant: 24)
+        ])
     }
 }
