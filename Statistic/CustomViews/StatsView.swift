@@ -46,6 +46,12 @@ class StatsView: UIView {
         return label
     }()
     
+    private lazy var arrowImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -67,6 +73,7 @@ class StatsView: UIView {
         
         rightContainer.addSubview(valueLabel)
         rightContainer.addSubview(descriptionLabel)
+        rightContainer.addSubview(arrowImageView)
         
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: topAnchor),
@@ -91,7 +98,10 @@ class StatsView: UIView {
             
             descriptionLabel.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: 6),
             descriptionLabel.leadingAnchor.constraint(equalTo: rightContainer.leadingAnchor, constant: 20),
-            descriptionLabel.trailingAnchor.constraint(equalTo: rightContainer.trailingAnchor, constant: -20)
+            descriptionLabel.trailingAnchor.constraint(equalTo: rightContainer.trailingAnchor, constant: -20),
+            
+            arrowImageView.topAnchor.constraint(equalTo: valueLabel.topAnchor, constant: 4),
+            arrowImageView.leadingAnchor.constraint(equalTo: valueLabel.trailingAnchor, constant: 2)
         ])
     }
     
@@ -141,10 +151,9 @@ class StatsView: UIView {
         chartView.data?.setDrawValues(false)
         
         let lastValue = values.last ?? 0
-        let firstValue = values.first ?? 0
-        let difference = lastValue - firstValue
         
         valueLabel.text = String(format: "%.0f", lastValue)
+        arrowImageView.image = isPositive ? .arrowUp : .arrowDown
         
         let trendText = isPositive ? "выросло" : "упало"
         descriptionLabel.text = "Количество посетителей в этом месяце \(trendText)"

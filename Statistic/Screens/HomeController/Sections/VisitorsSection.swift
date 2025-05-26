@@ -38,6 +38,6 @@ final class VisitorsSection: UIView {
         ])
         
         ///Todo: remove mock
-        statsView.setData(values: [12.0, 15.0, 18.0, 22.0, 19.0, 25.0, 30.0])
+        statsView.setData(values: [12.0, 15.0, 18.0, -22.0, -19.0, 25.0, 30.0])
     }
 }
