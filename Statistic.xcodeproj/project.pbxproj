@@ -14,9 +14,10 @@
 		BC0D63702DE34374007B1544 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D636F2DE34374007B1544 /* StatisticsViewModel.swift */; };
 		BC0D63732DE346AF007B1544 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63722DE346A9007B1544 /* HomeViewModel.swift */; };
 		BC0D63762DE38B97007B1544 /* CustomTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63752DE38B97007B1544 /* CustomTitleLabel.swift */; };
-		BC0D637A2DE38BF7007B1544 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63792DE38BF0007B1544 /* Fonts.swift */; };
+		BC0D637A2DE38BF7007B1544 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63792DE38BF0007B1544 /* UIFont.swift */; };
 		BC0D637D2DE38F57007B1544 /* VisitorsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D637C2DE38F57007B1544 /* VisitorsSection.swift */; };
 		BC0D637F2DE407D9007B1544 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D637E2DE407D9007B1544 /* StatsView.swift */; };
+		BC0D63812DE41D2B007B1544 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63802DE41D26007B1544 /* CGFloat.swift */; };
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
 		BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeViewController.swift */; };
@@ -67,9 +68,10 @@
 		BC0D636F2DE34374007B1544 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		BC0D63722DE346A9007B1544 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC0D63752DE38B97007B1544 /* CustomTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitleLabel.swift; sourceTree = "<group>"; };
-		BC0D63792DE38BF0007B1544 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		BC0D63792DE38BF0007B1544 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		BC0D637C2DE38F57007B1544 /* VisitorsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorsSection.swift; sourceTree = "<group>"; };
 		BC0D637E2DE407D9007B1544 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		BC0D63802DE41D26007B1544 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3F6EE42DE191E200580363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EE52DE191E200580363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,7 +150,8 @@
 		BC0D63782DE38BE8007B1544 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BC0D63792DE38BF0007B1544 /* Fonts.swift */,
+				BC0D63802DE41D26007B1544 /* CGFloat.swift */,
+				BC0D63792DE38BF0007B1544 /* UIFont.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -373,7 +376,7 @@
 				BC0D636B2DE33A46007B1544 /* ServiceOperation.swift in Sources */,
 				BCD902052DE1D80F005744D6 /* ServiceError.swift in Sources */,
 				BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */,
-				BC0D637A2DE38BF7007B1544 /* Fonts.swift in Sources */,
+				BC0D637A2DE38BF7007B1544 /* UIFont.swift in Sources */,
 				BC0D63702DE34374007B1544 /* StatisticsViewModel.swift in Sources */,
 				BC0D636E2DE34331007B1544 /* UsersViewModel.swift in Sources */,
 				BC8EDCC32DE238E900CCC92B /* StatisticsRealmService.swift in Sources */,
@@ -392,6 +395,7 @@
 				BC0D63732DE346AF007B1544 /* HomeViewModel.swift in Sources */,
 				BCD9020D2DE1E22B005744D6 /* UserFile.swift in Sources */,
 				BC0D63762DE38B97007B1544 /* CustomTitleLabel.swift in Sources */,
+				BC0D63812DE41D2B007B1544 /* CGFloat.swift in Sources */,
 				BC8EDCBF2DE216BE00CCC92B /* UsersRealmService.swift in Sources */,
 				BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */,
 				BC8EDCB82DE1F87200CCC92B /* Statistics.swift in Sources */,
