@@ -84,6 +84,7 @@ class CustomChartView: UIView {
         xAxis.granularity = 1
         xAxis.valueFormatter = self
         xAxis.drawAxisLineEnabled = false
+        xAxis.axisLineColor = .ypRed
         
         chartView.leftAxis.enabled = false
         chartView.rightAxis.enabled = false
@@ -111,6 +112,12 @@ class CustomChartView: UIView {
         dataSet.circleRadius = 6
         dataSet.circleHoleRadius = 3
         dataSet.drawValuesEnabled = false
+        
+        dataSet.drawVerticalHighlightIndicatorEnabled = true
+        dataSet.drawHorizontalHighlightIndicatorEnabled = false
+        dataSet.highlightLineDashLengths = [8.0]
+        dataSet.highlightColor = .ypRedFlame
+        dataSet.highlightLineWidth = 1
         
         chartView.data = LineChartData(dataSet: dataSet)
         
