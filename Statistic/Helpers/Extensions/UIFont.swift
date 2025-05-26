@@ -12,6 +12,10 @@ extension UIFont {
         return UIFont.systemFont(ofSize: size, weight: weight)
     }
     
+    static func semiBold15() -> UIFont {
+        return customFont(weight: .medium, size: 15)
+    }
+    
     static func bold20() -> UIFont {
         return customFont(weight: .bold, size: 20)
     }
