@@ -13,6 +13,7 @@ final class HomeViewController: UIViewController {
     
     private lazy var visitorsSection = VisitorsSection()
     private lazy var frequentVisitorsSection = FrequentVisitorsSection()
+    private lazy var demographicSection = DemographicSection()
 
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -96,8 +97,9 @@ final class HomeViewController: UIViewController {
         view.backgroundColor = .ypGrayLight
         setupNavigationTitle()
         setupScrollView()
-        setupVisitorsSection()
-        setupFrequentVisitorsSection()
+//        setupVisitorsSection()
+//        setupFrequentVisitorsSection()
+        setupDemographicSection()
     }
 }
 
@@ -143,9 +145,19 @@ private extension HomeViewController {
             frequentVisitorsSection.topAnchor.constraint(equalTo: visitorsSection.bottomAnchor, constant: 28),
             frequentVisitorsSection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .defaultMargin),
             frequentVisitorsSection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.defaultMargin),
-            frequentVisitorsSection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
         
         frequentVisitorsSection.configure(with: [User.mock, User.mock, User.mock])
+    }
+    
+    func setupDemographicSection() {
+        contentView.addSubview(demographicSection)
+        
+        NSLayoutConstraint.activate([
+            demographicSection.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 28),
+            demographicSection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.defaultMargin),
+            demographicSection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .defaultMargin),
+            demographicSection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
+        ])
     }
 }

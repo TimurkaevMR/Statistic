@@ -26,6 +26,8 @@
 		BC0D638E2DE473F8007B1544 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D638D2DE473F8007B1544 /* AvatarImageView.swift */; };
 		BC0D63902DE474E4007B1544 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D638F2DE474E4007B1544 /* UserCell.swift */; };
 		BC0D63922DE4782D007B1544 /* FrequentVisitorsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63912DE4782D007B1544 /* FrequentVisitorsSection.swift */; };
+		BC0D63942DE495ED007B1544 /* DemographicSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63932DE495EA007B1544 /* DemographicSection.swift */; };
+		BC0D63972DE49908007B1544 /* GenderPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63962DE49908007B1544 /* GenderPieChartView.swift */; };
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
 		BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeViewController.swift */; };
@@ -88,6 +90,8 @@
 		BC0D638D2DE473F8007B1544 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		BC0D638F2DE474E4007B1544 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		BC0D63912DE4782D007B1544 /* FrequentVisitorsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentVisitorsSection.swift; sourceTree = "<group>"; };
+		BC0D63932DE495EA007B1544 /* DemographicSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicSection.swift; sourceTree = "<group>"; };
+		BC0D63962DE49908007B1544 /* GenderPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderPieChartView.swift; sourceTree = "<group>"; };
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3F6EE42DE191E200580363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EE52DE191E200580363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,11 +152,10 @@
 		BC0D63742DE38B88007B1544 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				BC0D63862DE44E2A007B1544 /* CustomChartView.swift */,
-				BC0D637E2DE407D9007B1544 /* StatsView.swift */,
 				BC0D63822DE439FE007B1544 /* TagButton.swift */,
 				BC0D63842DE43A17007B1544 /* TagsScrollView.swift */,
 				BC0D63752DE38B97007B1544 /* CustomTitleLabel.swift */,
+				BC0D63952DE498F5007B1544 /* Charts */,
 				BC0D638C2DE473EE007B1544 /* TableCell */,
 			);
 			path = CustomViews;
@@ -179,6 +182,7 @@
 		BC0D637B2DE38F4B007B1544 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				BC0D63932DE495EA007B1544 /* DemographicSection.swift */,
 				BC0D63912DE4782D007B1544 /* FrequentVisitorsSection.swift */,
 				BC0D637C2DE38F57007B1544 /* VisitorsSection.swift */,
 			);
@@ -192,6 +196,16 @@
 				BC0D638D2DE473F8007B1544 /* AvatarImageView.swift */,
 			);
 			path = TableCell;
+			sourceTree = "<group>";
+		};
+		BC0D63952DE498F5007B1544 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D63962DE49908007B1544 /* GenderPieChartView.swift */,
+				BC0D63862DE44E2A007B1544 /* CustomChartView.swift */,
+				BC0D637E2DE407D9007B1544 /* StatsView.swift */,
+			);
+			path = Charts;
 			sourceTree = "<group>";
 		};
 		BC3F6EC32DE191D500580363 = {
@@ -415,6 +429,7 @@
 				BCD902032DE1C4BD005744D6 /* Path.swift in Sources */,
 				BCD9020F2DE1E618005744D6 /* Достижения.swift in Sources */,
 				BC0D63832DE439FE007B1544 /* TagButton.swift in Sources */,
+				BC0D63942DE495ED007B1544 /* DemographicSection.swift in Sources */,
 				BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */,
 				BCD901FF2DE1C411005744D6 /* HttpMethod.swift in Sources */,
 				BC8EDCBA2DE1F8BE00CCC92B /* UserStatistic.swift in Sources */,
@@ -439,6 +454,7 @@
 				BC8EDCBF2DE216BE00CCC92B /* UsersRealmService.swift in Sources */,
 				BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */,
 				BC8EDCB82DE1F87200CCC92B /* Statistics.swift in Sources */,
+				BC0D63972DE49908007B1544 /* GenderPieChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

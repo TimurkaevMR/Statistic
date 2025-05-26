@@ -56,7 +56,7 @@ final class VisitorsSection: UIView {
             tagsScrollView.topAnchor.constraint(equalTo: statsView.bottomAnchor, constant: 28),
             tagsScrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -.defaultMargin),
             tagsScrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: .defaultMargin),
-            tagsScrollView.heightAnchor.constraint(equalToConstant: 40),
+            tagsScrollView.heightAnchor.constraint(equalToConstant: 32),
             
             chartView.topAnchor.constraint(equalTo: tagsScrollView.bottomAnchor, constant: 12),
             chartView.leadingAnchor.constraint(equalTo: leadingAnchor),
