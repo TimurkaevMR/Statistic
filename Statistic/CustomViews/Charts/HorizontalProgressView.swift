@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HorizontalProgressView: UIView {
+final class HorizontalProgressView: UIView {
 
     private let progressView = UIView()
     private let percentageLabel = UILabel()

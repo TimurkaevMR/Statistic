@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ChartDateFormatter {
+final class ChartDateFormatter {
     static let shared = ChartDateFormatter()
     private let formatter = DateFormatter()
     

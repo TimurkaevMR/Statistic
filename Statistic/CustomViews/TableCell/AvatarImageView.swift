@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AvatarImageView: UIView {
+final class AvatarImageView: UIView {
     private let onlineIndicator = UIView()
     private let imageView = {
         let image = UIImage(systemName: "person.circle.fill")

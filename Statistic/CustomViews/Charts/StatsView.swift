@@ -9,7 +9,7 @@
 import UIKit
 import DGCharts
 
-class StatsView: UIView {
+final class StatsView: UIView {
     
     private let chartView: LineChartView = {
         let chart = LineChartView()

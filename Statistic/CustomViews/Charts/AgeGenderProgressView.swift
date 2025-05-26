@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GenderAgeChartView: UIView {
+final class GenderAgeChartView: UIView {
     private let ageLabel = {
         let label = UILabel()
         label.font = .semiBold15()

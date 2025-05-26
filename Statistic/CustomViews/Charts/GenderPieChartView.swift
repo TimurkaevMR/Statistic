@@ -9,7 +9,7 @@
 import UIKit
 import DGCharts
 
-class GenderPieChartView: UIView {
+final class GenderPieChartView: UIView {
     
     private let pieChartView = PieChartView()
     private let maleLabel = UILabel()

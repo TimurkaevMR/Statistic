@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTitleLabel: UILabel {
+final class CustomTitleLabel: UILabel {
     init(text: String = "") {
         super.init(frame: .zero)
         self.text = text

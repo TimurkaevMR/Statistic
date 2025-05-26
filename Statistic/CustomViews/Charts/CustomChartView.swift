@@ -8,7 +8,7 @@
 import UIKit
 import DGCharts
 
-class CustomChartView: UIView {
+final class CustomChartView: UIView {
     private let chartView = LineChartView()
     private let horizontalLineImageView = UIImageView()
     private let middleLineImageView = UIImageView()
