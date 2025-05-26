@@ -11,15 +11,6 @@ import DGCharts
 
 class StatsView: UIView {
     
-    private let containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .ypWhite
-        view.layer.cornerRadius = 16
-        view.layer.masksToBounds = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     private let chartView: LineChartView = {
         let chart = LineChartView()
         chart.backgroundColor = .clear
@@ -47,7 +38,8 @@ class StatsView: UIView {
     }()
     
     private lazy var arrowImageView = {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
+        let imageView = UIImageView(
+            frame: CGRect(x: 0, y: 0, width: 16, height: 16))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -55,6 +47,8 @@ class StatsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .ypWhite
+        
         setupUI()
         configureChart()
     }
@@ -64,41 +58,25 @@ class StatsView: UIView {
     }
     
     private func setupUI() {
-        addSubview(containerView)
-        containerView.addSubview(chartView)
-        
-        let rightContainer = UIView()
-        rightContainer.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addSubview(rightContainer)
-        
-        rightContainer.addSubview(valueLabel)
-        rightContainer.addSubview(descriptionLabel)
-        rightContainer.addSubview(arrowImageView)
+        addSubview(chartView)
+        addSubview(valueLabel)
+        addSubview(descriptionLabel)
+        addSubview(arrowImageView)
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: topAnchor),
-            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            containerView.heightAnchor.constraint(equalToConstant: 98),
+            heightAnchor.constraint(equalToConstant: 98),
+            chartView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            chartView.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+            chartView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -22),
+            chartView.widthAnchor.constraint(equalToConstant: 96),
             
-            chartView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
-            chartView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 25),
-            chartView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -23),
-            chartView.widthAnchor.constraint(equalToConstant: 95),
-            
-            rightContainer.leadingAnchor.constraint(equalTo: chartView.trailingAnchor),
-            rightContainer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            rightContainer.topAnchor.constraint(equalTo: containerView.topAnchor),
-            rightContainer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            
-            valueLabel.leadingAnchor.constraint(equalTo: rightContainer.leadingAnchor, constant: 20),
-            valueLabel.topAnchor.constraint(equalTo: rightContainer.topAnchor, constant: 16),
-            valueLabel.heightAnchor.constraint(equalToConstant: 25),
+            valueLabel.leadingAnchor.constraint(equalTo: chartView.trailingAnchor, constant: 20),
+            valueLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            valueLabel.heightAnchor.constraint(equalToConstant: 24),
             
             descriptionLabel.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: 6),
-            descriptionLabel.leadingAnchor.constraint(equalTo: rightContainer.leadingAnchor, constant: 20),
-            descriptionLabel.trailingAnchor.constraint(equalTo: rightContainer.trailingAnchor, constant: -20),
+            descriptionLabel.leadingAnchor.constraint(equalTo: chartView.trailingAnchor, constant: 20),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
             arrowImageView.topAnchor.constraint(equalTo: valueLabel.topAnchor, constant: 4),
             arrowImageView.leadingAnchor.constraint(equalTo: valueLabel.trailingAnchor, constant: 2)

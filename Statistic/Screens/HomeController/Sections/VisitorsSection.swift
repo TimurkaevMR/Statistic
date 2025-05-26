@@ -8,8 +8,15 @@
 import UIKit
 
 final class VisitorsSection: UIView {
+    
     private let titleLabel = CustomTitleLabel()
-    private let statsView = StatsView()
+
+    private let statsView = {
+        let view = StatsView()
+        view.layer.cornerRadius = .regularRadius
+        view.layer.masksToBounds = true
+        return view
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
