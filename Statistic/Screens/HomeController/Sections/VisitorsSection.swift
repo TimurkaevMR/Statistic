@@ -19,14 +19,17 @@ final class VisitorsSection: UIView {
         return view
     }()
     
+    // Где-то в вашем ViewController:
+    private let chartView = CustomChartView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         setupUI()
+        setupChart()
         
         tagsScrollView.addTags(["По дням", "По неделям", "По месяцам"])
         
-        ///Todo: remove mock
         statsView.setData(values: [12.0, 15.0, 18.0, -22.0, -19.0, 25.0, 30.0])
     }
     
@@ -40,7 +43,7 @@ final class VisitorsSection: UIView {
         addSubview(titleLabel)
         addSubview(statsView)
         addSubview(tagsScrollView)
-
+        
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -56,5 +59,29 @@ final class VisitorsSection: UIView {
             tagsScrollView.heightAnchor.constraint(equalToConstant: 40),
             tagsScrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    private func setupChart() {
+        addSubview(chartView)
+        chartView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            chartView.topAnchor.constraint(equalTo: tagsScrollView.bottomAnchor, constant: 12),
+            chartView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            chartView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            chartView.heightAnchor.constraint(equalToConstant: 208)
+        ])
+        
+        let chartData = [
+            ChartData(value: 10, date: Date()),
+            ChartData(value: 20, date: Date().addingTimeInterval(86400)),
+            ChartData(value: 22, date: Date().addingTimeInterval(86420)),
+            ChartData(value: 15, date: Date().addingTimeInterval(86440)),
+            ChartData(value: 12, date: Date().addingTimeInterval(86460)),
+            ChartData(value: 14, date: Date().addingTimeInterval(86480)),
+            ChartData(value: 30, date: Date().addingTimeInterval(86490)),
+        ]
+        
+        chartView.setChartData(chartData)
     }
 }
