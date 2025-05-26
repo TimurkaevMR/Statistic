@@ -16,6 +16,7 @@ class CustomChartView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
         setupView()
         setupChart()
         setupHorizontalLines()

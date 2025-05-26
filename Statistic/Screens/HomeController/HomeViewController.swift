@@ -13,7 +13,7 @@ import RxCocoa
 final class HomeViewController: UIViewController {
     
     private lazy var visitorsSection = VisitorsSection()
-    
+    private lazy var frequentVisitorsSection = FrequentVisitorsSection()
     private lazy var loadingView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .large)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -44,6 +44,7 @@ final class HomeViewController: UIViewController {
         
         setupNavigationTitle()
         setupVisitorsSection()
+        setupFrequentVisitorsSection()
     }
     
     private func bindViewModel() {
@@ -99,6 +100,20 @@ final class HomeViewController: UIViewController {
             visitorsSection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             visitorsSection.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: .defaultMargin),
             visitorsSection.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -.defaultMargin)
+        ])
+    }
+    
+    private func setupFrequentVisitorsSection() {
+        view.addSubview(frequentVisitorsSection)
+        
+        frequentVisitorsSection.configure(with: [
+            User.mock, User.mock, User.mock
+        ])
+        
+        NSLayoutConstraint.activate([
+            frequentVisitorsSection.topAnchor.constraint(equalTo: visitorsSection.bottomAnchor, constant: 28),
+            frequentVisitorsSection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.defaultMargin),
+            frequentVisitorsSection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .defaultMargin)
         ])
     }
 }

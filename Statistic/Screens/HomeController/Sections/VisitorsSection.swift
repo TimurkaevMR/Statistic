@@ -11,7 +11,8 @@ final class VisitorsSection: UIView {
     
     private let titleLabel = CustomTitleLabel()
     private let tagsScrollView = TagsScrollView()
-    
+    private let chartView = CustomChartView()
+
     private let statsView = {
         let view = StatsView()
         view.layer.cornerRadius = .regularRadius
@@ -19,8 +20,6 @@ final class VisitorsSection: UIView {
         return view
     }()
     
-    // Где-то в вашем ViewController:
-    private let chartView = CustomChartView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,6 +42,7 @@ final class VisitorsSection: UIView {
         addSubview(titleLabel)
         addSubview(statsView)
         addSubview(tagsScrollView)
+        addSubview(chartView)
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
@@ -57,21 +57,16 @@ final class VisitorsSection: UIView {
             tagsScrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -.defaultMargin),
             tagsScrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: .defaultMargin),
             tagsScrollView.heightAnchor.constraint(equalToConstant: 40),
-            tagsScrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            
+            chartView.topAnchor.constraint(equalTo: tagsScrollView.bottomAnchor, constant: 12),
+            chartView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            chartView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            chartView.heightAnchor.constraint(equalToConstant: 208),
+            chartView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     
     private func setupChart() {
-        addSubview(chartView)
-        chartView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            chartView.topAnchor.constraint(equalTo: tagsScrollView.bottomAnchor, constant: 12),
-            chartView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            chartView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            chartView.heightAnchor.constraint(equalToConstant: 208)
-        ])
-        
         let chartData = [
             ChartData(value: 10, date: Date()),
             ChartData(value: 20, date: Date().addingTimeInterval(86400)),
