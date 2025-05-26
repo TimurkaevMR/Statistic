@@ -15,4 +15,8 @@ extension UIFont {
     static func bold20() -> UIFont {
         return customFont(weight: .bold, size: 20)
     }
+    
+    static func medium15() -> UIFont {
+        return customFont(weight: .medium, size: 15)
+    }
 }

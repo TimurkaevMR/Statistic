@@ -40,7 +40,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .ypWhite
+        view.backgroundColor = .ypGrayLight
         
         setupNavigationTitle()
         setupVisitorsSection()
@@ -98,7 +98,7 @@ final class HomeViewController: UIViewController {
         NSLayoutConstraint.activate([
             visitorsSection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             visitorsSection.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            visitorsSection.heightAnchor.constraint(equalToConstant: 24)
+            visitorsSection.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
         ])
     }
 }
