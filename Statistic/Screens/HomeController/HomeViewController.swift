@@ -8,12 +8,26 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 
 final class HomeViewController: UIViewController {
     
     private lazy var visitorsSection = VisitorsSection()
     private lazy var frequentVisitorsSection = FrequentVisitorsSection()
+
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.contentInsetAdjustmentBehavior = .never
+        return scrollView
+    }()
+    
+    private lazy var contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+        
     private lazy var loadingView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .large)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -35,20 +49,11 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
-    }
-    
-    private func setupUI() {
-        view.backgroundColor = .ypGrayLight
-        
-        setupNavigationTitle()
-        setupVisitorsSection()
-        setupFrequentVisitorsSection()
+        bindViewModel()
     }
     
     private func bindViewModel() {
-        ///Подписка на загрузку
         vm.isLoading
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] isLoading in
@@ -56,7 +61,6 @@ final class HomeViewController: UIViewController {
             })
             .disposed(by: bag)
         
-        ///Подписка на ошибки
         vm.errorOccurred
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] error in
@@ -64,14 +68,13 @@ final class HomeViewController: UIViewController {
             })
             .disposed(by: bag)
         
-        ///Подписка на Users с выводом в консоль
         vm.usersViewModel.users
-            .subscribe(onNext: { users in
+            .subscribe(onNext: { [weak self] users in
+                self?.frequentVisitorsSection.configure(with: users)
                 print("Получены Users: \(users)")
             })
             .disposed(by: bag)
         
-        ///Подписка на Statistics с выводом в консоль
         vm.statisticsViewModel.statistics
             .subscribe(onNext: { statistics in
                 print("Получены Statistics: \(statistics)")
@@ -89,31 +92,60 @@ final class HomeViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    private func setupNavigationTitle() {
+    private func setupUI() {
+        view.backgroundColor = .ypGrayLight
+        setupNavigationTitle()
+        setupScrollView()
+        setupVisitorsSection()
+        setupFrequentVisitorsSection()
+    }
+}
+
+private extension HomeViewController {
+    func setupNavigationTitle() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Статистика"
     }
     
-    private func setupVisitorsSection() {
-        view.addSubview(visitorsSection)
+    func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
         NSLayoutConstraint.activate([
-            visitorsSection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            visitorsSection.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: .defaultMargin),
-            visitorsSection.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -.defaultMargin)
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
     }
     
-    private func setupFrequentVisitorsSection() {
-        view.addSubview(frequentVisitorsSection)
+    func setupVisitorsSection() {
+        contentView.addSubview(visitorsSection)
         
-        frequentVisitorsSection.configure(with: [
-            User.mock, User.mock, User.mock
+        NSLayoutConstraint.activate([
+            visitorsSection.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            visitorsSection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .defaultMargin),
+            visitorsSection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.defaultMargin)
         ])
+
+    }
+    
+    func setupFrequentVisitorsSection() {
+        contentView.addSubview(frequentVisitorsSection)
         
         NSLayoutConstraint.activate([
             frequentVisitorsSection.topAnchor.constraint(equalTo: visitorsSection.bottomAnchor, constant: 28),
-            frequentVisitorsSection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.defaultMargin),
-            frequentVisitorsSection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .defaultMargin)
+            frequentVisitorsSection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .defaultMargin),
+            frequentVisitorsSection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.defaultMargin),
+            frequentVisitorsSection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
+        
+        frequentVisitorsSection.configure(with: [User.mock, User.mock, User.mock])
     }
 }
