@@ -20,6 +20,10 @@ extension UIFont {
         return customFont(weight: .bold, size: 20)
     }
     
+    static func medium10() -> UIFont {
+        return customFont(weight: .medium, size: 10)
+    }
+    
     static func medium11() -> UIFont {
         return customFont(weight: .medium, size: 11)
     }
