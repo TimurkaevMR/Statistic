@@ -45,6 +45,7 @@ final class DemographicSection: UIView {
             tagsScrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -.defaultMargin),
             tagsScrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: .defaultMargin),
             tagsScrollView.heightAnchor.constraint(equalToConstant: 32),
+            tagsScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             genderChart.topAnchor.constraint(equalTo: tagsScrollView.bottomAnchor, constant: 12),
             genderChart.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -53,7 +54,6 @@ final class DemographicSection: UIView {
             demographicStats.topAnchor.constraint(equalTo: genderChart.bottomAnchor),
             demographicStats.leadingAnchor.constraint(equalTo: leadingAnchor),
             demographicStats.trailingAnchor.constraint(equalTo: trailingAnchor),
-            demographicStats.heightAnchor.constraint(equalToConstant: 300)
         ])
     }
     
