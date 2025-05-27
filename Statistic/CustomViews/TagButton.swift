@@ -41,8 +41,6 @@ final class TagButton: UIButton {
         
         heightAnchor.constraint(equalToConstant: 32).isActive = true
         updateAppearance()
-        
-//        addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
     private func updateAppearance() {
@@ -53,8 +51,4 @@ final class TagButton: UIButton {
             setTitleColor(isSelectedTag ? .ypWhite : .ypBlack, for: .normal)
         }
     }
-    
-//    @objc private func buttonTapped() {
-//        isSelectedTag = true
-//    }
 }

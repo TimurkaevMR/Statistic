@@ -28,8 +28,9 @@
 		BC0D63922DE4782D007B1544 /* FrequentVisitorsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63912DE4782D007B1544 /* FrequentVisitorsSection.swift */; };
 		BC0D63942DE495ED007B1544 /* DemographicSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63932DE495EA007B1544 /* DemographicSection.swift */; };
 		BC0D63972DE49908007B1544 /* GenderPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63962DE49908007B1544 /* GenderPieChartView.swift */; };
-		BC0D639A2DE4BEB9007B1544 /* AgeGenderProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63992DE4BEB9007B1544 /* AgeGenderProgressView.swift */; };
+		BC0D639A2DE4BEB9007B1544 /* DemographicChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63992DE4BEB9007B1544 /* DemographicChartView.swift */; };
 		BC0D639C2DE4DF7E007B1544 /* HorizontalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D639B2DE4DF7E007B1544 /* HorizontalProgressView.swift */; };
+		BC0D639E2DE5B864007B1544 /* DemographicStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D639D2DE5B842007B1544 /* DemographicStats.swift */; };
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
 		BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeViewController.swift */; };
@@ -94,8 +95,9 @@
 		BC0D63912DE4782D007B1544 /* FrequentVisitorsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentVisitorsSection.swift; sourceTree = "<group>"; };
 		BC0D63932DE495EA007B1544 /* DemographicSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicSection.swift; sourceTree = "<group>"; };
 		BC0D63962DE49908007B1544 /* GenderPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderPieChartView.swift; sourceTree = "<group>"; };
-		BC0D63992DE4BEB9007B1544 /* AgeGenderProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeGenderProgressView.swift; sourceTree = "<group>"; };
+		BC0D63992DE4BEB9007B1544 /* DemographicChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicChartView.swift; sourceTree = "<group>"; };
 		BC0D639B2DE4DF7E007B1544 /* HorizontalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalProgressView.swift; sourceTree = "<group>"; };
+		BC0D639D2DE5B842007B1544 /* DemographicStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicStats.swift; sourceTree = "<group>"; };
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3F6EE42DE191E200580363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EE52DE191E200580363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -205,7 +207,8 @@
 		BC0D63952DE498F5007B1544 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				BC0D63992DE4BEB9007B1544 /* AgeGenderProgressView.swift */,
+				BC0D639D2DE5B842007B1544 /* DemographicStats.swift */,
+				BC0D63992DE4BEB9007B1544 /* DemographicChartView.swift */,
 				BC0D639B2DE4DF7E007B1544 /* HorizontalProgressView.swift */,
 				BC0D63962DE49908007B1544 /* GenderPieChartView.swift */,
 				BC0D63862DE44E2A007B1544 /* CustomChartView.swift */,
@@ -444,13 +447,14 @@
 				BCD902082DE1D84D005744D6 /* NetworkServiceProtocol.swift in Sources */,
 				BCD901FD2DE1C148005744D6 /* EndPoint.swift in Sources */,
 				BC0D63892DE46E0B007B1544 /* ChartDateFormatter.swift in Sources */,
+				BC0D639E2DE5B864007B1544 /* DemographicStats.swift in Sources */,
 				BCD902012DE1C473005744D6 /* NetworkService.swift in Sources */,
 				BC0D638B2DE46E22007B1544 /* ChartData.swift in Sources */,
 				BC0D63852DE43A17007B1544 /* TagsScrollView.swift in Sources */,
 				BC0D63902DE474E4007B1544 /* UserCell.swift in Sources */,
 				BCD902122DE1E8F6005744D6 /* UserList.swift in Sources */,
 				BC0D637F2DE407D9007B1544 /* StatsView.swift in Sources */,
-				BC0D639A2DE4BEB9007B1544 /* AgeGenderProgressView.swift in Sources */,
+				BC0D639A2DE4BEB9007B1544 /* DemographicChartView.swift in Sources */,
 				BC0D637D2DE38F57007B1544 /* VisitorsSection.swift in Sources */,
 				BCD9020B2DE1DF57005744D6 /* User.swift in Sources */,
 				BC0D63732DE346AF007B1544 /* HomeViewModel.swift in Sources */,

@@ -5,15 +5,14 @@
 //  Created by Malik Timurkaev on 26.05.2025.
 //
 
-
 import UIKit
 
-final class GenderAgeChartView: UIView {
+final class DemographicChartView: UIView {
+    
     private let ageLabel = {
         let label = UILabel()
         label.font = .semiBold15()
         label.textColor = .ypBlack
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -22,6 +21,9 @@ final class GenderAgeChartView: UIView {
     
     init(age: String) {
         super.init(frame: .zero)
+        translatesAutoresizingMaskIntoConstraints = false
+        ageLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         ageLabel.text = age
         setupViews()
     }
@@ -44,18 +46,19 @@ final class GenderAgeChartView: UIView {
         addSubview(femaleChartView)
         
         NSLayoutConstraint.activate([
+            heightAnchor.constraint(equalToConstant: 28),
+            
+            ageLabel.widthAnchor.constraint(equalToConstant: 48),
             ageLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             ageLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            maleChartView.leadingAnchor.constraint(equalTo: ageLabel.trailingAnchor, constant: 38),
-            maleChartView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
+            maleChartView.leadingAnchor.constraint(equalTo: ageLabel.trailingAnchor, constant: 26),
+            maleChartView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             maleChartView.centerYAnchor.constraint(equalTo: ageLabel.centerYAnchor, constant: -6),
-            maleChartView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6),
             
-            femaleChartView.leadingAnchor.constraint(equalTo: ageLabel.trailingAnchor, constant: 38),
-            femaleChartView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
+            femaleChartView.leadingAnchor.constraint(equalTo: ageLabel.trailingAnchor, constant: 26),
+            femaleChartView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             femaleChartView.centerYAnchor.constraint(equalTo: ageLabel.centerYAnchor, constant: 6),
-            femaleChartView.widthAnchor.constraint(equalTo: maleChartView.widthAnchor),
         ])
     }
 }

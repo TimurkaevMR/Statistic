@@ -28,16 +28,13 @@ final class HorizontalProgressView: UIView {
     func setProgress(value: Double) {
         let percentage = max(0, min(100, value))
         let progress = percentage / 100.0
+        let validMultiplier = max(0.024, min(1, progress))
         
-        progressWidthConstraint?.isActive = false
-        progressWidthConstraint = progressView.widthAnchor.constraint(
-            equalTo: widthAnchor,
-            multiplier: CGFloat(progress))
-        
-        progressWidthConstraint?.isActive = true
         percentageLabel.text = "\(Int(round(percentage)))%"
                 
         NSLayoutConstraint.activate([
+            progressView.widthAnchor.constraint(
+                equalTo: widthAnchor, multiplier: validMultiplier),
             percentageLabel.leadingAnchor.constraint(
                 equalTo: progressView.trailingAnchor,
                 constant: 10
@@ -53,7 +50,7 @@ final class HorizontalProgressView: UIView {
         percentageLabel.textColor = .ypBlack
         
         progressView.layer.masksToBounds = true
-        progressView.layer.cornerRadius = 4
+        progressView.layer.cornerRadius = 3
         
         progressView.translatesAutoresizingMaskIntoConstraints = false
         percentageLabel.translatesAutoresizingMaskIntoConstraints = false
