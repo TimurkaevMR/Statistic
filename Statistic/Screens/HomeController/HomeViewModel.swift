@@ -9,8 +9,8 @@ import Foundation
 import RxSwift
 
 protocol HomeViewModelProtocol {
-    var usersViewModel: UsersViewModelProtocol { get }
-    var statisticsViewModel: StatisticsViewModelProtocol { get }
+    var usersVM: UsersViewModelProtocol { get }
+    var statisticsVM: StatisticsViewModelProtocol { get }
     var isLoading: BehaviorSubject<Bool> { get }
     var errorOccurred: PublishSubject<ServiceError> { get }
     
@@ -21,16 +21,16 @@ final class HomeViewModel: HomeViewModelProtocol {
     
     private let bag = DisposeBag()
     
-    let usersViewModel: UsersViewModelProtocol
-    let statisticsViewModel: StatisticsViewModelProtocol
+    let usersVM: UsersViewModelProtocol
+    let statisticsVM: StatisticsViewModelProtocol
     
     let isLoading = BehaviorSubject<Bool>(value: false)
     let errorOccurred = PublishSubject<ServiceError>()
     
     init(usersViewModel: UsersViewModelProtocol,
          statisticsViewModel: StatisticsViewModelProtocol) {
-        self.usersViewModel = usersViewModel
-        self.statisticsViewModel = statisticsViewModel
+        self.usersVM = usersViewModel
+        self.statisticsVM = statisticsViewModel
     }
     
     func loadData() {
@@ -38,10 +38,10 @@ final class HomeViewModel: HomeViewModelProtocol {
         
         ///Создаем Observable, который ждет загрузки и Users, и Statistics
         Observable.zip(
-            usersViewModel.users.take(1),
-            statisticsViewModel.statistics.take(1)
+            usersVM.users.take(1),
+            statisticsVM.statistics.take(1)
         )
-        .subscribe(onNext: { [weak self] (users/*, statistics*/) in
+        .subscribe(onNext: { [weak self] users, statistics in
             
             guard let self else { return }
             
@@ -60,8 +60,8 @@ final class HomeViewModel: HomeViewModelProtocol {
         .disposed(by: bag)
         
         ///Запускаем загрузку в обоих ViewModel
-        usersViewModel.loadUsers()
-        statisticsViewModel.loadStatistics()
+        usersVM.loadUsers()
+        statisticsVM.loadStatistics()
     }
     
     private func convertToServiceError(

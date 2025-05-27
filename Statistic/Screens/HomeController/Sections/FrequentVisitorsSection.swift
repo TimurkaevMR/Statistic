@@ -27,7 +27,6 @@ final class FrequentVisitorsSection: UIView {
     private func setupUI() {
         titleLabel.text = "Чаще всех посещают Ваш профиль"
         
-        // Настройка таблицы
         tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self

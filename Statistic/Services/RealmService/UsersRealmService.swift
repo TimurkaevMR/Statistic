@@ -41,7 +41,7 @@ actor UsersRealmService: UsersBaseProtocol {
     }
     
     func saveUsers(_ data: [User]) async throws {
-
+        
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {
                 autoreleasepool {
@@ -59,27 +59,4 @@ actor UsersRealmService: UsersBaseProtocol {
             }
         }
     }
-    
-//    func saveUsers(_ data: [User]) async throws {
-//        // Замораживаем объекты перед передачей в другой поток
-//        let frozenUsers = data.map { $0.freeze() }
-//        
-//        try await withCheckedThrowingContinuation { continuation in
-//            DispatchQueue.global(qos: .userInitiated).async {
-//                autoreleasepool {
-//                    do {
-//                        let realm = try Realm(configuration: self.configuration)
-//                        try realm.write {
-//                            
-//                            
-//                            realm.add(thawed, update: .modified)
-//                        }
-//                        continuation.resume()
-//                    } catch {
-//                        continuation.resume(throwing: error)
-//                    }
-//                }
-//            }
-//        }
-//    }
 }

@@ -70,14 +70,14 @@ final class HomeViewController: UIViewController {
             })
             .disposed(by: bag)
         
-        vm.usersViewModel.users
+        vm.usersVM.users
             .subscribe(onNext: { [weak self] users in
                 self?.frequentVisitorsSection.configure(with: users)
                 print("Получены Users: \(users)")
             })
             .disposed(by: bag)
         
-        vm.statisticsViewModel.statistics
+        vm.statisticsVM.statistics
             .subscribe(onNext: { statistics in
                 print("Получены Statistics: \(statistics)")
             })
@@ -159,7 +159,6 @@ private extension HomeViewController {
             demographicSection.topAnchor.constraint(equalTo: frequentVisitorsSection.bottomAnchor, constant: .mediumMargin),
             demographicSection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.defaultMargin),
             demographicSection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .defaultMargin),
-//            demographicSection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40)
         ])
     }
     
@@ -170,7 +169,7 @@ private extension HomeViewController {
             subscribersSection.topAnchor.constraint(equalTo: demographicSection.bottomAnchor, constant: .mediumMargin),
             subscribersSection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.defaultMargin),
             subscribersSection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .defaultMargin),
-            subscribersSection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40)
+            subscribersSection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -68)
         ])
     }
 }
