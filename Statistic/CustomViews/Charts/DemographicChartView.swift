@@ -53,11 +53,11 @@ final class DemographicChartView: UIView {
             ageLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             maleChartView.leadingAnchor.constraint(equalTo: ageLabel.trailingAnchor, constant: 26),
-            maleChartView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
+            maleChartView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
             maleChartView.centerYAnchor.constraint(equalTo: ageLabel.centerYAnchor, constant: -6),
             
             femaleChartView.leadingAnchor.constraint(equalTo: ageLabel.trailingAnchor, constant: 26),
-            femaleChartView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
+            femaleChartView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
             femaleChartView.centerYAnchor.constraint(equalTo: ageLabel.centerYAnchor, constant: 6),
         ])
     }

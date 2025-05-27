@@ -28,7 +28,7 @@ final class HorizontalProgressView: UIView {
     func setProgress(value: Double) {
         let percentage = max(0, min(100, value))
         let progress = percentage / 100.0
-        let validMultiplier = max(0.024, min(1, progress))
+        let validMultiplier = max(0.026, min(1, progress))
         
         percentageLabel.text = "\(Int(round(percentage)))%"
                 

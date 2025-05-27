@@ -97,8 +97,8 @@ final class HomeViewController: UIViewController {
         view.backgroundColor = .ypGrayLight
         setupNavigationTitle()
         setupScrollView()
-//        setupVisitorsSection()
-//        setupFrequentVisitorsSection()
+        setupVisitorsSection()
+        setupFrequentVisitorsSection()
         setupDemographicSection()
     }
 }
@@ -142,7 +142,7 @@ private extension HomeViewController {
         contentView.addSubview(frequentVisitorsSection)
         
         NSLayoutConstraint.activate([
-            frequentVisitorsSection.topAnchor.constraint(equalTo: visitorsSection.bottomAnchor, constant: 28),
+            frequentVisitorsSection.topAnchor.constraint(equalTo: visitorsSection.bottomAnchor, constant: .mediumMargin),
             frequentVisitorsSection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .defaultMargin),
             frequentVisitorsSection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.defaultMargin),
         ])
@@ -154,10 +154,10 @@ private extension HomeViewController {
         contentView.addSubview(demographicSection)
         
         NSLayoutConstraint.activate([
-            demographicSection.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 28),
+            demographicSection.topAnchor.constraint(equalTo: frequentVisitorsSection.bottomAnchor, constant: .mediumMargin),
             demographicSection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.defaultMargin),
             demographicSection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .defaultMargin),
-            demographicSection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
+            demographicSection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40)
         ])
     }
 }

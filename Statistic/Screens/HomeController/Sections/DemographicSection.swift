@@ -11,7 +11,8 @@ final class DemographicSection: UIView {
     
     private let titleLabel = CustomTitleLabel()
     private let tagsScrollView = TagsScrollView()
-    private let genderChart = GenderPieChartView()
+    private let pieGenderChart = GenderPieChartView()
+    private let separator = UIView()
     private let demographicStats = DemographicStats()
     
     override init(frame: CGRect) {
@@ -29,11 +30,15 @@ final class DemographicSection: UIView {
     
     private func setupUI() {
         titleLabel.text = "Пол и возраст"
-        genderChart.setData(malePercentage: 65, femalePercentage: 35)
+        pieGenderChart.setData(malePercentage: 65, femalePercentage: 35)
+        
+        separator.backgroundColor = .ypGrayLight
+        separator.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(titleLabel)
         addSubview(tagsScrollView)
-        addSubview(genderChart)
+        addSubview(pieGenderChart)
+        addSubview(separator)
         addSubview(demographicStats)
         
         NSLayoutConstraint.activate([
@@ -45,16 +50,25 @@ final class DemographicSection: UIView {
             tagsScrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -.defaultMargin),
             tagsScrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: .defaultMargin),
             tagsScrollView.heightAnchor.constraint(equalToConstant: 32),
-            tagsScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            genderChart.topAnchor.constraint(equalTo: tagsScrollView.bottomAnchor, constant: 12),
-            genderChart.leadingAnchor.constraint(equalTo: leadingAnchor),
-            genderChart.trailingAnchor.constraint(equalTo: trailingAnchor),
-                        
-            demographicStats.topAnchor.constraint(equalTo: genderChart.bottomAnchor),
+            pieGenderChart.topAnchor.constraint(equalTo: tagsScrollView.bottomAnchor, constant: 12),
+            pieGenderChart.leadingAnchor.constraint(equalTo: leadingAnchor),
+            pieGenderChart.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            separator.topAnchor.constraint(equalTo: pieGenderChart.bottomAnchor),
+            separator.leadingAnchor.constraint(equalTo: leadingAnchor),
+            separator.trailingAnchor.constraint(equalTo: trailingAnchor),
+            separator.heightAnchor.constraint(equalToConstant: 1),
+            
+            demographicStats.topAnchor.constraint(equalTo: separator.bottomAnchor),
             demographicStats.leadingAnchor.constraint(equalTo: leadingAnchor),
             demographicStats.trailingAnchor.constraint(equalTo: trailingAnchor),
+            demographicStats.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+      
+        pieGenderChart.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        demographicStats.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        demographicStats.layer.cornerRadius = .regularRadius
     }
     
     private func setupData() {

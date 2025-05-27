@@ -12,4 +12,5 @@ extension CGFloat {
     static var regularRadius: CGFloat { 16 }
     static var smallMargin: CGFloat { 8 }
     static var defaultMargin: CGFloat { 16 }
+    static var mediumMargin: CGFloat { 28 }
 }
