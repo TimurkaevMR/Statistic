@@ -46,12 +46,12 @@ final class DemographicSection: UIView {
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         
-            tagsScrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
+            tagsScrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .regularMargin),
             tagsScrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -.defaultMargin),
             tagsScrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: .defaultMargin),
             tagsScrollView.heightAnchor.constraint(equalToConstant: 32),
             
-            pieGenderChart.topAnchor.constraint(equalTo: tagsScrollView.bottomAnchor, constant: 12),
+            pieGenderChart.topAnchor.constraint(equalTo: tagsScrollView.bottomAnchor, constant: .regularMargin),
             pieGenderChart.leadingAnchor.constraint(equalTo: leadingAnchor),
             pieGenderChart.trailingAnchor.constraint(equalTo: trailingAnchor),
             

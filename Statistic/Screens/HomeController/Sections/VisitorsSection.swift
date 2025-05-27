@@ -13,8 +13,12 @@ final class VisitorsSection: UIView {
     private let tagsScrollView = TagsScrollView()
     private let chartView = CustomChartView()
 
-    private let statsView = {
-        let view = StatsView()
+    private let monthVisitorsChartView = {
+        let positiveText = "Количество посетителей в этом месяце выросло"
+        let negativeText = "Количество посетителей в этом месяце убавилось"
+        
+        let view = StatsView(trendText: .init(positive: positiveText, negative: negativeText))
+        
         view.layer.cornerRadius = .regularRadius
         view.layer.masksToBounds = true
         return view
@@ -29,7 +33,7 @@ final class VisitorsSection: UIView {
         
         tagsScrollView.addTags(["По дням", "По неделям", "По месяцам"])
         
-        statsView.setData(values: [12.0, 15.0, 18.0, -22.0, -19.0, 25.0, 30.0])
+        monthVisitorsChartView.setData(values: [12.0, 15.0, 18.0, -22.0, -19.0, 25.0, 30.0])
     }
     
     required init?(coder: NSCoder) {
@@ -40,7 +44,7 @@ final class VisitorsSection: UIView {
         titleLabel.text = "Посетители"
         
         addSubview(titleLabel)
-        addSubview(statsView)
+        addSubview(monthVisitorsChartView)
         addSubview(tagsScrollView)
         addSubview(chartView)
         
@@ -49,16 +53,16 @@ final class VisitorsSection: UIView {
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            statsView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
-            statsView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            statsView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            monthVisitorsChartView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .regularMargin),
+            monthVisitorsChartView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            monthVisitorsChartView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            tagsScrollView.topAnchor.constraint(equalTo: statsView.bottomAnchor, constant: 28),
+            tagsScrollView.topAnchor.constraint(equalTo: monthVisitorsChartView.bottomAnchor, constant: 28),
             tagsScrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -.defaultMargin),
             tagsScrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: .defaultMargin),
             tagsScrollView.heightAnchor.constraint(equalToConstant: 32),
             
-            chartView.topAnchor.constraint(equalTo: tagsScrollView.bottomAnchor, constant: 12),
+            chartView.topAnchor.constraint(equalTo: tagsScrollView.bottomAnchor, constant: .regularMargin),
             chartView.leadingAnchor.constraint(equalTo: leadingAnchor),
             chartView.trailingAnchor.constraint(equalTo: trailingAnchor),
             chartView.heightAnchor.constraint(equalToConstant: 208),

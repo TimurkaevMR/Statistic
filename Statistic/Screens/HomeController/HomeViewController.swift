@@ -14,7 +14,8 @@ final class HomeViewController: UIViewController {
     private lazy var visitorsSection = VisitorsSection()
     private lazy var frequentVisitorsSection = FrequentVisitorsSection()
     private lazy var demographicSection = DemographicSection()
-
+    private lazy var subscribersSection = SubscribersSection()
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -100,6 +101,7 @@ final class HomeViewController: UIViewController {
         setupVisitorsSection()
         setupFrequentVisitorsSection()
         setupDemographicSection()
+        setupSubscribersSection()
     }
 }
 
@@ -157,7 +159,18 @@ private extension HomeViewController {
             demographicSection.topAnchor.constraint(equalTo: frequentVisitorsSection.bottomAnchor, constant: .mediumMargin),
             demographicSection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.defaultMargin),
             demographicSection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .defaultMargin),
-            demographicSection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40)
+//            demographicSection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40)
+        ])
+    }
+    
+    func setupSubscribersSection() {
+        contentView.addSubview(subscribersSection)
+        
+        NSLayoutConstraint.activate([
+            subscribersSection.topAnchor.constraint(equalTo: demographicSection.bottomAnchor, constant: .mediumMargin),
+            subscribersSection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.defaultMargin),
+            subscribersSection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .defaultMargin),
+            subscribersSection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40)
         ])
     }
 }

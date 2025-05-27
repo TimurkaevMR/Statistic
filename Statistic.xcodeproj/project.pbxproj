@@ -31,6 +31,7 @@
 		BC0D639A2DE4BEB9007B1544 /* DemographicChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63992DE4BEB9007B1544 /* DemographicChartView.swift */; };
 		BC0D639C2DE4DF7E007B1544 /* HorizontalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D639B2DE4DF7E007B1544 /* HorizontalProgressView.swift */; };
 		BC0D639E2DE5B864007B1544 /* DemographicStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D639D2DE5B842007B1544 /* DemographicStats.swift */; };
+		BC0D63A02DE5E972007B1544 /* SubscribersSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D639F2DE5E96C007B1544 /* SubscribersSection.swift */; };
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
 		BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeViewController.swift */; };
@@ -98,6 +99,7 @@
 		BC0D63992DE4BEB9007B1544 /* DemographicChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicChartView.swift; sourceTree = "<group>"; };
 		BC0D639B2DE4DF7E007B1544 /* HorizontalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalProgressView.swift; sourceTree = "<group>"; };
 		BC0D639D2DE5B842007B1544 /* DemographicStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicStats.swift; sourceTree = "<group>"; };
+		BC0D639F2DE5E96C007B1544 /* SubscribersSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribersSection.swift; sourceTree = "<group>"; };
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3F6EE42DE191E200580363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EE52DE191E200580363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,9 +190,10 @@
 		BC0D637B2DE38F4B007B1544 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				BC0D63932DE495EA007B1544 /* DemographicSection.swift */,
-				BC0D63912DE4782D007B1544 /* FrequentVisitorsSection.swift */,
 				BC0D637C2DE38F57007B1544 /* VisitorsSection.swift */,
+				BC0D63912DE4782D007B1544 /* FrequentVisitorsSection.swift */,
+				BC0D63932DE495EA007B1544 /* DemographicSection.swift */,
+				BC0D639F2DE5E96C007B1544 /* SubscribersSection.swift */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 			files = (
 				BC0D636B2DE33A46007B1544 /* ServiceOperation.swift in Sources */,
 				BCD902052DE1D80F005744D6 /* ServiceError.swift in Sources */,
+				BC0D63A02DE5E972007B1544 /* SubscribersSection.swift in Sources */,
 				BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */,
 				BC0D637A2DE38BF7007B1544 /* UIFont.swift in Sources */,
 				BC0D63702DE34374007B1544 /* StatisticsViewModel.swift in Sources */,

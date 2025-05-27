@@ -44,8 +44,12 @@ final class StatsView: UIView {
         return imageView
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private let trendTitle: TrendTitle
+    
+    init(trendText: TrendTitle = TrendTitle(positive: "", negative: "")) {
+        
+        self.trendTitle = trendText
+        super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .ypWhite
         
@@ -55,44 +59,6 @@ final class StatsView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupUI() {
-        addSubview(chartView)
-        addSubview(valueLabel)
-        addSubview(descriptionLabel)
-        addSubview(arrowImageView)
-        
-        NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 98),
-            chartView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            chartView.topAnchor.constraint(equalTo: topAnchor, constant: 24),
-            chartView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -22),
-            chartView.widthAnchor.constraint(equalToConstant: 96),
-            
-            valueLabel.leadingAnchor.constraint(equalTo: chartView.trailingAnchor, constant: 20),
-            valueLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            valueLabel.heightAnchor.constraint(equalToConstant: 24),
-            
-            descriptionLabel.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: 6),
-            descriptionLabel.leadingAnchor.constraint(equalTo: chartView.trailingAnchor, constant: 20),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            
-            arrowImageView.topAnchor.constraint(equalTo: valueLabel.topAnchor, constant: 4),
-            arrowImageView.leadingAnchor.constraint(equalTo: valueLabel.trailingAnchor, constant: 2)
-        ])
-    }
-    
-    private func configureChart() {
-        chartView.rightAxis.enabled = false
-        chartView.leftAxis.enabled = false
-        chartView.xAxis.enabled = false
-        chartView.legend.enabled = false
-        chartView.highlightPerTapEnabled = false
-        chartView.highlightPerDragEnabled = false
-        chartView.pinchZoomEnabled = false
-        chartView.doubleTapToZoomEnabled = false
-        chartView.autoScaleMinMaxEnabled = true
     }
     
     func setData(values: [Double]) {
@@ -133,7 +99,50 @@ final class StatsView: UIView {
         valueLabel.text = String(format: "%.0f", lastValue)
         arrowImageView.image = isPositive ? .arrowUp : .arrowDown
         
-        let trendText = isPositive ? "выросло" : "упало"
-        descriptionLabel.text = "Количество посетителей в этом месяце \(trendText)"
+        let trendText = isPositive ? trendTitle.positive : trendTitle.negative
+        descriptionLabel.text = trendText
+    }
+    
+    private func setupUI() {
+        addSubview(chartView)
+        addSubview(valueLabel)
+        addSubview(descriptionLabel)
+        addSubview(arrowImageView)
+        
+        NSLayoutConstraint.activate([
+            heightAnchor.constraint(equalToConstant: 98),
+            chartView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            chartView.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+            chartView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -22),
+            chartView.widthAnchor.constraint(equalToConstant: 96),
+            
+            valueLabel.leadingAnchor.constraint(equalTo: chartView.trailingAnchor, constant: 20),
+            valueLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            valueLabel.heightAnchor.constraint(equalToConstant: 24),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: 6),
+            descriptionLabel.leadingAnchor.constraint(equalTo: chartView.trailingAnchor, constant: 20),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
+            arrowImageView.topAnchor.constraint(equalTo: valueLabel.topAnchor, constant: 4),
+            arrowImageView.leadingAnchor.constraint(equalTo: valueLabel.trailingAnchor, constant: 2)
+        ])
+    }
+    
+    private func configureChart() {
+        chartView.rightAxis.enabled = false
+        chartView.leftAxis.enabled = false
+        chartView.xAxis.enabled = false
+        chartView.legend.enabled = false
+        chartView.highlightPerTapEnabled = false
+        chartView.highlightPerDragEnabled = false
+        chartView.pinchZoomEnabled = false
+        chartView.doubleTapToZoomEnabled = false
+        chartView.autoScaleMinMaxEnabled = true
+    }
+    
+    struct TrendTitle {
+        let positive: String
+        let negative: String
     }
 }
