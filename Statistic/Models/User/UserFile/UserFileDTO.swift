@@ -19,7 +19,7 @@ struct UserFileDTO: Decodable {
 
 extension UserFileDTO {
     func toRLM() -> UserFileRLM {
-        return UserFileRLM(
+        UserFileRLM(
             id: id,
             url: url,
             type: type

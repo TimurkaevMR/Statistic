@@ -1,5 +1,5 @@
 //
-//  UserStatisticDTO.swift
+//  UserStatDTO.swift
 //  Statistic
 //
 //  Created by Malik Timurkaev on 28.05.2025.
@@ -17,7 +17,7 @@ struct UserStatDTO: Decodable {
     }
     
     func toRLM() -> UserStatRLM {
-        return UserStatRLM(
+        UserStatRLM(
             userId: userId,
             type: type,
             dates: dates

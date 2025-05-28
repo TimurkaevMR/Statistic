@@ -10,8 +10,8 @@ import Foundation
 import RealmSwift
 
 protocol StatisticsBaseProtocol {
-    func retrieveStatistics() async throws -> [UserStatRLM]
-    func saveStatistics(_ data: [UserStatRLM]) async throws
+    func retrieveStatistics() async throws -> [UserStatDTO]
+    func saveStatistics(_ data: [UserStatDTO]) async throws
 }
 
 actor StatisticsRealmService: StatisticsBaseProtocol {
@@ -21,7 +21,7 @@ actor StatisticsRealmService: StatisticsBaseProtocol {
         self.configuration = configuration
     }
     
-    func retrieveStatistics() async throws -> [UserStatRLM] {
+    func retrieveStatistics() async throws -> [UserStatDTO] {
         try await withCheckedThrowingContinuation { continuation in
             
             DispatchQueue.global(qos: .userInitiated).async {
@@ -30,9 +30,10 @@ actor StatisticsRealmService: StatisticsBaseProtocol {
                     do {
                         let realm = try Realm(configuration: self.configuration)
                         
-                        let statistic = Array(realm.objects(UserStatRLM.self).freeze())
+                        let statsDTO = Array(realm.objects(UserStatRLM.self))
+                            .map({ $0.toDTO() })
                                           
-                        continuation.resume(returning: statistic)
+                        continuation.resume(returning: statsDTO)
                     } catch {
                         continuation.resume(throwing: error)
                     }
@@ -41,7 +42,7 @@ actor StatisticsRealmService: StatisticsBaseProtocol {
         }
     }
     
-    func saveStatistics(_ data: [UserStatRLM]) async throws {
+    func saveStatistics(_ stats: [UserStatDTO]) async throws {
                 
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {
@@ -49,8 +50,10 @@ actor StatisticsRealmService: StatisticsBaseProtocol {
                     do {
                         let realm = try Realm(configuration: self.configuration)
                         
+                        let statsRLM = stats.map({ $0.toRLM() })
+                        
                         try realm.write {
-                            realm.add(data, update: .modified)
+                            realm.add(statsRLM, update: .modified)
                         }
                         continuation.resume()
                     } catch {

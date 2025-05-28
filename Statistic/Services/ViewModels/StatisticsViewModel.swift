@@ -11,7 +11,7 @@ import RxSwift
 protocol StatisticsViewModelProtocol {
     func loadStatistics()
     
-    var statistics: PublishSubject<[UserStatRLM]> { get }
+    var statistics: PublishSubject<[UserStatDTO]> { get }
     var isLoading: BehaviorSubject<Bool> { get }
     var errorOccurred: PublishSubject<ServiceError> { get }
 }
@@ -22,7 +22,7 @@ final class StatisticsViewModel: StatisticsViewModelProtocol {
     private let statisticsBase: StatisticsBaseProtocol
     private let bag = DisposeBag()
     
-    let statistics = PublishSubject<[UserStatRLM]>()
+    let statistics = PublishSubject<[UserStatDTO]>()
     let isLoading = BehaviorSubject<Bool>(value: false)
     let errorOccurred = PublishSubject<ServiceError>()
     
@@ -53,7 +53,7 @@ final class StatisticsViewModel: StatisticsViewModelProtocol {
             .disposed(by: bag)
     }
     
-    private func loadStatisticsData() -> Observable<[UserStatRLM]> {
+    private func loadStatisticsData() -> Observable<[UserStatDTO]> {
         return Observable.create { [weak self] observer in
             guard let self else {
                 observer.onCompleted()
@@ -79,7 +79,7 @@ final class StatisticsViewModel: StatisticsViewModelProtocol {
                 
                 ///2. Если база пуста - загружаем из сети
                 do {
-                    let statisticList: Statistics = try await self.networkService.retrieveData(.baseServer(.statistics))
+                    let statisticList: StatListDTO = try await self.networkService.retrieveData(.baseServer(.statistics))
                     
                     observer.onNext(statisticList.statistics)
                     observer.onCompleted()

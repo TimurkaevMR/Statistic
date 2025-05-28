@@ -71,7 +71,7 @@ final class ActivityTrendChartView: UIView {
         chartView.extraLeftOffset = 32
         chartView.extraRightOffset = 32
         
-        chartView.dragEnabled = false
+//        chartView.dragEnabled = false
         chartView.pinchZoomEnabled = false
         chartView.setScaleEnabled(false)
         chartView.legend.enabled = false

@@ -27,7 +27,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     private let statisticsVM: StatisticsViewModelProtocol
     
     private var users: [UserDTO] = []
-    private var statistics: [UserStatRLM] = []
+    private var statistics: [UserStatDTO] = []
     private let bag = DisposeBag()
     
     let isLoading = BehaviorSubject<Bool>(value: false)

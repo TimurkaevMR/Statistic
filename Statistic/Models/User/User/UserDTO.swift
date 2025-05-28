@@ -23,7 +23,7 @@ struct UserDTO: Decodable {
 
 extension UserDTO {
     func toRLM() -> UserRLM {
-        return UserRLM(
+        UserRLM(
             id: id,
             sex: sex,
             username: username,

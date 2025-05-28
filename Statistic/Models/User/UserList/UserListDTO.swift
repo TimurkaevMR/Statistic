@@ -11,6 +11,6 @@ struct UserListDTO: Decodable {
     let users: [UserDTO]
     
     func toRLM() -> [UserRLM] {
-        return users.map { $0.toRLM() }
+        users.map { $0.toRLM() }
     }
 }
