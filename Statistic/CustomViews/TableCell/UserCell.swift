@@ -52,7 +52,7 @@ final class UserCell: UITableViewCell {
         ])
     }
     
-    func configure(with user: User) {
+    func configure(with user: UserRLM) {
         avatarImageView.isOnline = user.isOnline
         nameLabel.text = "\(user.username), \(user.age)"
         

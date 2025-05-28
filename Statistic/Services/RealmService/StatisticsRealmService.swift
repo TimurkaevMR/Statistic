@@ -10,8 +10,8 @@ import Foundation
 import RealmSwift
 
 protocol StatisticsBaseProtocol {
-    func retrieveStatistics() async throws -> [UserStatistic]
-    func saveStatistics(_ data: [UserStatistic]) async throws
+    func retrieveStatistics() async throws -> [UserStatRLM]
+    func saveStatistics(_ data: [UserStatRLM]) async throws
 }
 
 actor StatisticsRealmService: StatisticsBaseProtocol {
@@ -21,7 +21,7 @@ actor StatisticsRealmService: StatisticsBaseProtocol {
         self.configuration = configuration
     }
     
-    func retrieveStatistics() async throws -> [UserStatistic] {
+    func retrieveStatistics() async throws -> [UserStatRLM] {
         try await withCheckedThrowingContinuation { continuation in
             
             DispatchQueue.global(qos: .userInitiated).async {
@@ -30,7 +30,7 @@ actor StatisticsRealmService: StatisticsBaseProtocol {
                     do {
                         let realm = try Realm(configuration: self.configuration)
                         
-                        let statistic = Array(realm.objects(UserStatistic.self).freeze())
+                        let statistic = Array(realm.objects(UserStatRLM.self).freeze())
                                           
                         continuation.resume(returning: statistic)
                     } catch {
@@ -41,7 +41,7 @@ actor StatisticsRealmService: StatisticsBaseProtocol {
         }
     }
     
-    func saveStatistics(_ data: [UserStatistic]) async throws {
+    func saveStatistics(_ data: [UserStatRLM]) async throws {
                 
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {

@@ -11,7 +11,7 @@ import RxSwift
 protocol StatisticsViewModelProtocol {
     func loadStatistics()
     
-    var statistics: PublishSubject<[UserStatistic]> { get }
+    var statistics: PublishSubject<[UserStatRLM]> { get }
     var isLoading: BehaviorSubject<Bool> { get }
     var errorOccurred: PublishSubject<ServiceError> { get }
 }
@@ -22,7 +22,7 @@ final class StatisticsViewModel: StatisticsViewModelProtocol {
     private let statisticsBase: StatisticsBaseProtocol
     private let bag = DisposeBag()
     
-    let statistics = PublishSubject<[UserStatistic]>()
+    let statistics = PublishSubject<[UserStatRLM]>()
     let isLoading = BehaviorSubject<Bool>(value: false)
     let errorOccurred = PublishSubject<ServiceError>()
     
@@ -53,7 +53,7 @@ final class StatisticsViewModel: StatisticsViewModelProtocol {
             .disposed(by: bag)
     }
     
-    private func loadStatisticsData() -> Observable<[UserStatistic]> {
+    private func loadStatisticsData() -> Observable<[UserStatRLM]> {
         return Observable.create { [weak self] observer in
             guard let self else {
                 observer.onCompleted()

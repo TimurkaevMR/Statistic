@@ -9,8 +9,8 @@ import Foundation
 import RealmSwift
 
 protocol UsersBaseProtocol {
-    func retrieveUsers() async throws -> [User]
-    func saveUsers(_ data: [User]) async throws
+    func retrieveUsers() async throws -> [UserRLM]
+    func saveUsers(_ data: [UserRLM]) async throws
 }
 
 actor UsersRealmService: UsersBaseProtocol {
@@ -20,7 +20,7 @@ actor UsersRealmService: UsersBaseProtocol {
         self.configuration = configuration
     }
     
-    func retrieveUsers() async throws -> [User] {
+    func retrieveUsers() async throws -> [UserRLM] {
         try await withCheckedThrowingContinuation { continuation in
             
             DispatchQueue.global(qos: .userInitiated).async {
@@ -29,7 +29,7 @@ actor UsersRealmService: UsersBaseProtocol {
                     do {
                         let realm = try Realm(configuration: self.configuration)
                         
-                        let users = Array(realm.objects(User.self).freeze())
+                        let users = Array(realm.objects(UserRLM.self).freeze())
                         
                         continuation.resume(returning: users)
                     } catch {
@@ -40,7 +40,7 @@ actor UsersRealmService: UsersBaseProtocol {
         }
     }
     
-    func saveUsers(_ data: [User]) async throws {
+    func saveUsers(_ data: [UserRLM]) async throws {
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {
                 autoreleasepool {

@@ -8,5 +8,5 @@
 import Foundation
 
 struct Statistics: Decodable {
-    let statistics: [UserStatistic]
+    let statistics: [UserStatRLM]
 }

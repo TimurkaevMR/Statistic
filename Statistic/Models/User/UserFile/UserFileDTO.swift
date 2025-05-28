@@ -15,9 +15,11 @@ struct UserFileDTO: Decodable {
     enum CodingKeys: String, CodingKey {
         case id, url, type
     }
-    
-    func toRealm() -> UserFile {
-        return UserFile(
+}
+
+extension UserFileDTO {
+    func toRLM() -> UserFileRLM {
+        return UserFileRLM(
             id: id,
             url: url,
             type: type

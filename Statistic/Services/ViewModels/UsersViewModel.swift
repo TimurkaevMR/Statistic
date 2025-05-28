@@ -11,7 +11,7 @@ import RxSwift
 protocol UsersViewModelProtocol {
     func loadUsers()
     
-    var users: PublishSubject<[User]> { get }
+    var users: PublishSubject<[UserRLM]> { get }
     var isLoading: BehaviorSubject<Bool> { get }
     var errorOccurred: PublishSubject<ServiceError> { get }
 }
@@ -22,7 +22,7 @@ final class UsersViewModel: UsersViewModelProtocol {
     private let usersBase: UsersBaseProtocol
     private let bag = DisposeBag()
     
-    let users = PublishSubject<[User]>()
+    let users = PublishSubject<[UserRLM]>()
     let isLoading = BehaviorSubject<Bool>(value: false)
     let errorOccurred = PublishSubject<ServiceError>()
     
@@ -53,7 +53,7 @@ final class UsersViewModel: UsersViewModelProtocol {
             .disposed(by: bag)
     }
     
-    private func loadUsersData() -> Observable<[User]> {
+    private func loadUsersData() -> Observable<[UserRLM]> {
         return Observable.create { [weak self] observer in
             guard let self else {
                 observer.onCompleted()
@@ -79,7 +79,7 @@ final class UsersViewModel: UsersViewModelProtocol {
                 
                 ///2. Если база пуста - загружаем из сети
                 do {
-                    let userList: UserList = try await self.networkService.retrieveData(.baseServer(.users))
+                    let userList: UserListDTO = try await self.networkService.retrieveData(.baseServer(.users))
                     
                     observer.onNext(userList.users)
                     observer.onCompleted()

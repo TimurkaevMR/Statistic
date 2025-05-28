@@ -41,7 +41,6 @@
 		BC0D63AE2DE78232007B1544 /* StatisticType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63AD2DE78232007B1544 /* StatisticType.swift */; };
 		BC0D63B02DE78289007B1544 /* UserStatisticDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63AF2DE78289007B1544 /* UserStatisticDTO.swift */; };
 		BC0D63B52DE78401007B1544 /* UserFileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63B42DE78401007B1544 /* UserFileDTO.swift */; };
-		BC0D63B82DE78445007B1544 /* UserListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63B72DE78445007B1544 /* UserListDTO.swift */; };
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
 		BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeViewController.swift */; };
@@ -52,7 +51,7 @@
 		BC3F6F002DE19E2900580363 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EFF2DE19E2900580363 /* RealmSwift */; };
 		BC3F6F022DE19E3E00580363 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EFF2DE19E2900580363 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BC8EDCB82DE1F87200CCC92B /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EDCB72DE1F87200CCC92B /* Statistics.swift */; };
-		BC8EDCBA2DE1F8BE00CCC92B /* UserStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EDCB92DE1F8BE00CCC92B /* UserStatistic.swift */; };
+		BC8EDCBA2DE1F8BE00CCC92B /* UserStatRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EDCB92DE1F8BE00CCC92B /* UserStatRLM.swift */; };
 		BC8EDCBF2DE216BE00CCC92B /* UsersRealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EDCBE2DE216BE00CCC92B /* UsersRealmService.swift */; };
 		BC8EDCC32DE238E900CCC92B /* StatisticsRealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EDCC22DE238E900CCC92B /* StatisticsRealmService.swift */; };
 		BC8EDCC82DE23CD100CCC92B /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BC8EDCC72DE23CD100CCC92B /* RxBlocking-Dynamic */; };
@@ -62,10 +61,10 @@
 		BCD902012DE1C473005744D6 /* RikmastersNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902002DE1C44D005744D6 /* RikmastersNetworkService.swift */; };
 		BCD902032DE1C4BD005744D6 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902022DE1C4BD005744D6 /* Path.swift */; };
 		BCD902052DE1D80F005744D6 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902042DE1D80F005744D6 /* ServiceError.swift */; };
-		BCD9020B2DE1DF57005744D6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9020A2DE1DF54005744D6 /* User.swift */; };
-		BCD9020D2DE1E22B005744D6 /* UserFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9020C2DE1E22B005744D6 /* UserFile.swift */; };
+		BCD9020B2DE1DF57005744D6 /* UserRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9020A2DE1DF54005744D6 /* UserRLM.swift */; };
+		BCD9020D2DE1E22B005744D6 /* UserFileRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9020C2DE1E22B005744D6 /* UserFileRLM.swift */; };
 		BCD9020F2DE1E618005744D6 /* Достижения.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9020E2DE1E607005744D6 /* Достижения.swift */; };
-		BCD902122DE1E8F6005744D6 /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902112DE1E8F3005744D6 /* UserList.swift */; };
+		BCD902122DE1E8F6005744D6 /* UserListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902112DE1E8F3005744D6 /* UserListDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -118,7 +117,6 @@
 		BC0D63AD2DE78232007B1544 /* StatisticType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticType.swift; sourceTree = "<group>"; };
 		BC0D63AF2DE78289007B1544 /* UserStatisticDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatisticDTO.swift; sourceTree = "<group>"; };
 		BC0D63B42DE78401007B1544 /* UserFileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileDTO.swift; sourceTree = "<group>"; };
-		BC0D63B72DE78445007B1544 /* UserListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDTO.swift; sourceTree = "<group>"; };
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3F6EE42DE191E200580363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EE52DE191E200580363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -127,7 +125,7 @@
 		BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EEC2DE191E200580363 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BC8EDCB72DE1F87200CCC92B /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
-		BC8EDCB92DE1F8BE00CCC92B /* UserStatistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatistic.swift; sourceTree = "<group>"; };
+		BC8EDCB92DE1F8BE00CCC92B /* UserStatRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatRLM.swift; sourceTree = "<group>"; };
 		BC8EDCBE2DE216BE00CCC92B /* UsersRealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRealmService.swift; sourceTree = "<group>"; };
 		BC8EDCC22DE238E900CCC92B /* StatisticsRealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRealmService.swift; sourceTree = "<group>"; };
 		BCD901FC2DE1C144005744D6 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -135,10 +133,10 @@
 		BCD902002DE1C44D005744D6 /* RikmastersNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RikmastersNetworkService.swift; sourceTree = "<group>"; };
 		BCD902022DE1C4BD005744D6 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		BCD902042DE1D80F005744D6 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
-		BCD9020A2DE1DF54005744D6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		BCD9020C2DE1E22B005744D6 /* UserFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFile.swift; sourceTree = "<group>"; };
+		BCD9020A2DE1DF54005744D6 /* UserRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRLM.swift; sourceTree = "<group>"; };
+		BCD9020C2DE1E22B005744D6 /* UserFileRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileRLM.swift; sourceTree = "<group>"; };
 		BCD9020E2DE1E607005744D6 /* Достижения.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Достижения.swift"; sourceTree = "<group>"; };
-		BCD902112DE1E8F3005744D6 /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
+		BCD902112DE1E8F3005744D6 /* UserListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +188,9 @@
 		BC0D63772DE38BCC007B1544 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				BC0D63A92DE72762007B1544 /* Grade.swift */,
 				BC0D63A12DE60E78007B1544 /* Sex.swift */,
+				BC0D63AD2DE78232007B1544 /* StatisticType.swift */,
 				BC0D636A2DE33A46007B1544 /* ServiceOperation.swift */,
 				BCD902042DE1D80F005744D6 /* ServiceError.swift */,
 			);
@@ -243,7 +243,7 @@
 		BC0D63B12DE782EC007B1544 /* UserStat */ = {
 			isa = PBXGroup;
 			children = (
-				BC8EDCB92DE1F8BE00CCC92B /* UserStatistic.swift */,
+				BC8EDCB92DE1F8BE00CCC92B /* UserStatRLM.swift */,
 				BC0D63AF2DE78289007B1544 /* UserStatisticDTO.swift */,
 			);
 			path = UserStat;
@@ -252,7 +252,7 @@
 		BC0D63B22DE7833B007B1544 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				BCD9020A2DE1DF54005744D6 /* User.swift */,
+				BCD9020A2DE1DF54005744D6 /* UserRLM.swift */,
 				BC0D63AB2DE78157007B1544 /* UserDTO.swift */,
 			);
 			path = User;
@@ -261,8 +261,8 @@
 		BC0D63B32DE783F9007B1544 /* UserFile */ = {
 			isa = PBXGroup;
 			children = (
+				BCD9020C2DE1E22B005744D6 /* UserFileRLM.swift */,
 				BC0D63B42DE78401007B1544 /* UserFileDTO.swift */,
-				BCD9020C2DE1E22B005744D6 /* UserFile.swift */,
 			);
 			path = UserFile;
 			sourceTree = "<group>";
@@ -270,8 +270,7 @@
 		BC0D63B62DE7842F007B1544 /* UserList */ = {
 			isa = PBXGroup;
 			children = (
-				BC0D63B72DE78445007B1544 /* UserListDTO.swift */,
-				BCD902112DE1E8F3005744D6 /* UserList.swift */,
+				BCD902112DE1E8F3005744D6 /* UserListDTO.swift */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -324,7 +323,6 @@
 			isa = PBXGroup;
 			children = (
 				BC8EDCB72DE1F87200CCC92B /* Statistics.swift */,
-				BC0D63AD2DE78232007B1544 /* StatisticType.swift */,
 				BC0D63B12DE782EC007B1544 /* UserStat */,
 			);
 			path = Statistic;
@@ -381,7 +379,6 @@
 		BCD902092DE1DF05005744D6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BC0D63A92DE72762007B1544 /* Grade.swift */,
 				BC0D63A72DE7274B007B1544 /* GendersValue.swift */,
 				BC0D638A2DE46E22007B1544 /* ChartData.swift */,
 				BC0D63772DE38BCC007B1544 /* Enums */,
@@ -501,7 +498,7 @@
 				BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */,
 				BCD901FF2DE1C411005744D6 /* HttpMethod.swift in Sources */,
 				BC0D639C2DE4DF7E007B1544 /* HorizontalProgressView.swift in Sources */,
-				BC8EDCBA2DE1F8BE00CCC92B /* UserStatistic.swift in Sources */,
+				BC8EDCBA2DE1F8BE00CCC92B /* UserStatRLM.swift in Sources */,
 				BC0D638E2DE473F8007B1544 /* AvatarImageView.swift in Sources */,
 				BCD901FD2DE1C148005744D6 /* EndPoint.swift in Sources */,
 				BC0D63A82DE7274B007B1544 /* GendersValue.swift in Sources */,
@@ -511,16 +508,16 @@
 				BC0D638B2DE46E22007B1544 /* ChartData.swift in Sources */,
 				BC0D63852DE43A17007B1544 /* TagsScrollView.swift in Sources */,
 				BC0D63902DE474E4007B1544 /* UserCell.swift in Sources */,
-				BCD902122DE1E8F6005744D6 /* UserList.swift in Sources */,
+				BCD902122DE1E8F6005744D6 /* UserListDTO.swift in Sources */,
 				BC0D637F2DE407D9007B1544 /* StatsView.swift in Sources */,
 				BC0D639A2DE4BEB9007B1544 /* DemographicChartView.swift in Sources */,
 				BC0D63B02DE78289007B1544 /* UserStatisticDTO.swift in Sources */,
 				BC0D637D2DE38F57007B1544 /* VisitorsSection.swift in Sources */,
 				BC0D63B52DE78401007B1544 /* UserFileDTO.swift in Sources */,
-				BCD9020B2DE1DF57005744D6 /* User.swift in Sources */,
+				BCD9020B2DE1DF57005744D6 /* UserRLM.swift in Sources */,
 				BC0D63AC2DE78157007B1544 /* UserDTO.swift in Sources */,
 				BC0D63732DE346AF007B1544 /* HomeViewModel.swift in Sources */,
-				BCD9020D2DE1E22B005744D6 /* UserFile.swift in Sources */,
+				BCD9020D2DE1E22B005744D6 /* UserFileRLM.swift in Sources */,
 				BC0D63762DE38B97007B1544 /* CustomTitleLabel.swift in Sources */,
 				BC0D63812DE41D2B007B1544 /* CGFloat.swift in Sources */,
 				BC0D63872DE44E2A007B1544 /* ActivityTrendChartView.swift in Sources */,
@@ -530,7 +527,6 @@
 				BC0D63AA2DE72762007B1544 /* Grade.swift in Sources */,
 				BC8EDCB82DE1F87200CCC92B /* Statistics.swift in Sources */,
 				BC0D63972DE49908007B1544 /* GenderPieChartView.swift in Sources */,
-				BC0D63B82DE78445007B1544 /* UserListDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

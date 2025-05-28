@@ -19,15 +19,17 @@ struct UserDTO: Decodable {
     enum CodingKeys: String, CodingKey {
         case id, sex, username, isOnline, age, files
     }
-    
-    func toRealm() -> User {
-        return User(
+}
+
+extension UserDTO {
+    func toRLM() -> UserRLM {
+        return UserRLM(
             id: id,
             sex: sex,
             username: username,
             isOnline: isOnline,
             age: age,
-            files: files.map { $0.toRealm() }
+            files: files.map { $0.toRLM() }
         )
     }
 }

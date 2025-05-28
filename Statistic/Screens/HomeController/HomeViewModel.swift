@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol HomeViewModelProtocol {
-    var frequentVisitors: [User] { get set }
+    var frequentVisitors: [UserRLM] { get set }
     var demographicStats: [Grade: GendersValue] { get set }
     var dailyVisits: [(date: Int, count: Int)] { get set }
     var subscribers: [(date: Int, count: Int)] { get set }
@@ -26,14 +26,14 @@ final class HomeViewModel: HomeViewModelProtocol {
     private let usersVM: UsersViewModelProtocol
     private let statisticsVM: StatisticsViewModelProtocol
     
-    private var users: [User] = []
-    private var statistics: [UserStatistic] = []
+    private var users: [UserRLM] = []
+    private var statistics: [UserStatRLM] = []
     private let bag = DisposeBag()
     
     let isLoading = BehaviorSubject<Bool>(value: false)
     let errorOccurred = PublishSubject<ServiceError>()
     
-    var frequentVisitors: [User] = []
+    var frequentVisitors: [UserRLM] = []
     var demographicStats: [Grade: GendersValue] = [:]
     var dailyVisits: [(date: Int, count: Int)] = []
     var subscribers: [(date: Int, count: Int)] = []
@@ -89,7 +89,7 @@ final class HomeViewModel: HomeViewModelProtocol {
 }
 
 private extension HomeViewModel {
-    func getFrequentVisitors() async -> [User] {
+    func getFrequentVisitors() async -> [UserRLM] {
         ///Получаем 3 самых частых посетителя
         if statistics.count <= 3 {
             let validVisitors = users.filter({ user in

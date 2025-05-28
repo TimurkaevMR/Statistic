@@ -1,5 +1,5 @@
 //
-//  UserStatistic.swift
+//  UserStatRealm.swift
 //  Statistic
 //
 //  Created by Malik Timurkaev on 24.05.2025.
@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-final class UserStatistic: Object, Decodable {
+final class UserStatRLM: Object, Decodable {
     @Persisted(primaryKey: true) var userId: Int
     @Persisted var type: StatisticType
     @Persisted var dates: List<Int>
@@ -35,7 +35,7 @@ final class UserStatistic: Object, Decodable {
     }
 }
 
-extension UserStatistic {
+extension UserStatRLM {
     func toDTO() -> UserStatDTO {
         return UserStatDTO(
             userId: userId,

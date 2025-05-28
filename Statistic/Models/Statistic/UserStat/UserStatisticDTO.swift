@@ -16,8 +16,8 @@ struct UserStatDTO: Decodable {
         case type, dates
     }
     
-    func toRealm() -> UserStatistic {
-        return UserStatistic(
+    func toRLM() -> UserStatRLM {
+        return UserStatRLM(
             userId: userId,
             type: type,
             dates: dates

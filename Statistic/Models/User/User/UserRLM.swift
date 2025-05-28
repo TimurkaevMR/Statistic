@@ -14,13 +14,13 @@ final class UserRLM: Object, Decodable {
     @Persisted var username: String
     @Persisted var isOnline: Bool
     @Persisted var age: Int
-    @Persisted var files: List<UserFile>
+    @Persisted var files: List<UserFileRLM>
     
     enum CodingKeys: String, CodingKey {
         case id, sex, username, isOnline, age, files
     }
     
-    convenience init(id: Int, sex: Sex, username: String, isOnline: Bool, age: Int, files: [UserFile]) {
+    convenience init(id: Int, sex: Sex, username: String, isOnline: Bool, age: Int, files: [UserFileRLM]) {
         self.init()
         self.id = id
         self.sex = sex
@@ -37,7 +37,7 @@ final class UserRLM: Object, Decodable {
         let username = try container.decode(String.self, forKey: .username)
         let isOnline = try container.decode(Bool.self, forKey: .isOnline)
         let age = try container.decode(Int.self, forKey: .age)
-        let files = try container.decode([UserFile].self, forKey: .files)
+        let files = try container.decode([UserFileRLM].self, forKey: .files)
         
         self.init(id: id, sex: sex, username: username, isOnline: isOnline, age: age, files: files)
     }
@@ -52,26 +52,6 @@ extension UserRLM {
             isOnline: isOnline,
             age: age,
             files: files.map { $0.toDTO() }
-        )
-    }
-}
-
-// MARK: - Mock Data
-extension UserRLM {
-    static var mock: UserRLM {
-        let url = "https://img.freepik.com/free-photo/smiley-man-relaxing-outdoors_23-2148739334.jpg"
-        
-        return UserRLM(
-            id: 1,
-            sex: .male,
-            username: "ivan",
-            isOnline: true,
-            age: 15,
-            files: [
-                UserFile(id: 1,
-                         url: url,
-                         type: "avatar")
-            ]
         )
     }
 }
