@@ -12,8 +12,8 @@ final class FrequentVisitorsSection: UIView {
     
     private let titleLabel = CustomTitleLabel()
     private let tableView = UITableView()
-    private var users: [UserRLM] = []
     private var heightConstraint: NSLayoutConstraint?
+    private var users: [UserDTO] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +25,7 @@ final class FrequentVisitorsSection: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with users: [UserRLM]) {
+    func configure(with users: [UserDTO]) {
         self.users = users
         tableView.reloadData()
         heightConstraint?.constant = CGFloat(users.count) * 62

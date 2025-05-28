@@ -9,8 +9,8 @@ import Foundation
 import RealmSwift
 
 protocol UsersBaseProtocol {
-    func retrieveUsers() async throws -> [UserRLM]
-    func saveUsers(_ data: [UserRLM]) async throws
+    func retrieveUsers() async throws -> [UserDTO]
+    func saveUsers(_ data: [UserDTO]) async throws
 }
 
 actor UsersRealmService: UsersBaseProtocol {
@@ -20,7 +20,7 @@ actor UsersRealmService: UsersBaseProtocol {
         self.configuration = configuration
     }
     
-    func retrieveUsers() async throws -> [UserRLM] {
+    func retrieveUsers() async throws -> [UserDTO] {
         try await withCheckedThrowingContinuation { continuation in
             
             DispatchQueue.global(qos: .userInitiated).async {
@@ -29,9 +29,11 @@ actor UsersRealmService: UsersBaseProtocol {
                     do {
                         let realm = try Realm(configuration: self.configuration)
                         
-                        let users = Array(realm.objects(UserRLM.self).freeze())
+                        let usersDTO = Array(realm.objects(UserRLM.self)).map({
+                            $0.toDTO()
+                        })
                         
-                        continuation.resume(returning: users)
+                        continuation.resume(returning: usersDTO)
                     } catch {
                         continuation.resume(throwing: error)
                     }
@@ -40,7 +42,7 @@ actor UsersRealmService: UsersBaseProtocol {
         }
     }
     
-    func saveUsers(_ data: [UserRLM]) async throws {
+    func saveUsers(_ data: [UserDTO]) async throws {
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {
                 autoreleasepool {
@@ -48,7 +50,10 @@ actor UsersRealmService: UsersBaseProtocol {
                         let realm = try Realm(configuration: self.configuration)
                         try realm.write {
                             
-                            realm.add(data, update: .modified)
+                            let usersRLM = data.map({ $0.toRLM() })
+                            
+                            realm.add(usersRLM,
+                                      update: .modified)
                         }
                         continuation.resume()
                     } catch {

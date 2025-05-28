@@ -8,13 +8,9 @@
 import Foundation
 
 struct UserListDTO: Decodable {
-    let users: [UserRLM]
+    let users: [UserDTO]
     
-    func toDTO() -> [UserDTO] {
-        return users.map { $0.toDTO() }
-    }
-    ///Todo remove
     func toRLM() -> [UserRLM] {
-        return users
+        return users.map { $0.toRLM() }
     }
 }

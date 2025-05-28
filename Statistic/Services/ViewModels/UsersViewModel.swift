@@ -11,7 +11,7 @@ import RxSwift
 protocol UsersViewModelProtocol {
     func loadUsers()
     
-    var users: PublishSubject<[UserRLM]> { get }
+    var users: PublishSubject<[UserDTO]> { get }
     var isLoading: BehaviorSubject<Bool> { get }
     var errorOccurred: PublishSubject<ServiceError> { get }
 }
@@ -22,7 +22,7 @@ final class UsersViewModel: UsersViewModelProtocol {
     private let usersBase: UsersBaseProtocol
     private let bag = DisposeBag()
     
-    let users = PublishSubject<[UserRLM]>()
+    let users = PublishSubject<[UserDTO]>()
     let isLoading = BehaviorSubject<Bool>(value: false)
     let errorOccurred = PublishSubject<ServiceError>()
     
@@ -53,7 +53,7 @@ final class UsersViewModel: UsersViewModelProtocol {
             .disposed(by: bag)
     }
     
-    private func loadUsersData() -> Observable<[UserRLM]> {
+    private func loadUsersData() -> Observable<[UserDTO]> {
         return Observable.create { [weak self] observer in
             guard let self else {
                 observer.onCompleted()

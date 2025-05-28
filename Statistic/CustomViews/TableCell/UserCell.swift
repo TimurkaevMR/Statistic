@@ -52,17 +52,20 @@ final class UserCell: UITableViewCell {
         ])
     }
     
-    func configure(with user: UserRLM) {
+    func configure(with user: UserDTO) {
         avatarImageView.isOnline = user.isOnline
         nameLabel.text = "\(user.username), \(user.age)"
         
         guard let imageUrl = user.files.first?.url else { return }
-        
+        loadImage(from: imageUrl)
+    }
+    
+    private func loadImage(from url: String) {
         currentTask = Task { [weak self] in
             guard let self, !Task.isCancelled else { return }
             
             do {
-                let image = try await networkService.loadImage(from: imageUrl)
+                let image = try await networkService.loadImage(from: url)
                 
                 await MainActor.run {
                     self.avatarImageView.setupImage(image)
