@@ -92,6 +92,7 @@ final class UsersViewModel: UsersViewModelProtocol {
                             self.convertToServiceError(
                                 error, operation: .insertion).message)
                     }
+                    
                 } catch {
                     ///Пробрасываем только сетевые ошибки
                     observer.onError(self.convertToServiceError(

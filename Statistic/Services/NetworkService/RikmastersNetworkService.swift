@@ -22,9 +22,9 @@ final class RikmastersNetworkService: NetworkServiceProtocol {
         self.session = session
     }
     
-    func retrieveData<T: Decodable>(_ path: EndPoint) async throws -> T {
+    func retrieveData<T: Decodable>(_ endPoint: EndPoint) async throws -> T {
         
-        guard let url = path.url else {
+        guard let url = endPoint.url else {
             throw ServiceError.operation(.retrieve)
         }
         

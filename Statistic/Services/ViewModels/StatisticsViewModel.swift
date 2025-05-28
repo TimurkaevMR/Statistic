@@ -19,7 +19,7 @@ protocol StatisticsViewModelProtocol {
 final class StatisticsViewModel: StatisticsViewModelProtocol {
     
     private let networkService: NetworkServiceProtocol
-    private let statisticsBase: StatisticsBaseProtocol
+    private let statsBase: StatisticsBaseProtocol
     private let bag = DisposeBag()
     
     let statistics = PublishSubject<[UserStatDTO]>()
@@ -29,7 +29,7 @@ final class StatisticsViewModel: StatisticsViewModelProtocol {
     init(networkService: NetworkServiceProtocol,
          statisticsBase: StatisticsBaseProtocol) {
         self.networkService = networkService
-        self.statisticsBase = statisticsBase
+        self.statsBase = statisticsBase
     }
     
     
@@ -63,10 +63,10 @@ final class StatisticsViewModel: StatisticsViewModelProtocol {
             Task {
                 ///1. Пробуем загрузить из базы
                 do {
-                    let statisticsResponse =  try await self.statisticsBase.retrieveStatistics()
+                    let statsResponse =  try await self.statsBase.retrieveStatistics()
                     
-                    if !statisticsResponse.isEmpty {
-                        observer.onNext(statisticsResponse)
+                    if !statsResponse.isEmpty {
+                        observer.onNext(statsResponse)
                         observer.onCompleted()
                         return
                     }
@@ -86,7 +86,7 @@ final class StatisticsViewModel: StatisticsViewModelProtocol {
                     
                     ///3. Этот "do" блок я вынес отдельно, чтобы ошибка не попал в публичную переменную "errorOccurred", ведь эту переменную могут использовать для alert, а пользователь не должен знать об ошибке с базой
                     do {
-                        try await self.statisticsBase.saveStatistics(statisticList.statistics)
+                        try await self.statsBase.saveStatistics(statisticList.statistics)
                     } catch {
                         assertionFailure(
                             self.convertToServiceError(

@@ -59,7 +59,6 @@
 		BCD901FD2DE1C148005744D6 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD901FC2DE1C144005744D6 /* EndPoint.swift */; };
 		BCD901FF2DE1C411005744D6 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD901FE2DE1C411005744D6 /* HttpMethod.swift */; };
 		BCD902012DE1C473005744D6 /* RikmastersNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902002DE1C44D005744D6 /* RikmastersNetworkService.swift */; };
-		BCD902032DE1C4BD005744D6 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902022DE1C4BD005744D6 /* Path.swift */; };
 		BCD902052DE1D80F005744D6 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902042DE1D80F005744D6 /* ServiceError.swift */; };
 		BCD9020B2DE1DF57005744D6 /* UserRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9020A2DE1DF54005744D6 /* UserRLM.swift */; };
 		BCD9020D2DE1E22B005744D6 /* UserFileRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9020C2DE1E22B005744D6 /* UserFileRLM.swift */; };
@@ -131,7 +130,6 @@
 		BCD901FC2DE1C144005744D6 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BCD901FE2DE1C411005744D6 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		BCD902002DE1C44D005744D6 /* RikmastersNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RikmastersNetworkService.swift; sourceTree = "<group>"; };
-		BCD902022DE1C4BD005744D6 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		BCD902042DE1D80F005744D6 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		BCD9020A2DE1DF54005744D6 /* UserRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRLM.swift; sourceTree = "<group>"; };
 		BCD9020C2DE1E22B005744D6 /* UserFileRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileRLM.swift; sourceTree = "<group>"; };
@@ -369,7 +367,6 @@
 		BCD901FB2DE1C138005744D6 /* RequestModels */ = {
 			isa = PBXGroup;
 			children = (
-				BCD902022DE1C4BD005744D6 /* Path.swift */,
 				BCD901FC2DE1C144005744D6 /* EndPoint.swift */,
 				BCD901FE2DE1C411005744D6 /* HttpMethod.swift */,
 			);
@@ -490,7 +487,6 @@
 				BC0D63A22DE60E78007B1544 /* Sex.swift in Sources */,
 				BC0D63A62DE70F8E007B1544 /* Error.swift in Sources */,
 				BC8EDCC32DE238E900CCC92B /* StatisticsRealmService.swift in Sources */,
-				BCD902032DE1C4BD005744D6 /* Path.swift in Sources */,
 				BCD9020F2DE1E618005744D6 /* Достижения.swift in Sources */,
 				BC0D63832DE439FE007B1544 /* TagButton.swift in Sources */,
 				BC0D63AE2DE78232007B1544 /* StatisticType.swift in Sources */,
