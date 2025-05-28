@@ -32,6 +32,9 @@
 		BC0D639C2DE4DF7E007B1544 /* HorizontalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D639B2DE4DF7E007B1544 /* HorizontalProgressView.swift */; };
 		BC0D639E2DE5B864007B1544 /* DemographicStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D639D2DE5B842007B1544 /* DemographicStats.swift */; };
 		BC0D63A02DE5E972007B1544 /* SubscribersSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D639F2DE5E96C007B1544 /* SubscribersSection.swift */; };
+		BC0D63A22DE60E78007B1544 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63A12DE60E78007B1544 /* Sex.swift */; };
+		BC0D63A42DE6FF27007B1544 /* ImageNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63A32DE6FF19007B1544 /* ImageNetworkService.swift */; };
+		BC0D63A62DE70F8E007B1544 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63A52DE70F8B007B1544 /* Error.swift */; };
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
 		BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeViewController.swift */; };
@@ -49,10 +52,9 @@
 		BC8EDCCC2DE23CD100CCC92B /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BC8EDCCB2DE23CD100CCC92B /* RxCocoa-Dynamic */; };
 		BCD901FD2DE1C148005744D6 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD901FC2DE1C144005744D6 /* EndPoint.swift */; };
 		BCD901FF2DE1C411005744D6 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD901FE2DE1C411005744D6 /* HttpMethod.swift */; };
-		BCD902012DE1C473005744D6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902002DE1C44D005744D6 /* NetworkService.swift */; };
+		BCD902012DE1C473005744D6 /* RikmastersNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902002DE1C44D005744D6 /* RikmastersNetworkService.swift */; };
 		BCD902032DE1C4BD005744D6 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902022DE1C4BD005744D6 /* Path.swift */; };
 		BCD902052DE1D80F005744D6 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902042DE1D80F005744D6 /* ServiceError.swift */; };
-		BCD902082DE1D84D005744D6 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902072DE1D84D005744D6 /* NetworkServiceProtocol.swift */; };
 		BCD9020B2DE1DF57005744D6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9020A2DE1DF54005744D6 /* User.swift */; };
 		BCD9020D2DE1E22B005744D6 /* UserFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9020C2DE1E22B005744D6 /* UserFile.swift */; };
 		BCD9020F2DE1E618005744D6 /* Достижения.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9020E2DE1E607005744D6 /* Достижения.swift */; };
@@ -100,6 +102,9 @@
 		BC0D639B2DE4DF7E007B1544 /* HorizontalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalProgressView.swift; sourceTree = "<group>"; };
 		BC0D639D2DE5B842007B1544 /* DemographicStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicStats.swift; sourceTree = "<group>"; };
 		BC0D639F2DE5E96C007B1544 /* SubscribersSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribersSection.swift; sourceTree = "<group>"; };
+		BC0D63A12DE60E78007B1544 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
+		BC0D63A32DE6FF19007B1544 /* ImageNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworkService.swift; sourceTree = "<group>"; };
+		BC0D63A52DE70F8B007B1544 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3F6EE42DE191E200580363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EE52DE191E200580363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,10 +118,9 @@
 		BC8EDCC22DE238E900CCC92B /* StatisticsRealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRealmService.swift; sourceTree = "<group>"; };
 		BCD901FC2DE1C144005744D6 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BCD901FE2DE1C411005744D6 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
-		BCD902002DE1C44D005744D6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BCD902002DE1C44D005744D6 /* RikmastersNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RikmastersNetworkService.swift; sourceTree = "<group>"; };
 		BCD902022DE1C4BD005744D6 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		BCD902042DE1D80F005744D6 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
-		BCD902072DE1D84D005744D6 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		BCD9020A2DE1DF54005744D6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BCD9020C2DE1E22B005744D6 /* UserFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFile.swift; sourceTree = "<group>"; };
 		BCD9020E2DE1E607005744D6 /* Достижения.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Достижения.swift"; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 		BC0D63772DE38BCC007B1544 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				BC0D63A12DE60E78007B1544 /* Sex.swift */,
 				BC0D636A2DE33A46007B1544 /* ServiceOperation.swift */,
 				BCD902042DE1D80F005744D6 /* ServiceError.swift */,
 			);
@@ -181,6 +186,7 @@
 		BC0D63782DE38BE8007B1544 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BC0D63A52DE70F8B007B1544 /* Error.swift */,
 				BC0D63802DE41D26007B1544 /* CGFloat.swift */,
 				BC0D63792DE38BF0007B1544 /* UIFont.swift */,
 			);
@@ -293,7 +299,8 @@
 		BC8EDCBD2DE1FA4900CCC92B /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
-				BCD902002DE1C44D005744D6 /* NetworkService.swift */,
+				BC0D63A32DE6FF19007B1544 /* ImageNetworkService.swift */,
+				BCD902002DE1C44D005744D6 /* RikmastersNetworkService.swift */,
 				BCD901FB2DE1C138005744D6 /* RequestModels */,
 			);
 			path = NetworkService;
@@ -320,14 +327,6 @@
 			path = RequestModels;
 			sourceTree = "<group>";
 		};
-		BCD902062DE1D83D005744D6 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				BCD902072DE1D84D005744D6 /* NetworkServiceProtocol.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		BCD902092DE1DF05005744D6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,7 +342,6 @@
 			isa = PBXGroup;
 			children = (
 				BC0D63782DE38BE8007B1544 /* Extensions */,
-				BCD902062DE1D83D005744D6 /* Protocols */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -431,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC0D63A42DE6FF27007B1544 /* ImageNetworkService.swift in Sources */,
 				BC0D636B2DE33A46007B1544 /* ServiceOperation.swift in Sources */,
 				BCD902052DE1D80F005744D6 /* ServiceError.swift in Sources */,
 				BC0D63A02DE5E972007B1544 /* SubscribersSection.swift in Sources */,
@@ -438,6 +437,8 @@
 				BC0D637A2DE38BF7007B1544 /* UIFont.swift in Sources */,
 				BC0D63702DE34374007B1544 /* StatisticsViewModel.swift in Sources */,
 				BC0D636E2DE34331007B1544 /* UsersViewModel.swift in Sources */,
+				BC0D63A22DE60E78007B1544 /* Sex.swift in Sources */,
+				BC0D63A62DE70F8E007B1544 /* Error.swift in Sources */,
 				BC8EDCC32DE238E900CCC92B /* StatisticsRealmService.swift in Sources */,
 				BCD902032DE1C4BD005744D6 /* Path.swift in Sources */,
 				BCD9020F2DE1E618005744D6 /* Достижения.swift in Sources */,
@@ -448,11 +449,10 @@
 				BC0D639C2DE4DF7E007B1544 /* HorizontalProgressView.swift in Sources */,
 				BC8EDCBA2DE1F8BE00CCC92B /* UserStatistic.swift in Sources */,
 				BC0D638E2DE473F8007B1544 /* AvatarImageView.swift in Sources */,
-				BCD902082DE1D84D005744D6 /* NetworkServiceProtocol.swift in Sources */,
 				BCD901FD2DE1C148005744D6 /* EndPoint.swift in Sources */,
 				BC0D63892DE46E0B007B1544 /* ChartDateFormatter.swift in Sources */,
 				BC0D639E2DE5B864007B1544 /* DemographicStats.swift in Sources */,
-				BCD902012DE1C473005744D6 /* NetworkService.swift in Sources */,
+				BCD902012DE1C473005744D6 /* RikmastersNetworkService.swift in Sources */,
 				BC0D638B2DE46E22007B1544 /* ChartData.swift in Sources */,
 				BC0D63852DE43A17007B1544 /* TagsScrollView.swift in Sources */,
 				BC0D63902DE474E4007B1544 /* UserCell.swift in Sources */,

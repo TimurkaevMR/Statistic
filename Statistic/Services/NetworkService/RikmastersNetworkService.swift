@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol NetworkServiceProtocol {
+    func retrieveData<T: Decodable>(_ path: EndPoint) async throws -> T
+}
+
 final class RikmastersNetworkService: NetworkServiceProtocol {
     
     private let decoder: JSONDecoder

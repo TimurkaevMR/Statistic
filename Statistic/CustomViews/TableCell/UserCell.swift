@@ -10,8 +10,10 @@ import UIKit
 final class UserCell: UITableViewCell {
     static let reuseIdentifier = "UserCell"
     
-    let avatarImageView = AvatarImageView()
-    let nameLabel = UILabel()
+    private let avatarImageView = AvatarImageView()
+    private let nameLabel = UILabel()
+    private let networkService = ImageNetworkService.shared
+    private var currentTask: Task<Void, Error>?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -21,6 +23,13 @@ final class UserCell: UITableViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupCell()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        currentTask?.cancel()
+        currentTask = nil
+        avatarImageView.setupImage(.avatarPlug)
     }
     
     private func setupCell() {
@@ -44,9 +53,24 @@ final class UserCell: UITableViewCell {
     }
     
     func configure(with user: User) {
-        ///Todo load image
-//        avatarImageView.image = UIImage(named: user.avatarName)
         avatarImageView.isOnline = user.isOnline
         nameLabel.text = "\(user.username), \(user.age)"
+        
+        guard let imageUrl = user.files.first?.url else { return }
+        
+        currentTask = Task { [weak self] in
+            guard let self, !Task.isCancelled else { return }
+            
+            do {
+                let image = try await networkService.loadImage(from: imageUrl)
+                
+                await MainActor.run {
+                    self.avatarImageView.setupImage(image)
+                }
+            } catch let error as ServiceError {
+                guard !error.isCancellationError else { return }
+                assertionFailure(error.message)
+            }
+        }
     }
 }

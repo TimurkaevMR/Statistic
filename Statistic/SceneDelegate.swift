@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func homeViewController() -> HomeViewController {
         ///Создаем NetworkService для моделей
-        let networkService = NetworkService()
+        let networkService = RikmastersNetworkService()
         
         ///Создаем StatisticsViewModel
         let statisticsBase = StatisticsRealmService()

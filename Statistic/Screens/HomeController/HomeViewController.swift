@@ -12,9 +12,9 @@ import RxSwift
 final class HomeViewController: UIViewController {
     
     private lazy var visitorsSection = VisitorsSection()
-    private lazy var frequentVisitorsSection = FrequentVisitorsSection()
     private lazy var demographicSection = DemographicSection()
     private lazy var subscribersSection = SubscribersSection()
+    private lazy var frequentVisitorsSection = FrequentVisitorsSection()
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -53,35 +53,44 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         bindViewModel()
+        vm.loadData()
     }
     
     private func bindViewModel() {
         vm.isLoading
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] isLoading in
-                isLoading ? self?.loadingView.startAnimating() : self?.loadingView.stopAnimating()
+                guard let self else { return }
+                
+                isLoading ? self.loadingView.startAnimating() : self.loadingView.stopAnimating()
+                self.frequentVisitorsSection.configure(with: self.vm.frequentVisitors)
             })
             .disposed(by: bag)
         
         vm.errorOccurred
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] error in
-                self?.showErrorAlert(message: error.message)
+                guard let self else { return }
+
+                self.showErrorAlert(message: error.message)
             })
             .disposed(by: bag)
         
-        vm.usersVM.users
-            .subscribe(onNext: { [weak self] users in
-                self?.frequentVisitorsSection.configure(with: users)
-                print("Получены Users: \(users)")
-            })
-            .disposed(by: bag)
-        
-        vm.statisticsVM.statistics
-            .subscribe(onNext: { statistics in
-                print("Получены Statistics: \(statistics)")
-            })
-            .disposed(by: bag)
+        ///Todo: remove if not needed
+//        vm.usersVM.users
+//            .subscribe(onNext: { [weak self] users in
+//                guard let self else { return }
+//
+//                self.frequentVisitorsSection.configure(with: users)
+//                print("Получены Users: \(users)")
+//            })
+//            .disposed(by: bag)
+//        
+//        vm.statisticsVM.statistics
+//            .subscribe(onNext: { statistics in
+//                print("Получены Statistics: \(statistics)")
+//            })
+//            .disposed(by: bag)
     }
     
     private func showErrorAlert(message: String) {
@@ -148,8 +157,6 @@ private extension HomeViewController {
             frequentVisitorsSection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .defaultMargin),
             frequentVisitorsSection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.defaultMargin),
         ])
-        
-        frequentVisitorsSection.configure(with: [User.mock, User.mock, User.mock])
     }
     
     func setupDemographicSection() {

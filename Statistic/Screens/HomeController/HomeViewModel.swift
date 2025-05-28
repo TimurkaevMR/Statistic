@@ -13,7 +13,7 @@ protocol HomeViewModelProtocol {
     var statisticsVM: StatisticsViewModelProtocol { get }
     var isLoading: BehaviorSubject<Bool> { get }
     var errorOccurred: PublishSubject<ServiceError> { get }
-    
+    var frequentVisitors: [User] { get set }
     func loadData()
 }
 
@@ -26,6 +26,10 @@ final class HomeViewModel: HomeViewModelProtocol {
     
     let isLoading = BehaviorSubject<Bool>(value: false)
     let errorOccurred = PublishSubject<ServiceError>()
+    
+    var frequentVisitors: [User] = []
+    private var users: [User] = []
+    private var statistics: [UserStatistic] = []
     
     init(usersViewModel: UsersViewModelProtocol,
          statisticsViewModel: StatisticsViewModelProtocol) {
@@ -42,10 +46,14 @@ final class HomeViewModel: HomeViewModelProtocol {
             statisticsVM.statistics.take(1)
         )
         .subscribe(onNext: { [weak self] users, statistics in
-            
             guard let self else { return }
+            self.users = users
+            self.statistics = statistics
             
-            self.isLoading.onNext(false)
+            Task {
+                self.frequentVisitors = await self.getFrequentVisitors()
+                self.isLoading.onNext(false)
+            }
             
         }, onError: { [weak self] error in
             
@@ -62,6 +70,27 @@ final class HomeViewModel: HomeViewModelProtocol {
         ///Запускаем загрузку в обоих ViewModel
         usersVM.loadUsers()
         statisticsVM.loadStatistics()
+    }
+    
+    private func getFrequentVisitors() async -> [User] {
+        ///Получаем 3 самых частых посетителей
+        if statistics.count <= 3 {
+            let validVisitors = users.filter({ user in
+                statistics.contains(where: { $0.userId == user.id })
+            })
+            
+            return validVisitors
+        } else {
+            let topVisitors = statistics.sorted(by: {
+                $0.dates.count > $1.dates.count
+            }).prefix(3)
+            
+            let validVisitors = users.filter({ user in
+                topVisitors.contains(where: { $0.userId == user.id })
+            })
+            
+            return validVisitors
+        }
     }
     
     private func convertToServiceError(

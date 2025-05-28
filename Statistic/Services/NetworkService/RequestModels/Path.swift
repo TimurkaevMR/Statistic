@@ -6,8 +6,8 @@
 //
 
 import Foundation
-
-enum Path: String {
-    case users = "/users"
-    case statistics = "/statistics"
-}
+///Todo: remove
+//enum Path: String {
+//    case users = "/users"
+//    case statistics = "/statistics"
+//}

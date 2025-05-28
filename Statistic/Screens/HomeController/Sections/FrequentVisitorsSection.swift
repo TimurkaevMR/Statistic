@@ -13,6 +13,7 @@ final class FrequentVisitorsSection: UIView {
     private let titleLabel = CustomTitleLabel()
     private let tableView = UITableView()
     private var users: [User] = []
+    private var heightConstraint: NSLayoutConstraint?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +23,12 @@ final class FrequentVisitorsSection: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(with users: [User]) {
+        self.users = users
+        tableView.reloadData()
+        heightConstraint?.constant = CGFloat(users.count) * 62
     }
     
     private func setupUI() {
@@ -51,13 +58,9 @@ final class FrequentVisitorsSection: UIView {
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-    }
-    
-    func configure(with users: [User]) {
-        self.users = users
-        tableView.reloadData()
         
-        tableView.heightAnchor.constraint(equalToConstant: CGFloat(users.count) * 62).isActive = true
+        heightConstraint = tableView.heightAnchor.constraint(equalToConstant: 0)
+        heightConstraint?.isActive = true
     }
 }
 
@@ -73,18 +76,24 @@ extension FrequentVisitorsSection: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-        if indexPath.row != users.count - 1 {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 84, bottom: 0, right: 0)
-        } else {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
-        }
-        
-        cell.accessoryType = .disclosureIndicator
         cell.configure(with: users[indexPath.row])
+        cell.separatorInset = setEdgeInsets(for: indexPath.row)
+        cell.accessoryType = .disclosureIndicator
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+private extension FrequentVisitorsSection {
+    func setEdgeInsets(for row: Int) -> UIEdgeInsets {
+        if row != users.count - 1 {
+            return UIEdgeInsets(top: 0, left: 84, bottom: 0, right: 0)
+        } else {
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+        }
     }
 }

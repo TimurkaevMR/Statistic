@@ -79,7 +79,7 @@ final class UsersViewModel: UsersViewModelProtocol {
                 
                 ///2. Если база пуста - загружаем из сети
                 do {
-                    let userList: UserList = try await self.networkService.retrieveData(.users)
+                    let userList: UserList = try await self.networkService.retrieveData(.baseServer(.users))
                     
                     observer.onNext(userList.users)
                     observer.onCompleted()

@@ -10,8 +10,7 @@ import UIKit
 final class AvatarImageView: UIView {
     private let onlineIndicator = UIView()
     private let imageView = {
-        let image = UIImage(systemName: "person.circle.fill")
-        var imageView = UIImageView(image: image)
+        var imageView = UIImageView(image: .avatarPlug)
         
         imageView.contentMode = .scaleToFill
         imageView.layer.cornerRadius = 19
@@ -36,6 +35,10 @@ final class AvatarImageView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()
+    }
+    
+    func setupImage(_ image: UIImage) {
+        imageView.image = image
     }
     
     private func setupView() {

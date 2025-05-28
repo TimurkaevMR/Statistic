@@ -79,7 +79,7 @@ final class StatisticsViewModel: StatisticsViewModelProtocol {
                 
                 ///2. Если база пуста - загружаем из сети
                 do {
-                    let statisticList: Statistics = try await self.networkService.retrieveData(.statistics)
+                    let statisticList: Statistics = try await self.networkService.retrieveData(.baseServer(.statistics))
                     
                     observer.onNext(statisticList.statistics)
                     observer.onCompleted()
