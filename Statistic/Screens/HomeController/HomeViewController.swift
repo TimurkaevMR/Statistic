@@ -60,6 +60,8 @@ final class HomeViewController: UIViewController {
         visitorsSection.setupData(vm.dailyVisits)
         frequentVisitorsSection.configure(with: self.vm.frequentVisitors)
         demographicSection.setupData(vm.demographicStats)
+        subscribersSection.setupSubscriptionData(vm.subscribers)
+        subscribersSection.setupUnsubscriptionData(vm.unsubscribers)
     }
     
     private func bindViewModel() {

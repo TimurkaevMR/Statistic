@@ -17,6 +17,8 @@ protocol HomeViewModelProtocol {
     var frequentVisitors: [User] { get set }
     var demographicStats: [Grade: GendersValue] { get set }
     var dailyVisits: [(date: Int, count: Int)] { get set }
+    var subscribers: [(date: Int, count: Int)] { get set }
+    var unsubscribers: [(date: Int, count: Int)] { get set }
     
     func loadData()
 }
@@ -32,6 +34,8 @@ final class HomeViewModel: HomeViewModelProtocol {
     var frequentVisitors: [User] = []
     var demographicStats: [Grade: GendersValue] = [:]
     var dailyVisits: [(date: Int, count: Int)] = []
+    var subscribers: [(date: Int, count: Int)] = []
+    var unsubscribers: [(date: Int, count: Int)] = []
     
     private var users: [User] = []
     private var statistics: [UserStatistic] = []
@@ -57,9 +61,13 @@ final class HomeViewModel: HomeViewModelProtocol {
             self.statistics = statistics
             
             Task {
+                print(self.getUsers(type: .subscription))
                 self.frequentVisitors = await self.getFrequentVisitors()
                 self.demographicStats = await self.getDemographicStats()
-                self.dailyVisits = self.getDailyVisits()
+                self.dailyVisits = self.getUsers(type: .view)
+                self.subscribers = self.getUsers(type: .subscription)
+                self.unsubscribers = self.getUsers(type: .unsubscription)
+//                print(self.getUsers(type: .unsubscription))
                 self.isLoading.onNext(false)
             }
             
@@ -82,7 +90,7 @@ final class HomeViewModel: HomeViewModelProtocol {
 }
 
 private extension HomeViewModel {
-    private func getFrequentVisitors() async -> [User] {
+    func getFrequentVisitors() async -> [User] {
         ///Получаем 3 самых частых посетителей
         if statistics.count <= 3 {
             let validVisitors = users.filter({ user in
@@ -103,16 +111,18 @@ private extension HomeViewModel {
         }
     }
     
-    private func getDemographicStats() async -> [Grade: GendersValue] {
+    func getDemographicStats() async -> [Grade: GendersValue] {
         return users.reduce(into: [:]) { result, user in
             let grade = Grade.from(age: user.age)
             result[grade, default: GendersValue(male: 0, female: 0)].add(user.sex)
         }
     }
-        
-    func getDailyVisits() -> [(date: Int, count: Int)] {
+    
+    func getUsers(
+        type: UserStatistic.StatisticType) -> [(date: Int, count: Int)] {
+            
         return statistics
-            .filter({ $0.type == .view })
+            .filter({ $0.type == type })
             .flatMap({ $0.dates })
             .reduce(into: [:]) { datesDictionary, date in
                 datesDictionary[date] = datesDictionary[date, default: 0] + 1
@@ -121,7 +131,20 @@ private extension HomeViewModel {
             .sorted(by: { $0.date < $1.date })
     }
     
-    private func convertToServiceError(
+    
+//    func getUsers(type: UserStatistic.StatisticType) -> [User] {
+//        
+//        print(statistics.filter({ $0.type == type }))
+//        return statistics
+//            .filter({ $0.type == type })
+//            .reduce(into: []) { partialResult, user in
+//                if let user = users.first(where: {$0.id == user.userId }) {
+//                    partialResult.append(user)
+//                }
+//            }
+//    }
+    
+    func convertToServiceError(
         _ error: Error, operation: ServiceOperation
     ) -> ServiceError {
         

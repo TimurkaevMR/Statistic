@@ -37,13 +37,26 @@ final class SubscribersSection: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        
         setupUI()
-        setupData()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupSubscriptionData(_ data: [(date: Int, count: Int)]) {
+        ///добавляю от себя моковые данные к данным, полученые с сервера, потому что на сервера только один юзер (график отображает просто точку)
+        let mock = [3.0, 6.0, 3.0, 5.0, 7.0]
+        let serverData = data.map({ Double($0.count) })
+        
+        subscribedChart.setData(values: serverData + mock)
+    }
+    func setupUnsubscriptionData(_ data: [(date: Int, count: Int)]) {
+        ///добавляю от себя моковые данные к данным, полученые с сервера, потому что на сервера только один юзер (график отображает просто точку)
+        let mock = [-3.0, -5.0, -6.0, -10.0]
+        let serverData = data.map({ Double($0.count) })
+        
+        unsubscribedChart.setData(values: serverData + mock)
     }
     
     private func setupUI() {
@@ -82,10 +95,5 @@ final class SubscribersSection: UIView {
         
         subscribedChart.layer.cornerRadius = .regularRadius
         unsubscribedChart.layer.cornerRadius = .regularRadius
-    }
-    
-    private func setupData() {
-        subscribedChart.setData(values: [12.0, 15.0, 18.0, -22.0, -19.0, 25.0, 30.0])
-        unsubscribedChart.setData(values: [-12.0, 15.0, 18.0, 22.0, -19.0, -25.0, -30.0])
     }
 }
