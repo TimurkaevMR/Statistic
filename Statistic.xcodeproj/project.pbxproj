@@ -20,7 +20,7 @@
 		BC0D63812DE41D2B007B1544 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63802DE41D26007B1544 /* CGFloat.swift */; };
 		BC0D63832DE439FE007B1544 /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63822DE439FE007B1544 /* TagButton.swift */; };
 		BC0D63852DE43A17007B1544 /* TagsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63842DE43A17007B1544 /* TagsScrollView.swift */; };
-		BC0D63872DE44E2A007B1544 /* CustomChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63862DE44E2A007B1544 /* CustomChartView.swift */; };
+		BC0D63872DE44E2A007B1544 /* ActivityTrendChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63862DE44E2A007B1544 /* ActivityTrendChartView.swift */; };
 		BC0D63892DE46E0B007B1544 /* ChartDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63882DE46E0B007B1544 /* ChartDateFormatter.swift */; };
 		BC0D638B2DE46E22007B1544 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D638A2DE46E22007B1544 /* ChartData.swift */; };
 		BC0D638E2DE473F8007B1544 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D638D2DE473F8007B1544 /* AvatarImageView.swift */; };
@@ -92,7 +92,7 @@
 		BC0D63802DE41D26007B1544 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		BC0D63822DE439FE007B1544 /* TagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		BC0D63842DE43A17007B1544 /* TagsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsScrollView.swift; sourceTree = "<group>"; };
-		BC0D63862DE44E2A007B1544 /* CustomChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChartView.swift; sourceTree = "<group>"; };
+		BC0D63862DE44E2A007B1544 /* ActivityTrendChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTrendChartView.swift; sourceTree = "<group>"; };
 		BC0D63882DE46E0B007B1544 /* ChartDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDateFormatter.swift; sourceTree = "<group>"; };
 		BC0D638A2DE46E22007B1544 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		BC0D638D2DE473F8007B1544 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 				BC0D63992DE4BEB9007B1544 /* DemographicChartView.swift */,
 				BC0D639B2DE4DF7E007B1544 /* HorizontalProgressView.swift */,
 				BC0D63962DE49908007B1544 /* GenderPieChartView.swift */,
-				BC0D63862DE44E2A007B1544 /* CustomChartView.swift */,
+				BC0D63862DE44E2A007B1544 /* ActivityTrendChartView.swift */,
 				BC0D637E2DE407D9007B1544 /* StatsView.swift */,
 			);
 			path = Charts;
@@ -472,7 +472,7 @@
 				BCD9020D2DE1E22B005744D6 /* UserFile.swift in Sources */,
 				BC0D63762DE38B97007B1544 /* CustomTitleLabel.swift in Sources */,
 				BC0D63812DE41D2B007B1544 /* CGFloat.swift in Sources */,
-				BC0D63872DE44E2A007B1544 /* CustomChartView.swift in Sources */,
+				BC0D63872DE44E2A007B1544 /* ActivityTrendChartView.swift in Sources */,
 				BC0D63922DE4782D007B1544 /* FrequentVisitorsSection.swift in Sources */,
 				BC8EDCBF2DE216BE00CCC92B /* UsersRealmService.swift in Sources */,
 				BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */,

@@ -118,6 +118,7 @@ private extension HomeViewModel {
                 datesDictionary[date] = datesDictionary[date, default: 0] + 1
             }
             .map({ (date: $0.key, count: $0.value) })
+            .sorted(by: { $0.date < $1.date })
     }
     
     private func convertToServiceError(

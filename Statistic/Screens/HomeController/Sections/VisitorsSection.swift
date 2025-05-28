@@ -11,8 +11,8 @@ final class VisitorsSection: UIView {
     
     private let titleLabel = CustomTitleLabel()
     private let tagsScrollView = TagsScrollView()
-    private let chartView = CustomChartView()
-
+    private let activityTrendChartView = ActivityTrendChartView()
+    
     private let monthVisitorsChartView = {
         let positiveText = "Количество посетителей в этом месяце выросло"
         let negativeText = "Количество посетителей в этом месяце убавилось"
@@ -29,8 +29,6 @@ final class VisitorsSection: UIView {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         setupUI()
-        setupChart()
-        
         tagsScrollView.addTags(["По дням", "По неделям", "По месяцам"])
         
         monthVisitorsChartView.setData(values: [12.0, 15.0, 18.0, 22.0, 19.0, 25.0, 30.0])
@@ -40,13 +38,23 @@ final class VisitorsSection: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupData(_ data: [(date: Int, count: Int)]) {
+        monthVisitorsChartView.setData(values:
+                                        data.map({ Double($0.count) }))
+        
+        activityTrendChartView.setChartData(
+            data.map({ ChartData(value: Double($0.count),
+                                 date: Date(timeIntervalSince1970: TimeInterval($0.date))) })
+        )
+    }
+    
     private func setupUI() {
         titleLabel.text = "Посетители"
         
         addSubview(titleLabel)
         addSubview(monthVisitorsChartView)
         addSubview(tagsScrollView)
-        addSubview(chartView)
+        addSubview(activityTrendChartView)
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
@@ -62,25 +70,11 @@ final class VisitorsSection: UIView {
             tagsScrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: .defaultMargin),
             tagsScrollView.heightAnchor.constraint(equalToConstant: 32),
             
-            chartView.topAnchor.constraint(equalTo: tagsScrollView.bottomAnchor, constant: .regularMargin),
-            chartView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            chartView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            chartView.heightAnchor.constraint(equalToConstant: 208),
-            chartView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            activityTrendChartView.topAnchor.constraint(equalTo: tagsScrollView.bottomAnchor, constant: .regularMargin),
+            activityTrendChartView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            activityTrendChartView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            activityTrendChartView.heightAnchor.constraint(equalToConstant: 208),
+            activityTrendChartView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-    }
-    
-    private func setupChart() {
-        let chartData = [
-            ChartData(value: 10, date: Date()),
-            ChartData(value: 20, date: Date().addingTimeInterval(86400)),
-            ChartData(value: 22, date: Date().addingTimeInterval(86420)),
-            ChartData(value: 15, date: Date().addingTimeInterval(86440)),
-            ChartData(value: 12, date: Date().addingTimeInterval(86460)),
-            ChartData(value: 14, date: Date().addingTimeInterval(86480)),
-            ChartData(value: 30, date: Date().addingTimeInterval(86490)),
-        ]
-        
-        chartView.setChartData(chartData)
     }
 }

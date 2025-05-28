@@ -1,5 +1,5 @@
 //
-//  CustomChartView.swift
+//  ActivityTrendChartView.swift
 //  Statistic
 //
 //  Created by Malik Timurkaev on 26.05.2025.
@@ -8,7 +8,7 @@
 import UIKit
 import DGCharts
 
-final class CustomChartView: UIView {
+final class ActivityTrendChartView: UIView {
     private let chartView = LineChartView()
     private let horizontalLineImageView = UIImageView()
     private let middleLineImageView = UIImageView()
@@ -129,7 +129,7 @@ final class CustomChartView: UIView {
     }
 }
 
-extension CustomChartView: AxisValueFormatter {
+extension ActivityTrendChartView: AxisValueFormatter {
     private struct Holder {
         static var dates: [String] = []
     }

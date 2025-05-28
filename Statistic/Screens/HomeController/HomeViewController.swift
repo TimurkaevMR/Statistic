@@ -57,6 +57,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupData() {
+        visitorsSection.setupData(vm.dailyVisits)
         frequentVisitorsSection.configure(with: self.vm.frequentVisitors)
         demographicSection.setupData(vm.demographicStats)
     }
