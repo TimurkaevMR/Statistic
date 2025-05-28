@@ -47,8 +47,7 @@ actor ImageNetworkService: ImageNetworkProtocol {
         }
         
         if let image = UIImage(data: data) {
-            ///что делает метод cache[urlString, default: image] = image
-            cache[urlString, default: image] = image
+            cache[urlString] = cache[urlString, default: image]
             return image
         } else {
             throw ServiceError.operation(.decode)

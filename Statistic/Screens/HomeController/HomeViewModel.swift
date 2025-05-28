@@ -13,7 +13,10 @@ protocol HomeViewModelProtocol {
     var statisticsVM: StatisticsViewModelProtocol { get }
     var isLoading: BehaviorSubject<Bool> { get }
     var errorOccurred: PublishSubject<ServiceError> { get }
+    
     var frequentVisitors: [User] { get set }
+    var demographicStats: [Grade: GendersValue] { get set }
+    
     func loadData()
 }
 
@@ -28,6 +31,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     let errorOccurred = PublishSubject<ServiceError>()
     
     var frequentVisitors: [User] = []
+    var demographicStats: [Grade: GendersValue] = [:]
     private var users: [User] = []
     private var statistics: [UserStatistic] = []
     
@@ -52,6 +56,7 @@ final class HomeViewModel: HomeViewModelProtocol {
             
             Task {
                 self.frequentVisitors = await self.getFrequentVisitors()
+                self.demographicStats = await self.getDemographicStats()
                 self.isLoading.onNext(false)
             }
             
@@ -90,6 +95,13 @@ final class HomeViewModel: HomeViewModelProtocol {
             })
             
             return validVisitors
+        }
+    }
+    
+    private func getDemographicStats() async -> [Grade: GendersValue] {
+        return users.reduce(into: [:]) { result, user in
+            let grade = Grade.from(age: user.age)
+            result[grade, default: GendersValue(male: 0, female: 0)].add(user.sex)
         }
     }
     

@@ -20,7 +20,6 @@ final class DemographicSection: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         
         setupUI()
-        setupData()
         tagsScrollView.addTags(["Сегодня", "Неделя", "Месяц", "Все время"])
     }
     
@@ -28,9 +27,13 @@ final class DemographicSection: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupData(_ stats: [Grade: GendersValue]) {
+        setupPieGenderChartStats(stats)
+        setupDemographicStats(stats)
+    }
+    
     private func setupUI() {
         titleLabel.text = "Пол и возраст"
-        pieGenderChart.setData(malePercentage: 65, femalePercentage: 35)
         
         separator.backgroundColor = .ypGrayLight
         separator.translatesAutoresizingMaskIntoConstraints = false
@@ -70,38 +73,81 @@ final class DemographicSection: UIView {
         demographicStats.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         demographicStats.layer.cornerRadius = .regularRadius
     }
-    
-    private func setupData() {
+}
 
-        let ages: [String] =
-        ["18-21", "22-25", "26-30", "31-35",
-         "36-40", "40-50", ">50"]
+private extension DemographicSection {
+    func setupPieGenderChartStats(_ stats: [Grade: GendersValue]) {
+        let peopleAmount: Int = peopleAmount(stats.values)
+
+        let maleAmount: Int = stats.values.reduce(0) { partialResult, gender in
+            partialResult + gender.male
+        }
         
-        let data: [GendersValue] =
-        [GendersValue(male: 35, female: 35),
-         GendersValue(male: 85, female: 75),
-         GendersValue(male: 25, female: 15),
-         GendersValue(male: 45, female: 55),
-         GendersValue(male: 30, female: 20),
-         GendersValue(male: -100, female: 0),
-         GendersValue(male: 200, female: 200)]
+        let femaleAmount: Int = stats.values.reduce(0) { partialResult, gender in
+            partialResult + gender.female
+        }
         
+        ///Защита от деления на ноль и отрицательных значений
+        guard peopleAmount > 0, maleAmount >= 0, femaleAmount >= 0 else {
+            pieGenderChart.setData(malePercentage: 0, femalePercentage: 0)
+            return
+        }
         
-        let statViews = ages.enumerated().map({ index, age in
-            let chartView = DemographicChartView(age: age)
+        let malePercentage = Double(maleAmount) / Double(peopleAmount) * 100
+        let femalePercentage = Double(femaleAmount) / Double(peopleAmount) * 100
+        
+        ///Проверка на валидность процентов (должны суммироваться ~100%)
+        let total = malePercentage + femalePercentage
+        guard !total.isNaN, total > 0 else {
+            pieGenderChart.setData(malePercentage: 0, femalePercentage: 0)
+            return
+        }
+        
+        pieGenderChart.setData(
+            malePercentage: malePercentage,
+            femalePercentage: femalePercentage
+        )
+    }
+    
+    func setupDemographicStats(_ stats: [Grade: GendersValue]) {
+        let peopleAmount = peopleAmount(stats.values)
+        
+        ///Создаем словарь со всеми возможными группами, включая отсутствующие
+        var allGroupsStats = [Grade: GendersValue]()
+        
+        ///Инициализируем все группы (даже с нулевыми значениями)
+        Grade.allCases.forEach { grade in
+            allGroupsStats[grade] = stats[grade, default: GendersValue(male: 0, female: 0)]
+        }
+        
+        ///Сортируем группы по убыванию общего количества людей
+        let sortedGroups = allGroupsStats.sorted {
+            ($0.key.rawValue) < ($1.key.rawValue)
+        }
+        
+        ///Создаем view для каждой группы
+        let statViews = sortedGroups.map { grade, genderValue in
+            let chartView = DemographicChartView(grade: grade.rawValue)
             
-            if index <= data.count - 1 {
-                chartView.configure(malePercentage: data[index].male, femalePercentage: data[index].female)
-            }
+            let malePercentage = peopleAmount > 0 ?
+                Double(genderValue.male) / Double(peopleAmount) * 100 : 0
+            let femalePercentage = peopleAmount > 0 ?
+                Double(genderValue.female) / Double(peopleAmount) * 100 : 0
+            
+            chartView.configure(
+                malePercentage: malePercentage,
+                femalePercentage: femalePercentage
+            )
             
             return chartView
-        })
+        }
         
         demographicStats.addStatViews(statViews)
     }
     
-    struct GendersValue {
-        let male: Double
-        let female: Double
+    func peopleAmount(_ values: [Grade: GendersValue].Values) -> Int {
+        return values.reduce(0) { partialResult, gender in
+            partialResult + (gender.male + gender.female)
+        }
     }
 }

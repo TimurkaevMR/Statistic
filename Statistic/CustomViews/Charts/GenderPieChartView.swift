@@ -117,7 +117,7 @@ final class GenderPieChartView: UIView {
         let data = PieChartData(dataSet: dataSet)
         
         pieChartView.data = data
-        
+        print(malePercentage)
         maleLabel.text = "Мужчины \(Int(malePercentage))%"
         femaleLabel.text = "Женщины \(Int(femalePercentage))%"
     }

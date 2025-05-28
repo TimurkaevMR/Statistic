@@ -35,6 +35,8 @@
 		BC0D63A22DE60E78007B1544 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63A12DE60E78007B1544 /* Sex.swift */; };
 		BC0D63A42DE6FF27007B1544 /* ImageNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63A32DE6FF19007B1544 /* ImageNetworkService.swift */; };
 		BC0D63A62DE70F8E007B1544 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63A52DE70F8B007B1544 /* Error.swift */; };
+		BC0D63A82DE7274B007B1544 /* GendersValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63A72DE7274B007B1544 /* GendersValue.swift */; };
+		BC0D63AA2DE72762007B1544 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63A92DE72762007B1544 /* Grade.swift */; };
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
 		BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeViewController.swift */; };
@@ -105,6 +107,8 @@
 		BC0D63A12DE60E78007B1544 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
 		BC0D63A32DE6FF19007B1544 /* ImageNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworkService.swift; sourceTree = "<group>"; };
 		BC0D63A52DE70F8B007B1544 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		BC0D63A72DE7274B007B1544 /* GendersValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GendersValue.swift; sourceTree = "<group>"; };
+		BC0D63A92DE72762007B1544 /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3F6EE42DE191E200580363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EE52DE191E200580363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -330,6 +334,8 @@
 		BCD902092DE1DF05005744D6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BC0D63A92DE72762007B1544 /* Grade.swift */,
+				BC0D63A72DE7274B007B1544 /* GendersValue.swift */,
 				BC0D638A2DE46E22007B1544 /* ChartData.swift */,
 				BC0D63772DE38BCC007B1544 /* Enums */,
 				BC8EDCB62DE1F84C00CCC92B /* Statistic */,
@@ -450,6 +456,7 @@
 				BC8EDCBA2DE1F8BE00CCC92B /* UserStatistic.swift in Sources */,
 				BC0D638E2DE473F8007B1544 /* AvatarImageView.swift in Sources */,
 				BCD901FD2DE1C148005744D6 /* EndPoint.swift in Sources */,
+				BC0D63A82DE7274B007B1544 /* GendersValue.swift in Sources */,
 				BC0D63892DE46E0B007B1544 /* ChartDateFormatter.swift in Sources */,
 				BC0D639E2DE5B864007B1544 /* DemographicStats.swift in Sources */,
 				BCD902012DE1C473005744D6 /* RikmastersNetworkService.swift in Sources */,
@@ -469,6 +476,7 @@
 				BC0D63922DE4782D007B1544 /* FrequentVisitorsSection.swift in Sources */,
 				BC8EDCBF2DE216BE00CCC92B /* UsersRealmService.swift in Sources */,
 				BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */,
+				BC0D63AA2DE72762007B1544 /* Grade.swift in Sources */,
 				BC8EDCB82DE1F87200CCC92B /* Statistics.swift in Sources */,
 				BC0D63972DE49908007B1544 /* GenderPieChartView.swift in Sources */,
 			);

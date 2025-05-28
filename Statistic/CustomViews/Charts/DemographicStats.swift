@@ -31,9 +31,17 @@ final class DemographicStats: UIView {
     }
     
     func addStatViews(_ statViews: [DemographicChartView]) {
-            
+        clearPreviousStatViews()
+        
         statViews.forEach({
             stackView.addArrangedSubview($0)
+        })
+    }
+    
+    private func clearPreviousStatViews() {
+        stackView.arrangedSubviews.forEach( {
+            stackView.removeArrangedSubview($0)
+            $0.removeFromSuperview()
         })
     }
     

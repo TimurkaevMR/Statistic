@@ -56,6 +56,11 @@ final class HomeViewController: UIViewController {
         vm.loadData()
     }
     
+    private func setupData() {
+        frequentVisitorsSection.configure(with: self.vm.frequentVisitors)
+        demographicSection.setupData(vm.demographicStats)
+    }
+    
     private func bindViewModel() {
         vm.isLoading
             .observe(on: MainScheduler.instance)
@@ -63,7 +68,10 @@ final class HomeViewController: UIViewController {
                 guard let self else { return }
                 
                 isLoading ? self.loadingView.startAnimating() : self.loadingView.stopAnimating()
-                self.frequentVisitorsSection.configure(with: self.vm.frequentVisitors)
+                
+                if isLoading == false {
+                    self.setupData()
+                }
             })
             .disposed(by: bag)
         
