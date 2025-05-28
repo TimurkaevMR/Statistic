@@ -9,24 +9,26 @@ import Foundation
 import RxSwift
 
 protocol HomeViewModelProtocol {
-    var usersVM: UsersViewModelProtocol { get }
-    var statisticsVM: StatisticsViewModelProtocol { get }
-    var isLoading: BehaviorSubject<Bool> { get }
-    var errorOccurred: PublishSubject<ServiceError> { get }
-    
     var frequentVisitors: [User] { get set }
     var demographicStats: [Grade: GendersValue] { get set }
     var dailyVisits: [(date: Int, count: Int)] { get set }
     var subscribers: [(date: Int, count: Int)] { get set }
     var unsubscribers: [(date: Int, count: Int)] { get set }
     
+    var isLoading: BehaviorSubject<Bool> { get }
+    var errorOccurred: PublishSubject<ServiceError> { get }
+    
     func loadData()
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
     
-    let usersVM: UsersViewModelProtocol
-    let statisticsVM: StatisticsViewModelProtocol
+    private let usersVM: UsersViewModelProtocol
+    private let statisticsVM: StatisticsViewModelProtocol
+    
+    private var users: [User] = []
+    private var statistics: [UserStatistic] = []
+    private let bag = DisposeBag()
     
     let isLoading = BehaviorSubject<Bool>(value: false)
     let errorOccurred = PublishSubject<ServiceError>()
@@ -36,10 +38,6 @@ final class HomeViewModel: HomeViewModelProtocol {
     var dailyVisits: [(date: Int, count: Int)] = []
     var subscribers: [(date: Int, count: Int)] = []
     var unsubscribers: [(date: Int, count: Int)] = []
-    
-    private var users: [User] = []
-    private var statistics: [UserStatistic] = []
-    private let bag = DisposeBag()
     
     init(usersViewModel: UsersViewModelProtocol,
          statisticsViewModel: StatisticsViewModelProtocol) {
@@ -61,13 +59,15 @@ final class HomeViewModel: HomeViewModelProtocol {
             self.statistics = statistics
             
             Task {
-                print(self.getUsers(type: .subscription))
-                self.frequentVisitors = await self.getFrequentVisitors()
+                
+                let visitors = await self.getFrequentVisitors()
+                await MainActor.run {
+                    self.frequentVisitors = visitors
+                }
                 self.demographicStats = await self.getDemographicStats()
                 self.dailyVisits = self.getUsers(type: .view)
                 self.subscribers = self.getUsers(type: .subscription)
                 self.unsubscribers = self.getUsers(type: .unsubscription)
-//                print(self.getUsers(type: .unsubscription))
                 self.isLoading.onNext(false)
             }
             
@@ -83,7 +83,6 @@ final class HomeViewModel: HomeViewModelProtocol {
         })
         .disposed(by: bag)
         
-        ///Запускаем загрузку в обоих ViewModel
         usersVM.loadUsers()
         statisticsVM.loadStatistics()
     }
@@ -91,7 +90,7 @@ final class HomeViewModel: HomeViewModelProtocol {
 
 private extension HomeViewModel {
     func getFrequentVisitors() async -> [User] {
-        ///Получаем 3 самых частых посетителей
+        ///Получаем 3 самых частых посетителя
         if statistics.count <= 3 {
             let validVisitors = users.filter({ user in
                 statistics.contains(where: { $0.userId == user.id })
@@ -130,19 +129,6 @@ private extension HomeViewModel {
             .map({ (date: $0.key, count: $0.value) })
             .sorted(by: { $0.date < $1.date })
     }
-    
-    
-//    func getUsers(type: UserStatistic.StatisticType) -> [User] {
-//        
-//        print(statistics.filter({ $0.type == type }))
-//        return statistics
-//            .filter({ $0.type == type })
-//            .reduce(into: []) { partialResult, user in
-//                if let user = users.first(where: {$0.id == user.userId }) {
-//                    partialResult.append(user)
-//                }
-//            }
-//    }
     
     func convertToServiceError(
         _ error: Error, operation: ServiceOperation

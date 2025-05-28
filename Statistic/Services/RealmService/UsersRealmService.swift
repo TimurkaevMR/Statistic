@@ -41,7 +41,6 @@ actor UsersRealmService: UsersBaseProtocol {
     }
     
     func saveUsers(_ data: [User]) async throws {
-        
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {
                 autoreleasepool {

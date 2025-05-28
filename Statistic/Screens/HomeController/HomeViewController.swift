@@ -86,22 +86,6 @@ final class HomeViewController: UIViewController {
                 self.showErrorAlert(message: error.message)
             })
             .disposed(by: bag)
-        
-        ///Todo: remove if not needed
-//        vm.usersVM.users
-//            .subscribe(onNext: { [weak self] users in
-//                guard let self else { return }
-//
-//                self.frequentVisitorsSection.configure(with: users)
-//                print("Получены Users: \(users)")
-//            })
-//            .disposed(by: bag)
-//        
-//        vm.statisticsVM.statistics
-//            .subscribe(onNext: { statistics in
-//                print("Получены Statistics: \(statistics)")
-//            })
-//            .disposed(by: bag)
     }
     
     private func showErrorAlert(message: String) {

@@ -30,22 +30,30 @@ final class VisitorsSection: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         setupUI()
         tagsScrollView.addTags(["По дням", "По неделям", "По месяцам"])
-        
-        monthVisitorsChartView.setData(values: [12.0, 15.0, 18.0, 22.0, 19.0, 25.0, 30.0])
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    ///Изза не большого количества данных (у которых к тому же и даты не актуального месяца) мне пришлось писать в методе логику, которая игнорирует месяц и год даты, и сортерует только по дню
     func setupData(_ data: [(date: Int, count: Int)]) {
-        monthVisitorsChartView.setData(values:
-                                        data.map({ Double($0.count) }))
+        ///Преобразуем входные данные в массив ChartData
+        var dates = data.map {
+            let date = Date(timeIntervalSince1970: TimeInterval($0.date))
+            return ChartData(value: Double($0.count), date: date)
+        }
         
-        activityTrendChartView.setChartData(
-            data.map({ ChartData(value: Double($0.count),
-                                 date: Date(timeIntervalSince1970: TimeInterval($0.date))) })
-        )
+        ///Сортируем только по дню месяца
+        let dayBasedSortion = dates.sorted {
+            let calendar = Calendar.current
+            let day1 = calendar.component(.day, from: $0.date)
+            let day2 = calendar.component(.day, from: $1.date)
+            return day1 < day2
+        }
+        
+        monthVisitorsChartView.setData(values: dayBasedSortion.map({ $0.value }))
+        activityTrendChartView.setChartData(dayBasedSortion)
     }
     
     private func setupUI() {
