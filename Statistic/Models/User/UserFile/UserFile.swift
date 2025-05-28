@@ -34,3 +34,13 @@ final class UserFile: Object, Decodable {
         self.init(id: id, url: url, type: type)
     }
 }
+
+extension UserFile {
+    func toDTO() -> UserFileDTO {
+        return UserFileDTO(
+            id: id,
+            url: url,
+            type: type
+        )
+    }
+}

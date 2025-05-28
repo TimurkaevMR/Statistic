@@ -117,8 +117,7 @@ private extension HomeViewModel {
         }
     }
     
-    func getUsers(
-        type: UserStatistic.StatisticType) -> [(date: Int, count: Int)] {
+    func getUsers(type: StatisticType) -> [(date: Int, count: Int)] {
             
         return statistics
             .filter({ $0.type == type })

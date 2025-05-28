@@ -13,19 +13,6 @@ final class UserStatistic: Object, Decodable {
     @Persisted var type: StatisticType
     @Persisted var dates: List<Int>
     
-    enum StatisticType: String, Decodable, PersistableEnum {
-        case view = "view"
-        case subscription = "subscription"
-        case unsubscription = "unsubscription"
-        case unknown
-        
-        init(from decoder: Decoder) throws {
-            let container = try decoder.singleValueContainer()
-            let rawValue = try container.decode(String.self)
-            self = StatisticType(rawValue: rawValue) ?? .unknown
-        }
-    }
-    
     enum CodingKeys: String, CodingKey {
         case userId = "user_id"
         case type, dates
@@ -45,5 +32,15 @@ final class UserStatistic: Object, Decodable {
         let dates = try container.decode([Int].self, forKey: .dates)
         
         self.init(userId: userId, type: type, dates: dates)
+    }
+}
+
+extension UserStatistic {
+    func toDTO() -> UserStatDTO {
+        return UserStatDTO(
+            userId: userId,
+            type: type,
+            dates: Array(dates)
+        )
     }
 }

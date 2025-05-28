@@ -43,6 +43,19 @@ final class User: Object, Decodable {
     }
 }
 
+extension User {
+    func toDTO() -> UserDTO {
+        return UserDTO(
+            id: id,
+            sex: sex,
+            username: username,
+            isOnline: isOnline,
+            age: age,
+            files: files.map { $0.toDTO() }
+        )
+    }
+}
+
 // MARK: - Mock Data
 extension User {
     static var mock: User {

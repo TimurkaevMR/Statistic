@@ -9,4 +9,8 @@ import Foundation
 
 final class UserList: Decodable {
     let users: [User]
+    
+    func toDTO() -> [UserDTO] {
+        return users.map { $0.toDTO() }
+    }
 }

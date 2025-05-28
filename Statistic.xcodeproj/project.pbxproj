@@ -37,6 +37,11 @@
 		BC0D63A62DE70F8E007B1544 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63A52DE70F8B007B1544 /* Error.swift */; };
 		BC0D63A82DE7274B007B1544 /* GendersValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63A72DE7274B007B1544 /* GendersValue.swift */; };
 		BC0D63AA2DE72762007B1544 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63A92DE72762007B1544 /* Grade.swift */; };
+		BC0D63AC2DE78157007B1544 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63AB2DE78157007B1544 /* UserDTO.swift */; };
+		BC0D63AE2DE78232007B1544 /* StatisticType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63AD2DE78232007B1544 /* StatisticType.swift */; };
+		BC0D63B02DE78289007B1544 /* UserStatisticDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63AF2DE78289007B1544 /* UserStatisticDTO.swift */; };
+		BC0D63B52DE78401007B1544 /* UserFileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63B42DE78401007B1544 /* UserFileDTO.swift */; };
+		BC0D63B82DE78445007B1544 /* UserListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63B72DE78445007B1544 /* UserListDTO.swift */; };
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
 		BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeViewController.swift */; };
@@ -109,6 +114,11 @@
 		BC0D63A52DE70F8B007B1544 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		BC0D63A72DE7274B007B1544 /* GendersValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GendersValue.swift; sourceTree = "<group>"; };
 		BC0D63A92DE72762007B1544 /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
+		BC0D63AB2DE78157007B1544 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		BC0D63AD2DE78232007B1544 /* StatisticType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticType.swift; sourceTree = "<group>"; };
+		BC0D63AF2DE78289007B1544 /* UserStatisticDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatisticDTO.swift; sourceTree = "<group>"; };
+		BC0D63B42DE78401007B1544 /* UserFileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileDTO.swift; sourceTree = "<group>"; };
+		BC0D63B72DE78445007B1544 /* UserListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDTO.swift; sourceTree = "<group>"; };
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3F6EE42DE191E200580363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EE52DE191E200580363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -230,6 +240,42 @@
 			path = Charts;
 			sourceTree = "<group>";
 		};
+		BC0D63B12DE782EC007B1544 /* UserStat */ = {
+			isa = PBXGroup;
+			children = (
+				BC8EDCB92DE1F8BE00CCC92B /* UserStatistic.swift */,
+				BC0D63AF2DE78289007B1544 /* UserStatisticDTO.swift */,
+			);
+			path = UserStat;
+			sourceTree = "<group>";
+		};
+		BC0D63B22DE7833B007B1544 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				BCD9020A2DE1DF54005744D6 /* User.swift */,
+				BC0D63AB2DE78157007B1544 /* UserDTO.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		BC0D63B32DE783F9007B1544 /* UserFile */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D63B42DE78401007B1544 /* UserFileDTO.swift */,
+				BCD9020C2DE1E22B005744D6 /* UserFile.swift */,
+			);
+			path = UserFile;
+			sourceTree = "<group>";
+		};
+		BC0D63B62DE7842F007B1544 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D63B72DE78445007B1544 /* UserListDTO.swift */,
+				BCD902112DE1E8F3005744D6 /* UserList.swift */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
 		BC3F6EC32DE191D500580363 = {
 			isa = PBXGroup;
 			children = (
@@ -267,9 +313,9 @@
 		BC8EDCB52DE1F84100CCC92B /* User */ = {
 			isa = PBXGroup;
 			children = (
-				BCD9020A2DE1DF54005744D6 /* User.swift */,
-				BCD902112DE1E8F3005744D6 /* UserList.swift */,
-				BCD9020C2DE1E22B005744D6 /* UserFile.swift */,
+				BC0D63B62DE7842F007B1544 /* UserList */,
+				BC0D63B22DE7833B007B1544 /* User */,
+				BC0D63B32DE783F9007B1544 /* UserFile */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -278,7 +324,8 @@
 			isa = PBXGroup;
 			children = (
 				BC8EDCB72DE1F87200CCC92B /* Statistics.swift */,
-				BC8EDCB92DE1F8BE00CCC92B /* UserStatistic.swift */,
+				BC0D63AD2DE78232007B1544 /* StatisticType.swift */,
+				BC0D63B12DE782EC007B1544 /* UserStat */,
 			);
 			path = Statistic;
 			sourceTree = "<group>";
@@ -449,6 +496,7 @@
 				BCD902032DE1C4BD005744D6 /* Path.swift in Sources */,
 				BCD9020F2DE1E618005744D6 /* Достижения.swift in Sources */,
 				BC0D63832DE439FE007B1544 /* TagButton.swift in Sources */,
+				BC0D63AE2DE78232007B1544 /* StatisticType.swift in Sources */,
 				BC0D63942DE495ED007B1544 /* DemographicSection.swift in Sources */,
 				BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */,
 				BCD901FF2DE1C411005744D6 /* HttpMethod.swift in Sources */,
@@ -466,8 +514,11 @@
 				BCD902122DE1E8F6005744D6 /* UserList.swift in Sources */,
 				BC0D637F2DE407D9007B1544 /* StatsView.swift in Sources */,
 				BC0D639A2DE4BEB9007B1544 /* DemographicChartView.swift in Sources */,
+				BC0D63B02DE78289007B1544 /* UserStatisticDTO.swift in Sources */,
 				BC0D637D2DE38F57007B1544 /* VisitorsSection.swift in Sources */,
+				BC0D63B52DE78401007B1544 /* UserFileDTO.swift in Sources */,
 				BCD9020B2DE1DF57005744D6 /* User.swift in Sources */,
+				BC0D63AC2DE78157007B1544 /* UserDTO.swift in Sources */,
 				BC0D63732DE346AF007B1544 /* HomeViewModel.swift in Sources */,
 				BCD9020D2DE1E22B005744D6 /* UserFile.swift in Sources */,
 				BC0D63762DE38B97007B1544 /* CustomTitleLabel.swift in Sources */,
@@ -479,6 +530,7 @@
 				BC0D63AA2DE72762007B1544 /* Grade.swift in Sources */,
 				BC8EDCB82DE1F87200CCC92B /* Statistics.swift in Sources */,
 				BC0D63972DE49908007B1544 /* GenderPieChartView.swift in Sources */,
+				BC0D63B82DE78445007B1544 /* UserListDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
