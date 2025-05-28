@@ -33,7 +33,7 @@ final class VisitorsSection: UIView {
         
         tagsScrollView.addTags(["По дням", "По неделям", "По месяцам"])
         
-        monthVisitorsChartView.setData(values: [12.0, 15.0, 18.0, -22.0, -19.0, 25.0, 30.0])
+        monthVisitorsChartView.setData(values: [12.0, 15.0, 18.0, 22.0, 19.0, 25.0, 30.0])
     }
     
     required init?(coder: NSCoder) {
