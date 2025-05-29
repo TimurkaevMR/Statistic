@@ -30,10 +30,9 @@ actor StatisticsRealmService: StatisticsBaseProtocol {
                     do {
                         let realm = try Realm(configuration: self.configuration)
                         
-                        ///Warning
                         let statsDTO = Array(realm.objects(UserStatRLM.self))
                             .flatMap({ $0.toDTO() })
-                               
+                        
                         continuation.resume(returning: statsDTO)
                     } catch {
                         continuation.resume(throwing: error)
@@ -65,18 +64,19 @@ actor StatisticsRealmService: StatisticsBaseProtocol {
             }
         }
     }
-    
-    
 }
 
 private extension StatisticsRealmService {
-    
+    /// Преобразует массив UserStatDTO в массив UserStatRLM, объединяя записи по userId.
+    /// Realm не позволяет сохранять несколько объектов с одинаковым primaryKey (userId), поэтому все статистики для одного пользователя объединяются в один объект UserStatRLM с коллекцией активностей в поле activity.
+    ///
+    /// - Parameter stats: Массив DTO объектов статистики
+    /// - Returns: Массив Realm-объектов с объединенными данными
     nonisolated
     func mergeStatistics(_ stats: [UserStatDTO]) -> [UserStatRLM] {
         stats.reduce(into: [Int: UserStatRLM]()) { results, statDTO in
             
-            let activity = Activity(userid: statDTO.userId,
-                                    type: statDTO.type,
+            let activity = Activity(type: statDTO.type,
                                     dates: statDTO.dates)
             let defValue = UserStatRLM(userId: statDTO.userId,
                                        activity: [])
@@ -91,8 +91,7 @@ private extension StatisticsRealmService {
             let groupedActivities = Dictionary(grouping: statDTO.activity, by: { $0.type })
                 .map { type, activities in
                     let combinedDates = activities.flatMap { $0.dates }
-                    return Activity(userid: statDTO.userId,
-                                    type: type,
+                    return Activity(type: type,
                                     dates: combinedDates)
                 }
             

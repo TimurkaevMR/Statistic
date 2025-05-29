@@ -5,6 +5,7 @@
 //  Created by Malik Timurkaev on 28.05.2025.
 //
 
+import Foundation
 
 struct UserStatDTO: Decodable {
     let userId: Int
@@ -14,13 +15,5 @@ struct UserStatDTO: Decodable {
     enum CodingKeys: String, CodingKey {
         case userId = "user_id"
         case type, dates
-    }
-    
-    
-    func toRLM() -> UserStatRLM {
-        UserStatRLM(userId: userId,
-                    activity: [Activity(userid: userId,
-                                        type: type,
-                                        dates: dates)])
     }
 }

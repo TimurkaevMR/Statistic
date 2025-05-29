@@ -26,28 +26,9 @@ final class UserStatRLM: Object {
 extension UserStatRLM {
     func toDTO() -> [UserStatDTO] {
         activity.map({
-            UserStatDTO(userId: $0.userid,
+            UserStatDTO(userId: userId,
                         type: $0.type,
                         dates: Array($0.dates))
         })
-    }
-}
-
-final class Activity: Object {
-    @Persisted(primaryKey: true) var userid: Int
-    @Persisted var type: StatisticType
-    @Persisted var dates: List<Int>
-    
-    override required init() {
-        super.init()
-    }
-    
-    convenience init(userid: Int,
-                     type: StatisticType,
-                     dates: [Int]) {
-        self.init()
-        self.userid = userid
-        self.type = type
-        self.dates.append(objectsIn: dates)
     }
 }
