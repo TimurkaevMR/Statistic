@@ -7,15 +7,15 @@
 
 import Foundation
 
-enum ServiceError: Error {
-    case operation(_ type: ServiceOperation,
-                   code: String = "uknown")
-    
-    var message: String {
-        switch self {
-            
-        case .operation(let type, let code):
-            "Task \(type.rawValue) operation failed. Error: \(code)"
-        }
-    }
-}
+//enum ServiceError: Error {
+//    case operation(_ type: ServiceOperation,
+//                   code: String = "uknown")
+//    
+//    var message: String {
+//        switch self {
+//            
+//        case .operation(let type, let code):
+//            "Task \(type.rawValue) operation failed. Error: \(code)"
+//        }
+//    }
+//}

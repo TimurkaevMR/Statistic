@@ -43,6 +43,25 @@
 		BC0D63B52DE78401007B1544 /* UserFileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63B42DE78401007B1544 /* UserFileDTO.swift */; };
 		BC0D63BC2DE89B7F007B1544 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63BB2DE89B7F007B1544 /* Activity.swift */; };
 		BC0D63BE2DE89F9F007B1544 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63BD2DE89F9E007B1544 /* LoadingView.swift */; };
+		BC0D64182DE8BBEF007B1544 /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0D64122DE8BBEF007B1544 /* DataLayer.framework */; };
+		BC0D64192DE8BBEF007B1544 /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC0D64122DE8BBEF007B1544 /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BC0D64272DE8BCA9007B1544 /* GendersValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64262DE8BCA9007B1544 /* GendersValue.swift */; };
+		BC0D64292DE8BDE6007B1544 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64282DE8BDE6007B1544 /* Sex.swift */; };
+		BC0D642D2DE8BE8F007B1544 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC0D642C2DE8BE8F007B1544 /* RealmSwift */; };
+		BC0D642E2DE8BE8F007B1544 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC0D642C2DE8BE8F007B1544 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BC0D64312DE8C009007B1544 /* StatisticType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64302DE8C009007B1544 /* StatisticType.swift */; };
+		BC0D64332DE8C024007B1544 /* ServiceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64322DE8C024007B1544 /* ServiceOperation.swift */; };
+		BC0D64352DE8C03A007B1544 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64342DE8C03A007B1544 /* ServiceError.swift */; };
+		BC0D64382DE8C07C007B1544 /* StatListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64372DE8C07C007B1544 /* StatListDTO.swift */; };
+		BC0D643B2DE8C0C8007B1544 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D643A2DE8C0C8007B1544 /* Activity.swift */; };
+		BC0D643D2DE8C0E4007B1544 /* UserStatRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D643C2DE8C0E4007B1544 /* UserStatRLM.swift */; };
+		BC0D643F2DE8C0FD007B1544 /* UserStatDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D643E2DE8C0FD007B1544 /* UserStatDTO.swift */; };
+		BC0D64422DE8C183007B1544 /* UserListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64412DE8C183007B1544 /* UserListDTO.swift */; };
+		BC0D64452DE8C1AB007B1544 /* UserRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64442DE8C1AB007B1544 /* UserRLM.swift */; };
+		BC0D64472DE8C1C8007B1544 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64462DE8C1C8007B1544 /* UserDTO.swift */; };
+		BC0D644A2DE8C1F8007B1544 /* UserFileRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64492DE8C1F8007B1544 /* UserFileRLM.swift */; };
+		BC0D644C2DE8C216007B1544 /* UserFileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D644B2DE8C216007B1544 /* UserFileDTO.swift */; };
+		BC0D644E2DE8C251007B1544 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D644D2DE8C251007B1544 /* Grade.swift */; };
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
 		BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeViewController.swift */; };
@@ -68,7 +87,28 @@
 		BCD902122DE1E8F6005744D6 /* UserListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD902112DE1E8F3005744D6 /* UserListDTO.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BC0D64162DE8BBEF007B1544 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC3F6EC42DE191D500580363 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC0D64112DE8BBEF007B1544;
+			remoteInfo = DataLayer;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		BC0D642F2DE8BE8F007B1544 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BC0D642E2DE8BE8F007B1544 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC3F6EFB2DE19B6500580363 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,6 +116,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BC3F6F022DE19E3E00580363 /* RealmSwift in Embed Frameworks */,
+				BC0D64192DE8BBEF007B1544 /* DataLayer.framework in Embed Frameworks */,
 				BC0D63682DE32D3A007B1544 /* RxCocoa-Dynamic in Embed Frameworks */,
 				BC3F6EFA2DE19B6500580363 /* DGChartsDynamic in Embed Frameworks */,
 				BC0D63692DE32D3B007B1544 /* RxBlocking-Dynamic in Embed Frameworks */,
@@ -120,6 +161,22 @@
 		BC0D63B42DE78401007B1544 /* UserFileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileDTO.swift; sourceTree = "<group>"; };
 		BC0D63BB2DE89B7F007B1544 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		BC0D63BD2DE89F9E007B1544 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		BC0D64122DE8BBEF007B1544 /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC0D64262DE8BCA9007B1544 /* GendersValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GendersValue.swift; sourceTree = "<group>"; };
+		BC0D64282DE8BDE6007B1544 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
+		BC0D64302DE8C009007B1544 /* StatisticType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticType.swift; sourceTree = "<group>"; };
+		BC0D64322DE8C024007B1544 /* ServiceOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceOperation.swift; sourceTree = "<group>"; };
+		BC0D64342DE8C03A007B1544 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		BC0D64372DE8C07C007B1544 /* StatListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatListDTO.swift; sourceTree = "<group>"; };
+		BC0D643A2DE8C0C8007B1544 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		BC0D643C2DE8C0E4007B1544 /* UserStatRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatRLM.swift; sourceTree = "<group>"; };
+		BC0D643E2DE8C0FD007B1544 /* UserStatDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatDTO.swift; sourceTree = "<group>"; };
+		BC0D64412DE8C183007B1544 /* UserListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDTO.swift; sourceTree = "<group>"; };
+		BC0D64442DE8C1AB007B1544 /* UserRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRLM.swift; sourceTree = "<group>"; };
+		BC0D64462DE8C1C8007B1544 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		BC0D64492DE8C1F8007B1544 /* UserFileRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileRLM.swift; sourceTree = "<group>"; };
+		BC0D644B2DE8C216007B1544 /* UserFileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileDTO.swift; sourceTree = "<group>"; };
+		BC0D644D2DE8C251007B1544 /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3F6EE42DE191E200580363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EE52DE191E200580363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -142,11 +199,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BC0D640F2DE8BBEF007B1544 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC0D642D2DE8BE8F007B1544 /* RealmSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC3F6EC92DE191D500580363 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BC3F6F002DE19E2900580363 /* RealmSwift in Frameworks */,
+				BC0D64182DE8BBEF007B1544 /* DataLayer.framework in Frameworks */,
 				BC3F6EF92DE1998800580363 /* DGChartsDynamic in Frameworks */,
 				BC8EDCCC2DE23CD100CCC92B /* RxCocoa-Dynamic in Frameworks */,
 				BC8EDCC82DE23CD100CCC92B /* RxBlocking-Dynamic in Frameworks */,
@@ -271,10 +337,97 @@
 			path = UserFile;
 			sourceTree = "<group>";
 		};
+		BC0D64222DE8BC4E007B1544 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D64252DE8BC5B007B1544 /* Models */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		BC0D64252DE8BC5B007B1544 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D64262DE8BCA9007B1544 /* GendersValue.swift */,
+				BC0D642A2DE8BDF0007B1544 /* Enums */,
+				BC0D64362DE8C062007B1544 /* Statistics */,
+				BC0D64402DE8C176007B1544 /* Users */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC0D642A2DE8BDF0007B1544 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D644D2DE8C251007B1544 /* Grade.swift */,
+				BC0D64282DE8BDE6007B1544 /* Sex.swift */,
+				BC0D64302DE8C009007B1544 /* StatisticType.swift */,
+				BC0D64322DE8C024007B1544 /* ServiceOperation.swift */,
+				BC0D64342DE8C03A007B1544 /* ServiceError.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		BC0D642B2DE8BE8F007B1544 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC0D64362DE8C062007B1544 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D64372DE8C07C007B1544 /* StatListDTO.swift */,
+				BC0D64392DE8C0B3007B1544 /* UserStat */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		BC0D64392DE8C0B3007B1544 /* UserStat */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D643A2DE8C0C8007B1544 /* Activity.swift */,
+				BC0D643E2DE8C0FD007B1544 /* UserStatDTO.swift */,
+				BC0D643C2DE8C0E4007B1544 /* UserStatRLM.swift */,
+			);
+			path = UserStat;
+			sourceTree = "<group>";
+		};
+		BC0D64402DE8C176007B1544 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D64412DE8C183007B1544 /* UserListDTO.swift */,
+				BC0D64432DE8C19D007B1544 /* User */,
+				BC0D64482DE8C1ED007B1544 /* UserFile */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		BC0D64432DE8C19D007B1544 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D64462DE8C1C8007B1544 /* UserDTO.swift */,
+				BC0D64442DE8C1AB007B1544 /* UserRLM.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		BC0D64482DE8C1ED007B1544 /* UserFile */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D644B2DE8C216007B1544 /* UserFileDTO.swift */,
+				BC0D64492DE8C1F8007B1544 /* UserFileRLM.swift */,
+			);
+			path = UserFile;
+			sourceTree = "<group>";
+		};
 		BC3F6EC32DE191D500580363 = {
 			isa = PBXGroup;
 			children = (
 				BC3F6EED2DE191E200580363 /* Statistic */,
+				BC0D64222DE8BC4E007B1544 /* DataLayer */,
+				BC0D642B2DE8BE8F007B1544 /* Frameworks */,
 				BC3F6ECD2DE191D500580363 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -283,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				BC3F6ECC2DE191D500580363 /* Statistic.app */,
+				BC0D64122DE8BBEF007B1544 /* DataLayer.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -374,8 +528,8 @@
 		BCD902092DE1DF05005744D6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BC0D63A72DE7274B007B1544 /* GendersValue.swift */,
 				BC0D638A2DE46E22007B1544 /* ChartData.swift */,
+				BC0D63A72DE7274B007B1544 /* GendersValue.swift */,
 				BC0D63772DE38BCC007B1544 /* Enums */,
 				BC8EDCB62DE1F84C00CCC92B /* Statistic */,
 				BC8EDCB52DE1F84100CCC92B /* User */,
@@ -393,7 +547,39 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		BC0D640D2DE8BBEF007B1544 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		BC0D64112DE8BBEF007B1544 /* DataLayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC0D641C2DE8BBEF007B1544 /* Build configuration list for PBXNativeTarget "DataLayer" */;
+			buildPhases = (
+				BC0D640D2DE8BBEF007B1544 /* Headers */,
+				BC0D640E2DE8BBEF007B1544 /* Sources */,
+				BC0D640F2DE8BBEF007B1544 /* Frameworks */,
+				BC0D64102DE8BBEF007B1544 /* Resources */,
+				BC0D642F2DE8BE8F007B1544 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DataLayer;
+			packageProductDependencies = (
+				BC0D642C2DE8BE8F007B1544 /* RealmSwift */,
+			);
+			productName = DataLayer;
+			productReference = BC0D64122DE8BBEF007B1544 /* DataLayer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		BC3F6ECB2DE191D500580363 /* Statistic */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC3F6EDF2DE191D700580363 /* Build configuration list for PBXNativeTarget "Statistic" */;
@@ -406,6 +592,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BC0D64172DE8BBEF007B1544 /* PBXTargetDependency */,
 			);
 			name = Statistic;
 			packageProductDependencies = (
@@ -428,6 +615,9 @@
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
+					BC0D64112DE8BBEF007B1544 = {
+						CreatedOnToolsVersion = 16.3;
+					};
 					BC3F6ECB2DE191D500580363 = {
 						CreatedOnToolsVersion = 16.3;
 					};
@@ -453,11 +643,19 @@
 			projectRoot = "";
 			targets = (
 				BC3F6ECB2DE191D500580363 /* Statistic */,
+				BC0D64112DE8BBEF007B1544 /* DataLayer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BC0D64102DE8BBEF007B1544 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC3F6ECA2DE191D500580363 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -470,6 +668,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BC0D640E2DE8BBEF007B1544 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC0D64422DE8C183007B1544 /* UserListDTO.swift in Sources */,
+				BC0D643F2DE8C0FD007B1544 /* UserStatDTO.swift in Sources */,
+				BC0D64352DE8C03A007B1544 /* ServiceError.swift in Sources */,
+				BC0D64312DE8C009007B1544 /* StatisticType.swift in Sources */,
+				BC0D644C2DE8C216007B1544 /* UserFileDTO.swift in Sources */,
+				BC0D643D2DE8C0E4007B1544 /* UserStatRLM.swift in Sources */,
+				BC0D643B2DE8C0C8007B1544 /* Activity.swift in Sources */,
+				BC0D64472DE8C1C8007B1544 /* UserDTO.swift in Sources */,
+				BC0D644E2DE8C251007B1544 /* Grade.swift in Sources */,
+				BC0D64452DE8C1AB007B1544 /* UserRLM.swift in Sources */,
+				BC0D64292DE8BDE6007B1544 /* Sex.swift in Sources */,
+				BC0D644A2DE8C1F8007B1544 /* UserFileRLM.swift in Sources */,
+				BC0D64382DE8C07C007B1544 /* StatListDTO.swift in Sources */,
+				BC0D64272DE8BCA9007B1544 /* GendersValue.swift in Sources */,
+				BC0D64332DE8C024007B1544 /* ServiceOperation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC3F6EC82DE191D500580363 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,6 +748,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BC0D64172DE8BBEF007B1544 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC0D64112DE8BBEF007B1544 /* DataLayer */;
+			targetProxy = BC0D64162DE8BBEF007B1544 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		BC3F6EE82DE191E200580363 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -540,6 +768,76 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BC0D641A2DE8BBEF007B1544 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8V4HQNY692;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.Timurkaev.DataLayer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BC0D641B2DE8BBEF007B1544 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8V4HQNY692;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.Timurkaev.DataLayer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		BC3F6EE02DE191D700580363 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -726,6 +1024,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BC0D641C2DE8BBEF007B1544 /* Build configuration list for PBXNativeTarget "DataLayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC0D641A2DE8BBEF007B1544 /* Debug */,
+				BC0D641B2DE8BBEF007B1544 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BC3F6EC72DE191D500580363 /* Build configuration list for PBXProject "Statistic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -774,6 +1081,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BC0D642C2DE8BE8F007B1544 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC3F6EFC2DE19E2900580363 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		BC3F6EF82DE1998800580363 /* DGChartsDynamic */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BC3F6EF52DE1998800580363 /* XCRemoteSwiftPackageReference "Charts" */;

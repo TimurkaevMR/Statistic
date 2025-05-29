@@ -5,8 +5,9 @@
 //  Created by Malik Timurkaev on 24.05.2025.
 //
 
-import Foundation
-
-struct StatListDTO: Decodable {
-    let statistics: [UserStatDTO]
-}
+//import Foundation
+//
+//struct StatListDTO: Decodable {
+//    let statistics: [UserStatDTO]
+//}
+//

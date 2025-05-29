@@ -5,12 +5,12 @@
 //  Created by Malik Timurkaev on 24.05.2025.
 //
 
-import Foundation
-
-struct UserListDTO: Decodable {
-    let users: [UserDTO]
-    
-    func toRLM() -> [UserRLM] {
-        users.map { $0.toRLM() }
-    }
-}
+//import Foundation
+//
+//struct UserListDTO: Decodable {
+//    let users: [UserDTO]
+//    
+//    func toRLM() -> [UserRLM] {
+//        users.map { $0.toRLM() }
+//    }
+//}
