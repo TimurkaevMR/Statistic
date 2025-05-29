@@ -39,7 +39,7 @@ final class VisitorsSection: UIView {
     ///Изза не большого количества данных (у которых к тому же и даты не актуального месяца) мне пришлось писать в методе логику, которая игнорирует месяц и год даты, и сортерует только по дню
     func setupData(_ data: [(date: Int, count: Int)]) {
         ///Преобразуем входные данные в массив ChartData
-        var dates = data.map {
+        let dates = data.map {
             let date = Date(timeIntervalSince1970: TimeInterval($0.date))
             return ChartData(value: Double($0.count), date: date)
         }

@@ -265,14 +265,6 @@
 			path = UserFile;
 			sourceTree = "<group>";
 		};
-		BC0D63B62DE7842F007B1544 /* UserList */ = {
-			isa = PBXGroup;
-			children = (
-				BCD902112DE1E8F3005744D6 /* UserListDTO.swift */,
-			);
-			path = UserList;
-			sourceTree = "<group>";
-		};
 		BC3F6EC32DE191D500580363 = {
 			isa = PBXGroup;
 			children = (
@@ -310,7 +302,7 @@
 		BC8EDCB52DE1F84100CCC92B /* User */ = {
 			isa = PBXGroup;
 			children = (
-				BC0D63B62DE7842F007B1544 /* UserList */,
+				BCD902112DE1E8F3005744D6 /* UserListDTO.swift */,
 				BC0D63B22DE7833B007B1544 /* User */,
 				BC0D63B32DE783F9007B1544 /* UserFile */,
 			);

@@ -16,11 +16,11 @@ struct UserStatDTO: Decodable {
         case type, dates
     }
     
+    
     func toRLM() -> UserStatRLM {
-        UserStatRLM(
-            userId: userId,
-            type: type,
-            dates: dates
-        )
+        UserStatRLM(userId: userId,
+                    activity: [Activity(userid: userId,
+                                        type: type,
+                                        dates: dates)])
     }
 }

@@ -8,39 +8,46 @@
 import Foundation
 import RealmSwift
 
-final class UserStatRLM: Object, Decodable {
+///Todo make RLM non Decodable
+final class UserStatRLM: Object {
     @Persisted(primaryKey: true) var userId: Int
-    @Persisted var type: StatisticType
-    @Persisted var dates: List<Int>
+    @Persisted var activity: List<Activity>
     
-    enum CodingKeys: String, CodingKey {
-        case userId = "user_id"
-        case type, dates
-    }
-    
-    convenience init(userId: Int, type: StatisticType, dates: [Int]) {
+    convenience init(userId: Int, activity: [Activity]) {
         self.init()
         self.userId = userId
-        self.type = type
-        self.dates.append(objectsIn: dates)
+        self.activity.append(objectsIn: activity)
     }
-    
-    required convenience init(from decoder: any Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let userId = try container.decode(Int.self, forKey: .userId)
-        let type = try container.decode(StatisticType.self, forKey: .type)
-        let dates = try container.decode([Int].self, forKey: .dates)
-        
-        self.init(userId: userId, type: type, dates: dates)
+    override required init() {
+        super.init()
     }
 }
 
 extension UserStatRLM {
-    func toDTO() -> UserStatDTO {
-        return UserStatDTO(
-            userId: userId,
-            type: type,
-            dates: Array(dates)
-        )
+    func toDTO() -> [UserStatDTO] {
+        activity.map({
+            UserStatDTO(userId: $0.userid,
+                        type: $0.type,
+                        dates: Array($0.dates))
+        })
+    }
+}
+
+final class Activity: Object {
+    @Persisted(primaryKey: true) var userid: Int
+    @Persisted var type: StatisticType
+    @Persisted var dates: List<Int>
+    
+    override required init() {
+        super.init()
+    }
+    
+    convenience init(userid: Int,
+                     type: StatisticType,
+                     dates: [Int]) {
+        self.init()
+        self.userid = userid
+        self.type = type
+        self.dates.append(objectsIn: dates)
     }
 }
