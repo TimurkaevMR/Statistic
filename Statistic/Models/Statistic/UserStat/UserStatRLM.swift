@@ -8,7 +8,6 @@
 import Foundation
 import RealmSwift
 
-///Todo make RLM non Decodable
 final class UserStatRLM: Object {
     @Persisted(primaryKey: true) var userId: Int
     @Persisted var activity: List<Activity>

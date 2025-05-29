@@ -11,6 +11,7 @@ import RxSwift
 
 final class HomeViewController: UIViewController {
     
+    private lazy var loadingView = LoadingView()
     private lazy var visitorsSection = VisitorsSection()
     private lazy var demographicSection = DemographicSection()
     private lazy var subscribersSection = SubscribersSection()
@@ -27,13 +28,6 @@ final class HomeViewController: UIViewController {
     private lazy var contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-        
-    private lazy var loadingView: UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView(style: .large)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.hidesWhenStopped = true
         return view
     }()
     
@@ -71,8 +65,8 @@ final class HomeViewController: UIViewController {
                 guard let self else { return }
                 
                 isLoading ? self.loadingView.startAnimating() : self.loadingView.stopAnimating()
-                
-                if isLoading == false {
+                print(isLoading)
+                if !isLoading {
                     self.setupData()
                 }
             })
@@ -97,22 +91,37 @@ final class HomeViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
-    
-    private func setupUI() {
+}
+
+private extension HomeViewController {
+    func setupUI() {
         view.backgroundColor = .ypGrayLight
+        
         setupNavigationTitle()
         setupScrollView()
         setupVisitorsSection()
         setupFrequentVisitorsSection()
         setupDemographicSection()
         setupSubscribersSection()
+        setupLoadingView()
     }
-}
-
-private extension HomeViewController {
+    
     func setupNavigationTitle() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Статистика"
+    }
+    
+    private func setupLoadingView() {
+        view.addSubview(loadingView)
+        
+        NSLayoutConstraint.activate([
+            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        loadingView.isHidden = true
     }
     
     func setupScrollView() {

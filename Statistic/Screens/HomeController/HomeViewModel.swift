@@ -44,47 +44,46 @@ final class HomeViewModel: HomeViewModelProtocol {
         self.usersVM = usersViewModel
         self.statisticsVM = statisticsViewModel
     }
-    
+        
     func loadData() {
-        isLoading.onNext(true)
-        
-        ///Создаем Observable, который ждет загрузки и Users, и Statistics
-        Observable.zip(
-            usersVM.users.take(1),
-            statisticsVM.statistics.take(1)
-        )
-        .subscribe(onNext: { [weak self] users, statistics in
-            guard let self else { return }
-            self.users = users
-            self.statistics = statistics
+            isLoading.onNext(true)
             
-            Task {
-                
-                let visitors = await self.getFrequentVisitors()
-                await MainActor.run {
-                    self.frequentVisitors = visitors
-                }
-                self.demographicStats = await self.getDemographicStats()
-                self.dailyVisits = self.getUsers(type: .view)
-                self.subscribers = self.getUsers(type: .subscription)
-                self.unsubscribers = self.getUsers(type: .unsubscription)
-                self.isLoading.onNext(false)
-            }
-            
-        }, onError: { [weak self] error in
-            
-            guard let self else { return }
-            
-            self.isLoading.onNext(false)
-            
-            self.errorOccurred.onNext(
-                self.convertToServiceError(error, operation: .retrieve)
+            ///Создаем Observable, который ждет загрузки и Users, и Statistics
+            Observable.zip(
+                usersVM.users.take(1),
+                statisticsVM.statistics.take(1)
             )
-        })
-        .disposed(by: bag)
-        
-        usersVM.loadUsers()
-        statisticsVM.loadStatistics()
+            .subscribe(onNext: { [weak self] users, statistics in
+                guard let self else { return }
+                self.users = users
+                self.statistics = statistics
+                
+                Task {
+                    await self.processData()
+                    self.isLoading.onNext(false)
+                }
+            }, onError: { [weak self] error in
+                
+                guard let self else { return }
+                
+                self.isLoading.onNext(false)
+                
+                self.errorOccurred.onNext(
+                    self.convertToServiceError(error, operation: .retrieve)
+                )
+            })
+            .disposed(by: bag)
+            
+            usersVM.loadUsers()
+            statisticsVM.loadStatistics()
+        }
+    
+    private func processData() async {
+        frequentVisitors = await self.getFrequentVisitors()
+        demographicStats = await self.getDemographicStats()
+        dailyVisits = await self.getUsers(type: .view)
+        subscribers = await self.getUsers(type: .subscription)
+        unsubscribers = await self.getUsers(type: .unsubscription)
     }
 }
 
@@ -117,7 +116,7 @@ private extension HomeViewModel {
         }
     }
     
-    func getUsers(type: StatisticType) -> [(date: Int, count: Int)] {
+    func getUsers(type: StatisticType) async -> [(date: Int, count: Int)] {
             
         return statistics
             .filter({ $0.type == type })

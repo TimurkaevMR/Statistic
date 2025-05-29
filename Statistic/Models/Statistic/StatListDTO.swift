@@ -9,8 +9,4 @@ import Foundation
 
 struct StatListDTO: Decodable {
     let statistics: [UserStatDTO]
-    
-//    func toRLM() -> [UserStatRLM] {
-//        statistics.map({ $0.toRLM() })
-//    }
 }

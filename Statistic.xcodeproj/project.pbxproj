@@ -42,6 +42,7 @@
 		BC0D63B02DE78289007B1544 /* UserStatDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63AF2DE78289007B1544 /* UserStatDTO.swift */; };
 		BC0D63B52DE78401007B1544 /* UserFileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63B42DE78401007B1544 /* UserFileDTO.swift */; };
 		BC0D63BC2DE89B7F007B1544 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63BB2DE89B7F007B1544 /* Activity.swift */; };
+		BC0D63BE2DE89F9F007B1544 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D63BD2DE89F9E007B1544 /* LoadingView.swift */; };
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
 		BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeViewController.swift */; };
@@ -118,6 +119,7 @@
 		BC0D63AF2DE78289007B1544 /* UserStatDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatDTO.swift; sourceTree = "<group>"; };
 		BC0D63B42DE78401007B1544 /* UserFileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileDTO.swift; sourceTree = "<group>"; };
 		BC0D63BB2DE89B7F007B1544 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		BC0D63BD2DE89F9E007B1544 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3F6EE42DE191E200580363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EE52DE191E200580363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				BC0D63822DE439FE007B1544 /* TagButton.swift */,
+				BC0D63BD2DE89F9E007B1544 /* LoadingView.swift */,
 				BC0D63842DE43A17007B1544 /* TagsScrollView.swift */,
 				BC0D63752DE38B97007B1544 /* CustomTitleLabel.swift */,
 				BC0D63952DE498F5007B1544 /* Charts */,
@@ -483,6 +486,7 @@
 				BC0D63A22DE60E78007B1544 /* Sex.swift in Sources */,
 				BC0D63A62DE70F8E007B1544 /* Error.swift in Sources */,
 				BC8EDCC32DE238E900CCC92B /* StatisticsRealmService.swift in Sources */,
+				BC0D63BE2DE89F9F007B1544 /* LoadingView.swift in Sources */,
 				BCD9020F2DE1E618005744D6 /* Достижения.swift in Sources */,
 				BC0D63832DE439FE007B1544 /* TagButton.swift in Sources */,
 				BC0D63AE2DE78232007B1544 /* StatisticType.swift in Sources */,
