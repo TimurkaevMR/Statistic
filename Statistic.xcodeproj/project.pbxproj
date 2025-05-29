@@ -70,8 +70,6 @@
 		BC3F6EF32DE191E200580363 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC3F6EE82DE191E200580363 /* LaunchScreen.storyboard */; };
 		BC3F6EF92DE1998800580363 /* DGChartsDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EF82DE1998800580363 /* DGChartsDynamic */; };
 		BC3F6EFA2DE19B6500580363 /* DGChartsDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EF82DE1998800580363 /* DGChartsDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		BC3F6F002DE19E2900580363 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EFF2DE19E2900580363 /* RealmSwift */; };
-		BC3F6F022DE19E3E00580363 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC3F6EFF2DE19E2900580363 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BC8EDCC82DE23CD100CCC92B /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BC8EDCC72DE23CD100CCC92B /* RxBlocking-Dynamic */; };
 		BC8EDCCC2DE23CD100CCC92B /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BC8EDCCB2DE23CD100CCC92B /* RxCocoa-Dynamic */; };
 /* End PBXBuildFile section */
@@ -106,7 +104,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BC3F6F022DE19E3E00580363 /* RealmSwift in Embed Frameworks */,
 				BC0D64192DE8BBEF007B1544 /* DataLayer.framework in Embed Frameworks */,
 				BC0D63682DE32D3A007B1544 /* RxCocoa-Dynamic in Embed Frameworks */,
 				BC3F6EFA2DE19B6500580363 /* DGChartsDynamic in Embed Frameworks */,
@@ -189,7 +186,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC3F6F002DE19E2900580363 /* RealmSwift in Frameworks */,
 				BC0D64182DE8BBEF007B1544 /* DataLayer.framework in Frameworks */,
 				BC3F6EF92DE1998800580363 /* DGChartsDynamic in Frameworks */,
 				BC8EDCCC2DE23CD100CCC92B /* RxCocoa-Dynamic in Frameworks */,
@@ -522,7 +518,6 @@
 			name = Statistic;
 			packageProductDependencies = (
 				BC3F6EF82DE1998800580363 /* DGChartsDynamic */,
-				BC3F6EFF2DE19E2900580363 /* RealmSwift */,
 				BC8EDCC72DE23CD100CCC92B /* RxBlocking-Dynamic */,
 				BC8EDCCB2DE23CD100CCC92B /* RxCocoa-Dynamic */,
 			);
@@ -1019,11 +1014,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC3F6EF52DE1998800580363 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = DGChartsDynamic;
-		};
-		BC3F6EFF2DE19E2900580363 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BC3F6EFC2DE19E2900580363 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
 		};
 		BC8EDCC72DE23CD100CCC92B /* RxBlocking-Dynamic */ = {
 			isa = XCSwiftPackageProductDependency;
