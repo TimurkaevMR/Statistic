@@ -43,7 +43,7 @@ public actor StatisticsRealmService: StatisticsBaseProtocol {
     }
     
     public func saveStatistics(_ stats: [UserStatDTO]) async throws {
-                
+        
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {
                 autoreleasepool {

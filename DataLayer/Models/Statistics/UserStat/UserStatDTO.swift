@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct UserStatDTO: Decodable {
+public struct UserStatDTO: Decodable, Sendable {
     let userId: Int
     let type: StatisticType
     let dates: [Int]

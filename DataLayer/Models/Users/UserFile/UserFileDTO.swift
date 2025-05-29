@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct UserFileDTO: Decodable {
+public struct UserFileDTO: Decodable, Sendable {
     let id: Int
     public let url: String
     let type: String

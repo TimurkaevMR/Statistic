@@ -75,6 +75,7 @@
 		BC0D64682DE8C531007B1544 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BC0D64672DE8C531007B1544 /* RxCocoa-Dynamic */; };
 		BC0D64692DE8C531007B1544 /* RxCocoa-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC0D64672DE8C531007B1544 /* RxCocoa-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BC0D646B2DE8CE8B007B1544 /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D646A2DE8CE8B007B1544 /* HomeViewModelProtocol.swift */; };
+		BC0D646D2DE8D125007B1544 /* SexRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D646C2DE8D125007B1544 /* SexRLM.swift */; };
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
 		BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeViewController.swift */; };
@@ -201,6 +202,7 @@
 		BC0D64602DE8C4D2007B1544 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		BC0D64622DE8C4F5007B1544 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		BC0D646A2DE8CE8B007B1544 /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
+		BC0D646C2DE8D125007B1544 /* SexRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexRLM.swift; sourceTree = "<group>"; };
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3F6EE42DE191E200580363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EE52DE191E200580363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -387,10 +389,10 @@
 			isa = PBXGroup;
 			children = (
 				BC0D644D2DE8C251007B1544 /* Grade.swift */,
-				BC0D64282DE8BDE6007B1544 /* SexDTO.swift */,
 				BC0D64302DE8C009007B1544 /* StatisticType.swift */,
 				BC0D64322DE8C024007B1544 /* ServiceOperation.swift */,
 				BC0D64342DE8C03A007B1544 /* ServiceError.swift */,
+				BC0D646E2DE8D12E007B1544 /* Sex */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -495,6 +497,15 @@
 				BC0D64602DE8C4D2007B1544 /* StatisticsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BC0D646E2DE8D12E007B1544 /* Sex */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D64282DE8BDE6007B1544 /* SexDTO.swift */,
+				BC0D646C2DE8D125007B1544 /* SexRLM.swift */,
+			);
+			path = Sex;
 			sourceTree = "<group>";
 		};
 		BC3F6EC32DE191D500580363 = {
@@ -772,6 +783,7 @@
 				BC0D64612DE8C4D2007B1544 /* StatisticsViewModel.swift in Sources */,
 				BC0D646B2DE8CE8B007B1544 /* HomeViewModelProtocol.swift in Sources */,
 				BC0D64542DE8C37E007B1544 /* UsersRealmService.swift in Sources */,
+				BC0D646D2DE8D125007B1544 /* SexRLM.swift in Sources */,
 				BC0D64522DE8C354007B1544 /* StatsRealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -876,6 +888,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.Timurkaev.DataLayer;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

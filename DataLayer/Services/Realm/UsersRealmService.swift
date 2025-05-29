@@ -43,7 +43,7 @@ public actor UsersRealmService: UsersBaseProtocol {
         }
     }
     
-    public func saveUsers(_ data: [UserDTO]) async throws {
+    public func saveUsers(_ users: [UserDTO]) async throws {
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {
                 autoreleasepool {
@@ -51,7 +51,7 @@ public actor UsersRealmService: UsersBaseProtocol {
                         let realm = try Realm(configuration: self.configuration)
                         try realm.write {
                             
-                            let usersRLM = data.map({ $0.toRLM() })
+                            let usersRLM = users.map({ $0.toRLM() })
                             
                             realm.add(usersRLM,
                                       update: .modified)
