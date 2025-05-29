@@ -5,8 +5,8 @@
 //  Created by Malik Timurkaev on 27.05.2025.
 //
 
-import Foundation
-import RealmSwift
+//import Foundation
+//import RealmSwift
 
 //enum Sex: String, Decodable, PersistableEnum {
 //    case male = "M"

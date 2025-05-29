@@ -5,8 +5,8 @@
 //  Created by Malik Timurkaev on 28.05.2025.
 //
 
-import Foundation
-import RealmSwift
+//import Foundation
+//import RealmSwift
 
 //enum StatisticType: String, Decodable, PersistableEnum {
 //    case view = "view"

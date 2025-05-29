@@ -62,6 +62,18 @@
 		BC0D644A2DE8C1F8007B1544 /* UserFileRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64492DE8C1F8007B1544 /* UserFileRLM.swift */; };
 		BC0D644C2DE8C216007B1544 /* UserFileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D644B2DE8C216007B1544 /* UserFileDTO.swift */; };
 		BC0D644E2DE8C251007B1544 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D644D2DE8C251007B1544 /* Grade.swift */; };
+		BC0D64522DE8C354007B1544 /* StatsRealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64512DE8C354007B1544 /* StatsRealmService.swift */; };
+		BC0D64542DE8C37E007B1544 /* UsersRealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64532DE8C37D007B1544 /* UsersRealmService.swift */; };
+		BC0D64572DE8C3A1007B1544 /* ImageNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64562DE8C3A1007B1544 /* ImageNetworkService.swift */; };
+		BC0D64592DE8C3BB007B1544 /* RikmastersNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64582DE8C3BB007B1544 /* RikmastersNetworkService.swift */; };
+		BC0D645C2DE8C460007B1544 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D645B2DE8C460007B1544 /* EndPoint.swift */; };
+		BC0D645E2DE8C471007B1544 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D645D2DE8C471007B1544 /* HttpMethod.swift */; };
+		BC0D64612DE8C4D2007B1544 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64602DE8C4D2007B1544 /* StatisticsViewModel.swift */; };
+		BC0D64632DE8C4F5007B1544 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64622DE8C4F5007B1544 /* UsersViewModel.swift */; };
+		BC0D64652DE8C531007B1544 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BC0D64642DE8C531007B1544 /* RxBlocking-Dynamic */; };
+		BC0D64662DE8C531007B1544 /* RxBlocking-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC0D64642DE8C531007B1544 /* RxBlocking-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BC0D64682DE8C531007B1544 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BC0D64672DE8C531007B1544 /* RxCocoa-Dynamic */; };
+		BC0D64692DE8C531007B1544 /* RxCocoa-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC0D64672DE8C531007B1544 /* RxCocoa-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
 		BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeViewController.swift */; };
@@ -105,6 +117,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BC0D642E2DE8BE8F007B1544 /* RealmSwift in Embed Frameworks */,
+				BC0D64692DE8C531007B1544 /* RxCocoa-Dynamic in Embed Frameworks */,
+				BC0D64662DE8C531007B1544 /* RxBlocking-Dynamic in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +191,14 @@
 		BC0D64492DE8C1F8007B1544 /* UserFileRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileRLM.swift; sourceTree = "<group>"; };
 		BC0D644B2DE8C216007B1544 /* UserFileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileDTO.swift; sourceTree = "<group>"; };
 		BC0D644D2DE8C251007B1544 /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
+		BC0D64512DE8C354007B1544 /* StatsRealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsRealmService.swift; sourceTree = "<group>"; };
+		BC0D64532DE8C37D007B1544 /* UsersRealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRealmService.swift; sourceTree = "<group>"; };
+		BC0D64562DE8C3A1007B1544 /* ImageNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworkService.swift; sourceTree = "<group>"; };
+		BC0D64582DE8C3BB007B1544 /* RikmastersNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RikmastersNetworkService.swift; sourceTree = "<group>"; };
+		BC0D645B2DE8C460007B1544 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		BC0D645D2DE8C471007B1544 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		BC0D64602DE8C4D2007B1544 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
+		BC0D64622DE8C4F5007B1544 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3F6EE42DE191E200580363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EE52DE191E200580363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -204,6 +226,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC0D642D2DE8BE8F007B1544 /* RealmSwift in Frameworks */,
+				BC0D64682DE8C531007B1544 /* RxCocoa-Dynamic in Frameworks */,
+				BC0D64652DE8C531007B1544 /* RxBlocking-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +364,7 @@
 		BC0D64222DE8BC4E007B1544 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				BC0D644F2DE8C33E007B1544 /* Services */,
 				BC0D64252DE8BC5B007B1544 /* Models */,
 			);
 			path = DataLayer;
@@ -420,6 +445,53 @@
 				BC0D64492DE8C1F8007B1544 /* UserFileRLM.swift */,
 			);
 			path = UserFile;
+			sourceTree = "<group>";
+		};
+		BC0D644F2DE8C33E007B1544 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D645F2DE8C4B7007B1544 /* ViewModel */,
+				BC0D64552DE8C398007B1544 /* Network */,
+				BC0D64502DE8C345007B1544 /* Realm */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BC0D64502DE8C345007B1544 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D64532DE8C37D007B1544 /* UsersRealmService.swift */,
+				BC0D64512DE8C354007B1544 /* StatsRealmService.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		BC0D64552DE8C398007B1544 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D64562DE8C3A1007B1544 /* ImageNetworkService.swift */,
+				BC0D64582DE8C3BB007B1544 /* RikmastersNetworkService.swift */,
+				BC0D645A2DE8C455007B1544 /* RequestModels */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		BC0D645A2DE8C455007B1544 /* RequestModels */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D645B2DE8C460007B1544 /* EndPoint.swift */,
+				BC0D645D2DE8C471007B1544 /* HttpMethod.swift */,
+			);
+			path = RequestModels;
+			sourceTree = "<group>";
+		};
+		BC0D645F2DE8C4B7007B1544 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BC0D64622DE8C4F5007B1544 /* UsersViewModel.swift */,
+				BC0D64602DE8C4D2007B1544 /* StatisticsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BC3F6EC32DE191D500580363 = {
@@ -575,6 +647,8 @@
 			name = DataLayer;
 			packageProductDependencies = (
 				BC0D642C2DE8BE8F007B1544 /* RealmSwift */,
+				BC0D64642DE8C531007B1544 /* RxBlocking-Dynamic */,
+				BC0D64672DE8C531007B1544 /* RxCocoa-Dynamic */,
 			);
 			productName = DataLayer;
 			productReference = BC0D64122DE8BBEF007B1544 /* DataLayer.framework */;
@@ -674,6 +748,7 @@
 			files = (
 				BC0D64422DE8C183007B1544 /* UserListDTO.swift in Sources */,
 				BC0D643F2DE8C0FD007B1544 /* UserStatDTO.swift in Sources */,
+				BC0D645C2DE8C460007B1544 /* EndPoint.swift in Sources */,
 				BC0D64352DE8C03A007B1544 /* ServiceError.swift in Sources */,
 				BC0D64312DE8C009007B1544 /* StatisticType.swift in Sources */,
 				BC0D644C2DE8C216007B1544 /* UserFileDTO.swift in Sources */,
@@ -681,12 +756,19 @@
 				BC0D643B2DE8C0C8007B1544 /* Activity.swift in Sources */,
 				BC0D64472DE8C1C8007B1544 /* UserDTO.swift in Sources */,
 				BC0D644E2DE8C251007B1544 /* Grade.swift in Sources */,
+				BC0D645E2DE8C471007B1544 /* HttpMethod.swift in Sources */,
 				BC0D64452DE8C1AB007B1544 /* UserRLM.swift in Sources */,
+				BC0D64572DE8C3A1007B1544 /* ImageNetworkService.swift in Sources */,
+				BC0D64632DE8C4F5007B1544 /* UsersViewModel.swift in Sources */,
 				BC0D64292DE8BDE6007B1544 /* Sex.swift in Sources */,
+				BC0D64592DE8C3BB007B1544 /* RikmastersNetworkService.swift in Sources */,
 				BC0D644A2DE8C1F8007B1544 /* UserFileRLM.swift in Sources */,
 				BC0D64382DE8C07C007B1544 /* StatListDTO.swift in Sources */,
 				BC0D64272DE8BCA9007B1544 /* GendersValue.swift in Sources */,
 				BC0D64332DE8C024007B1544 /* ServiceOperation.swift in Sources */,
+				BC0D64612DE8C4D2007B1544 /* StatisticsViewModel.swift in Sources */,
+				BC0D64542DE8C37E007B1544 /* UsersRealmService.swift in Sources */,
+				BC0D64522DE8C354007B1544 /* StatsRealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -793,11 +875,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.Timurkaev.DataLayer;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -828,11 +914,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.Timurkaev.DataLayer;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1085,6 +1175,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC3F6EFC2DE19E2900580363 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		BC0D64642DE8C531007B1544 /* RxBlocking-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC8EDCC42DE23CD100CCC92B /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxBlocking-Dynamic";
+		};
+		BC0D64672DE8C531007B1544 /* RxCocoa-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC8EDCC42DE23CD100CCC92B /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxCocoa-Dynamic";
 		};
 		BC3F6EF82DE1998800580363 /* DGChartsDynamic */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Grade: String, CaseIterable {
+public enum Grade: String, CaseIterable {
     case firstGrade = "21<"
     case secondGrade = "22-25"
     case thirdGrade = "26-30"
