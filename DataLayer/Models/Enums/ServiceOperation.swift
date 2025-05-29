@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ServiceOperation: String {
+public enum ServiceOperation: String {
     case insertion
     case retrieve
     case deletion

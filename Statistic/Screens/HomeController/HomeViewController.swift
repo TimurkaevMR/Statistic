@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import DataLayer
 
 final class HomeViewController: UIViewController {
     
@@ -65,7 +66,7 @@ final class HomeViewController: UIViewController {
                 guard let self else { return }
                 
                 isLoading ? self.loadingView.startAnimating() : self.loadingView.stopAnimating()
-                print(isLoading)
+                
                 if !isLoading {
                     self.setupData()
                 }

@@ -9,19 +9,19 @@
 import Foundation
 internal import RealmSwift
 
-protocol UsersBaseProtocol {
+public protocol UsersBaseProtocol {
     func retrieveUsers() async throws -> [UserDTO]
     func saveUsers(_ data: [UserDTO]) async throws
 }
 
-actor UsersRealmService: UsersBaseProtocol {
+public actor UsersRealmService: UsersBaseProtocol {
     private let configuration: Realm.Configuration
     
-    init(configuration: Realm.Configuration = .defaultConfiguration) {
-        self.configuration = configuration
+    public init() {
+        self.configuration = .defaultConfiguration
     }
     
-    func retrieveUsers() async throws -> [UserDTO] {
+    public func retrieveUsers() async throws -> [UserDTO] {
         try await withCheckedThrowingContinuation { continuation in
             
             DispatchQueue.global(qos: .userInitiated).async {
@@ -43,7 +43,7 @@ actor UsersRealmService: UsersBaseProtocol {
         }
     }
     
-    func saveUsers(_ data: [UserDTO]) async throws {
+    public func saveUsers(_ data: [UserDTO]) async throws {
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {
                 autoreleasepool {

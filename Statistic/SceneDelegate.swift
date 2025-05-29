@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DataLayer
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?

@@ -9,8 +9,8 @@
 import Foundation
 
 public struct GendersValue {
-    var male: Int
-    var female: Int
+    public var male: Int
+    public var female: Int
     
     public init(male: Int, female: Int) {
         self.male = male
@@ -19,7 +19,7 @@ public struct GendersValue {
 }
 
 extension GendersValue {
-    mutating func add(_ sex: Sex) {
+    mutating func add(_ sex: SexDTO) {
         if sex == .male {
             male += 1
         } else {

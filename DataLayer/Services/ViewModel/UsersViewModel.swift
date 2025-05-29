@@ -7,9 +7,9 @@
 
 
 import Foundation
-internal import RxSwift
+public import RxSwift
 
-protocol UsersViewModelProtocol {
+public protocol UsersViewModelProtocol {
     func loadUsers()
     
     var users: PublishSubject<[UserDTO]> { get }
@@ -17,24 +17,24 @@ protocol UsersViewModelProtocol {
     var errorOccurred: PublishSubject<ServiceError> { get }
 }
 
-final class UsersViewModel: UsersViewModelProtocol {
+public final class UsersViewModel: UsersViewModelProtocol {
     
     private let networkService: NetworkServiceProtocol
     private let usersBase: UsersBaseProtocol
     private let bag = DisposeBag()
     
-    let users = PublishSubject<[UserDTO]>()
-    let isLoading = BehaviorSubject<Bool>(value: false)
-    let errorOccurred = PublishSubject<ServiceError>()
+    public let users = PublishSubject<[UserDTO]>()
+    public let isLoading = BehaviorSubject<Bool>(value: false)
+    public let errorOccurred = PublishSubject<ServiceError>()
     
-    init(networkService: NetworkServiceProtocol,
+    public init(networkService: NetworkServiceProtocol,
          usersBase: UsersBaseProtocol) {
         self.networkService = networkService
         self.usersBase = usersBase
     }
     
     
-    func loadUsers() {
+    public func loadUsers() {
         isLoading.onNext(true)
         
         loadUsersData()

@@ -9,9 +9,9 @@
 import Foundation
 internal import RealmSwift
 
-final class UserRLM: Object, Decodable {
+final class UserRLM: Object/*, Decodable*/ {
     @Persisted(primaryKey: true) var id: Int
-    @Persisted var sex: Sex
+    @Persisted var sex: SexRLM
     @Persisted var username: String
     @Persisted var isOnline: Bool
     @Persisted var age: Int
@@ -21,7 +21,7 @@ final class UserRLM: Object, Decodable {
         case id, sex, username, isOnline, age, files
     }
     
-    convenience init(id: Int, sex: Sex, username: String, isOnline: Bool, age: Int, files: [UserFileRLM]) {
+    convenience init(id: Int, sex: SexRLM, username: String, isOnline: Bool, age: Int, files: [UserFileRLM]) {
         self.init()
         self.id = id
         self.sex = sex
@@ -31,16 +31,17 @@ final class UserRLM: Object, Decodable {
         self.files.append(objectsIn: files)
     }
     
-    required convenience init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let id = try container.decode(Int.self, forKey: .id)
-        let sex = try container.decode(Sex.self, forKey: .sex)
-        let username = try container.decode(String.self, forKey: .username)
-        let isOnline = try container.decode(Bool.self, forKey: .isOnline)
-        let age = try container.decode(Int.self, forKey: .age)
-        let files = try container.decode([UserFileRLM].self, forKey: .files)
-        
-        self.init(id: id, sex: sex, username: username, isOnline: isOnline, age: age, files: files)
+    override required init() {
+        super.init()
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        let id = try container.decode(Int.self, forKey: .id)
+//        let sex = try container.decode(SexRLM.self, forKey: .sex)
+//        let username = try container.decode(String.self, forKey: .username)
+//        let isOnline = try container.decode(Bool.self, forKey: .isOnline)
+//        let age = try container.decode(Int.self, forKey: .age)
+//        let files = try container.decode([UserFileRLM].self, forKey: .files)
+//        
+//        self.init(id: id, sex: sex, username: username, isOnline: isOnline, age: age, files: files)
     }
 }
 
@@ -48,7 +49,7 @@ extension UserRLM {
     func toDTO() -> UserDTO {
         return UserDTO(
             id: id,
-            sex: sex,
+            sex: SexDTO(rawValue: sex.rawValue) ?? .other,
             username: username,
             isOnline: isOnline,
             age: age,

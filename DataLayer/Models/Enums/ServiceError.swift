@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum ServiceError: Error {
+public enum ServiceError: Error {
     case operation(_ type: ServiceOperation,
                    code: String = "uknown")
     
-    var message: String {
+    public var message: String {
         switch self {
             
         case .operation(let type, let code):

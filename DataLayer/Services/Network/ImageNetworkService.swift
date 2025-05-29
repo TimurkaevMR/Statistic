@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol ImageNetworkProtocol {
+public protocol ImageNetworkProtocol {
     func loadImage(from url: String) async throws -> UIImage
 }
 
-actor ImageNetworkService: ImageNetworkProtocol {
-    static let shared = ImageNetworkService()
+public actor ImageNetworkService: ImageNetworkProtocol {
+    public static let shared = ImageNetworkService()
     
     private typealias urlString = String
     private var cache: [urlString: UIImage] = [:]
@@ -23,7 +23,7 @@ actor ImageNetworkService: ImageNetworkProtocol {
     
     private init() {}
     
-    func loadImage(from urlString: String) async throws -> UIImage {
+    public func loadImage(from urlString: String) async throws -> UIImage {
         
         if let image = cache[urlString] {
             return image

@@ -9,19 +9,19 @@
 import Foundation
 internal import RealmSwift
 
-protocol StatisticsBaseProtocol {
+public protocol StatisticsBaseProtocol {
     func retrieveStatistics() async throws -> [UserStatDTO]
     func saveStatistics(_ data: [UserStatDTO]) async throws
 }
 
-actor StatisticsRealmService: StatisticsBaseProtocol {
+public actor StatisticsRealmService: StatisticsBaseProtocol {
     private let configuration: Realm.Configuration
     
-    init(configuration: Realm.Configuration = .defaultConfiguration) {
-        self.configuration = configuration
+    public init() {
+        self.configuration = .defaultConfiguration
     }
     
-    func retrieveStatistics() async throws -> [UserStatDTO] {
+    public func retrieveStatistics() async throws -> [UserStatDTO] {
         try await withCheckedThrowingContinuation { continuation in
             
             DispatchQueue.global(qos: .userInitiated).async {
@@ -42,7 +42,7 @@ actor StatisticsRealmService: StatisticsBaseProtocol {
         }
     }
     
-    func saveStatistics(_ stats: [UserStatDTO]) async throws {
+    public func saveStatistics(_ stats: [UserStatDTO]) async throws {
                 
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {

@@ -7,9 +7,9 @@
 
 
 import Foundation
-internal import RxSwift
+public import RxSwift
 
-protocol StatisticsViewModelProtocol {
+public protocol StatisticsViewModelProtocol {
     func loadStatistics()
     
     var statistics: PublishSubject<[UserStatDTO]> { get }
@@ -17,24 +17,24 @@ protocol StatisticsViewModelProtocol {
     var errorOccurred: PublishSubject<ServiceError> { get }
 }
 
-final class StatisticsViewModel: StatisticsViewModelProtocol {
+public final class StatisticsViewModel: StatisticsViewModelProtocol {
     
     private let networkService: NetworkServiceProtocol
     private let statsBase: StatisticsBaseProtocol
     private let bag = DisposeBag()
     
-    let statistics = PublishSubject<[UserStatDTO]>()
-    let isLoading = BehaviorSubject<Bool>(value: false)
-    let errorOccurred = PublishSubject<ServiceError>()
+    public let statistics = PublishSubject<[UserStatDTO]>()
+    public let isLoading = BehaviorSubject<Bool>(value: false)
+    public let errorOccurred = PublishSubject<ServiceError>()
     
-    init(networkService: NetworkServiceProtocol,
+    public init(networkService: NetworkServiceProtocol,
          statisticsBase: StatisticsBaseProtocol) {
         self.networkService = networkService
         self.statsBase = statisticsBase
     }
     
     
-    func loadStatistics() {
+    public func loadStatistics() {
         isLoading.onNext(true)
         
         loadStatisticsData()

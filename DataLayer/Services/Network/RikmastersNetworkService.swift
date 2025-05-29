@@ -8,22 +8,22 @@
 
 import Foundation
 
-protocol NetworkServiceProtocol {
+public protocol NetworkServiceProtocol {
     func retrieveData<T: Decodable>(_ path: EndPoint) async throws -> T
 }
 
-final class RikmastersNetworkService: NetworkServiceProtocol {
+public final class RikmastersNetworkService: NetworkServiceProtocol {
     
     private let decoder: JSONDecoder
     private let session: URLSession
     
-    init(session: URLSession = .shared,
+    public init(session: URLSession = .shared,
          decoder: JSONDecoder = JSONDecoder()) {
         self.decoder = decoder
         self.session = session
     }
     
-    func retrieveData<T: Decodable>(_ endPoint: EndPoint) async throws -> T {
+    public func retrieveData<T: Decodable>(_ endPoint: EndPoint) async throws -> T {
         
         guard let url = endPoint.url else {
             throw ServiceError.operation(.retrieve)

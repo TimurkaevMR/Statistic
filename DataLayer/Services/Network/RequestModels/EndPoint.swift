@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum EndPoint {
+public enum EndPoint {
     static let baseURL = "http://test.rikmasters.ru/api"
     
     case baseServer(Path)
@@ -20,7 +20,7 @@ enum EndPoint {
         }
     }
     
-    enum Path: String {
+    public enum Path: String {
         case users = "/users"
         case statistics = "/statistics"
     }

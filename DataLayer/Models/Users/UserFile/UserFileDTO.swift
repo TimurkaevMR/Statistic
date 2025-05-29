@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct UserFileDTO: Decodable {
+public struct UserFileDTO: Decodable {
     let id: Int
-    let url: String
+    public let url: String
     let type: String
     
     enum CodingKeys: String, CodingKey {

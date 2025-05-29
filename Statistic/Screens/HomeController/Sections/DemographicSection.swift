@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DataLayer
 
 final class DemographicSection: UIView {
     

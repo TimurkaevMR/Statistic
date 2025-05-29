@@ -46,7 +46,7 @@
 		BC0D64182DE8BBEF007B1544 /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0D64122DE8BBEF007B1544 /* DataLayer.framework */; };
 		BC0D64192DE8BBEF007B1544 /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC0D64122DE8BBEF007B1544 /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BC0D64272DE8BCA9007B1544 /* GendersValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64262DE8BCA9007B1544 /* GendersValue.swift */; };
-		BC0D64292DE8BDE6007B1544 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64282DE8BDE6007B1544 /* Sex.swift */; };
+		BC0D64292DE8BDE6007B1544 /* SexDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64282DE8BDE6007B1544 /* SexDTO.swift */; };
 		BC0D642D2DE8BE8F007B1544 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC0D642C2DE8BE8F007B1544 /* RealmSwift */; };
 		BC0D642E2DE8BE8F007B1544 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC0D642C2DE8BE8F007B1544 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BC0D64312DE8C009007B1544 /* StatisticType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D64302DE8C009007B1544 /* StatisticType.swift */; };
@@ -74,6 +74,7 @@
 		BC0D64662DE8C531007B1544 /* RxBlocking-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC0D64642DE8C531007B1544 /* RxBlocking-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BC0D64682DE8C531007B1544 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BC0D64672DE8C531007B1544 /* RxCocoa-Dynamic */; };
 		BC0D64692DE8C531007B1544 /* RxCocoa-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BC0D64672DE8C531007B1544 /* RxCocoa-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BC0D646B2DE8CE8B007B1544 /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D646A2DE8CE8B007B1544 /* HomeViewModelProtocol.swift */; };
 		BC3F6EEE2DE191E200580363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EE42DE191E200580363 /* AppDelegate.swift */; };
 		BC3F6EEF2DE191E200580363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEB2DE191E200580363 /* SceneDelegate.swift */; };
 		BC3F6EF02DE191E200580363 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F6EEC2DE191E200580363 /* HomeViewController.swift */; };
@@ -177,7 +178,7 @@
 		BC0D63BD2DE89F9E007B1544 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		BC0D64122DE8BBEF007B1544 /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC0D64262DE8BCA9007B1544 /* GendersValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GendersValue.swift; sourceTree = "<group>"; };
-		BC0D64282DE8BDE6007B1544 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
+		BC0D64282DE8BDE6007B1544 /* SexDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexDTO.swift; sourceTree = "<group>"; };
 		BC0D64302DE8C009007B1544 /* StatisticType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticType.swift; sourceTree = "<group>"; };
 		BC0D64322DE8C024007B1544 /* ServiceOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceOperation.swift; sourceTree = "<group>"; };
 		BC0D64342DE8C03A007B1544 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
@@ -199,6 +200,7 @@
 		BC0D645D2DE8C471007B1544 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		BC0D64602DE8C4D2007B1544 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		BC0D64622DE8C4F5007B1544 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		BC0D646A2DE8CE8B007B1544 /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
 		BC3F6ECC2DE191D500580363 /* Statistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Statistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3F6EE42DE191E200580363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3F6EE52DE191E200580363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -385,7 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				BC0D644D2DE8C251007B1544 /* Grade.swift */,
-				BC0D64282DE8BDE6007B1544 /* Sex.swift */,
+				BC0D64282DE8BDE6007B1544 /* SexDTO.swift */,
 				BC0D64302DE8C009007B1544 /* StatisticType.swift */,
 				BC0D64322DE8C024007B1544 /* ServiceOperation.swift */,
 				BC0D64342DE8C03A007B1544 /* ServiceError.swift */,
@@ -488,6 +490,7 @@
 		BC0D645F2DE8C4B7007B1544 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BC0D646A2DE8CE8B007B1544 /* HomeViewModelProtocol.swift */,
 				BC0D64622DE8C4F5007B1544 /* UsersViewModel.swift */,
 				BC0D64602DE8C4D2007B1544 /* StatisticsViewModel.swift */,
 			);
@@ -760,13 +763,14 @@
 				BC0D64452DE8C1AB007B1544 /* UserRLM.swift in Sources */,
 				BC0D64572DE8C3A1007B1544 /* ImageNetworkService.swift in Sources */,
 				BC0D64632DE8C4F5007B1544 /* UsersViewModel.swift in Sources */,
-				BC0D64292DE8BDE6007B1544 /* Sex.swift in Sources */,
+				BC0D64292DE8BDE6007B1544 /* SexDTO.swift in Sources */,
 				BC0D64592DE8C3BB007B1544 /* RikmastersNetworkService.swift in Sources */,
 				BC0D644A2DE8C1F8007B1544 /* UserFileRLM.swift in Sources */,
 				BC0D64382DE8C07C007B1544 /* StatListDTO.swift in Sources */,
 				BC0D64272DE8BCA9007B1544 /* GendersValue.swift in Sources */,
 				BC0D64332DE8C024007B1544 /* ServiceOperation.swift in Sources */,
 				BC0D64612DE8C4D2007B1544 /* StatisticsViewModel.swift in Sources */,
+				BC0D646B2DE8CE8B007B1544 /* HomeViewModelProtocol.swift in Sources */,
 				BC0D64542DE8C37E007B1544 /* UsersRealmService.swift in Sources */,
 				BC0D64522DE8C354007B1544 /* StatsRealmService.swift in Sources */,
 			);

@@ -7,6 +7,7 @@
 
 
 import UIKit
+import DataLayer
 
 final class FrequentVisitorsSection: UIView {
     

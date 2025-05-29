@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct UserDTO: Decodable {
-    let id: Int
-    let sex: Sex
-    let username: String
-    let isOnline: Bool
-    let age: Int
-    let files: [UserFileDTO]
+public struct UserDTO: Decodable {
+    public let id: Int
+    public let sex: SexDTO
+    public let username: String
+    public let isOnline: Bool
+    public let age: Int
+    public let files: [UserFileDTO]
     
     enum CodingKeys: String, CodingKey {
         case id, sex, username, isOnline, age, files
@@ -25,7 +25,7 @@ extension UserDTO {
     func toRLM() -> UserRLM {
         UserRLM(
             id: id,
-            sex: sex,
+            sex: SexRLM(rawValue: sex.rawValue) ?? .other,
             username: username,
             isOnline: isOnline,
             age: age,
