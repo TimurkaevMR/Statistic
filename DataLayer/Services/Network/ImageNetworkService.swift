@@ -47,11 +47,16 @@ public actor ImageNetworkService: ImageNetworkProtocol {
                                          code: "\(httpResponse.statusCode)")
         }
         
-        if let image = UIImage(data: data) {
-            cache[urlString] = cache[urlString, default: image]
+        guard let image = UIImage(data: data) else {
+            throw ServiceError.operation(.decode)
+        }
+            
+            
+        if let image = cache[urlString] {
             return image
         } else {
-            throw ServiceError.operation(.decode)
+            cache[urlString] = image
+            return image
         }
     }
     
