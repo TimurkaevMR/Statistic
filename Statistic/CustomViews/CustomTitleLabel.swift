@@ -12,7 +12,7 @@ final class CustomTitleLabel: UILabel {
         super.init(frame: .zero)
         self.text = text
         self.font = .bold20()
-        self.textColor = .ypBlack
+        self.textColor = .statBlack
         self.textAlignment = .left
         self.translatesAutoresizingMaskIntoConstraints = false
         self.heightAnchor.constraint(equalToConstant: 24).isActive = true

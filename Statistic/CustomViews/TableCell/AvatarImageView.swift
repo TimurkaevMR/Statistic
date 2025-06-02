@@ -46,7 +46,7 @@ final class AvatarImageView: UIView {
         clipsToBounds = true
         
         onlineIndicator.backgroundColor = .systemGreen
-        onlineIndicator.layer.borderColor = UIColor.ypWhite.cgColor
+        onlineIndicator.layer.borderColor = UIColor.statWhite.cgColor
         onlineIndicator.layer.borderWidth = 1
         onlineIndicator.layer.cornerRadius = 4
         onlineIndicator.isHidden = true

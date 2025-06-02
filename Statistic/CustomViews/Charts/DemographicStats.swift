@@ -47,7 +47,7 @@ final class DemographicStats: UIView {
     
     private func setupUI() {
         addSubview(stackView)
-        backgroundColor = .ypWhite
+        backgroundColor = .statWhite
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),

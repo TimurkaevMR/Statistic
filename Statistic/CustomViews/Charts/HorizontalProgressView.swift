@@ -47,7 +47,7 @@ final class HorizontalProgressView: UIView {
     
     private func setupViews() {
         percentageLabel.font = .medium10()
-        percentageLabel.textColor = .ypBlack
+        percentageLabel.textColor = .statBlack
         
         progressView.layer.masksToBounds = true
         progressView.layer.cornerRadius = 3

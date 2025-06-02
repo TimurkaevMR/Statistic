@@ -12,12 +12,12 @@ final class DemographicChartView: UIView {
     private let gradeLabel = {
         let label = UILabel()
         label.font = .semiBold15()
-        label.textColor = .ypBlack
+        label.textColor = .statBlack
         return label
     }()
     
-    private let maleChartView = HorizontalProgressView(color: .ypRed)
-    private let femaleChartView = HorizontalProgressView(color: .ypOrange)
+    private let maleChartView = HorizontalProgressView(color: .statRed)
+    private let femaleChartView = HorizontalProgressView(color: .statOrange)
     
     init(grade: String) {
         super.init(frame: .zero)

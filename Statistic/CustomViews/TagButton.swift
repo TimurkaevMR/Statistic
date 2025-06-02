@@ -32,7 +32,7 @@ final class TagButton: UIButton {
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16)
         
         layer.borderWidth = 1
-        layer.borderColor = UIColor.ypGrayMedium.cgColor
+        layer.borderColor = UIColor.statGrayMedium.cgColor
         layer.cornerRadius = 16
         layer.masksToBounds = true
         
@@ -46,11 +46,11 @@ final class TagButton: UIButton {
         UIView.animate(.default) { [weak self] in
             guard let self else { return }
             
-            self.backgroundColor = self.isSelectedTag ? .ypRed : .ypGrayLight
+            self.backgroundColor = self.isSelectedTag ? .statRed : .statGrayLight
             self.layer.borderWidth = self.isSelectedTag ? 0 : 1
             
             var configuration = UIButton.Configuration.plain()
-            let titleColor: UIColor = isSelectedTag ? .ypWhite : .ypBlack
+            let titleColor: UIColor = isSelectedTag ? .statWhite : .statBlack
            
             configuration.attributedTitle = AttributedString(
                 title,

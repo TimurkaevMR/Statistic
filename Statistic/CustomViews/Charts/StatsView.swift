@@ -21,7 +21,7 @@ final class StatsView: UIView {
     private let valueLabel: UILabel = {
         let label = UILabel()
         label.font = .bold20()
-        label.textColor = .ypBlack
+        label.textColor = .statBlack
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -30,7 +30,7 @@ final class StatsView: UIView {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .medium15()
-        label.textColor = .ypGray
+        label.textColor = .statGray
         label.textAlignment = .left
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +51,7 @@ final class StatsView: UIView {
         self.trendTitle = trendText
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .ypWhite
+        backgroundColor = .statWhite
         
         setupUI()
         configureChart()
@@ -65,7 +65,7 @@ final class StatsView: UIView {
         guard !values.isEmpty else { return }
 
         let isPositive = values.last ?? 0 >= values.first ?? 0
-        let lineColor: UIColor = isPositive ? .ypGreen : .ypPurple
+        let lineColor: UIColor = isPositive ? .statGreen : .statPurple
         
         let entries = values.enumerated().map { index, value in
             ChartDataEntry(x: Double(index), y: value)

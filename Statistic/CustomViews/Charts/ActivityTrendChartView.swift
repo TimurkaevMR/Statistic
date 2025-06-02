@@ -30,12 +30,16 @@ final class ActivityTrendChartView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = .ypWhite
+        backgroundColor = .statWhite
         layer.cornerRadius = .regularRadius
         layer.masksToBounds = true
         
-        [chartView, horizontalLineImageView,
-         middleLineImageView, topLineImageView].forEach({
+        let views: [UIView] = [chartView,
+                               horizontalLineImageView,
+                               middleLineImageView,
+                               topLineImageView]
+        
+        views.forEach({
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         })
@@ -78,13 +82,13 @@ final class ActivityTrendChartView: UIView {
         
         let xAxis = chartView.xAxis
         xAxis.labelPosition = .bottom
-        xAxis.labelTextColor = .ypGrayDark
+        xAxis.labelTextColor = .statGrayDark
         xAxis.labelFont = .medium11()
         xAxis.drawGridLinesEnabled = false
         xAxis.granularity = 1
         xAxis.valueFormatter = self
         xAxis.drawAxisLineEnabled = false
-        xAxis.axisLineColor = .ypRed
+        xAxis.axisLineColor = .statRed
         
         chartView.leftAxis.enabled = false
         chartView.rightAxis.enabled = false
@@ -105,10 +109,10 @@ final class ActivityTrendChartView: UIView {
         }
         
         let dataSet = LineChartDataSet(entries: entries, label: "")
-        dataSet.colors = [.ypRed]
+        dataSet.colors = [.statRed]
         dataSet.lineWidth = 3
         dataSet.drawCirclesEnabled = true
-        dataSet.circleColors = [.ypRed]
+        dataSet.circleColors = [.statRed]
         dataSet.circleRadius = 6
         dataSet.circleHoleRadius = 3
         dataSet.drawValuesEnabled = false
@@ -116,7 +120,7 @@ final class ActivityTrendChartView: UIView {
         dataSet.drawVerticalHighlightIndicatorEnabled = true
         dataSet.drawHorizontalHighlightIndicatorEnabled = false
         dataSet.highlightLineDashLengths = [8.0]
-        dataSet.highlightColor = .ypRedFlame
+        dataSet.highlightColor = .statRedFlame
         dataSet.highlightLineWidth = 1
         
         chartView.data = LineChartData(dataSet: dataSet)

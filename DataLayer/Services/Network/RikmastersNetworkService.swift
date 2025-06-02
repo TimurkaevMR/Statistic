@@ -57,7 +57,7 @@ public final class RikmastersNetworkService: NetworkServiceProtocol {
     }
     
     private func makeRequest(_ method: HttpMethod,
-                     for url: URL) -> URLRequest {
+                             for url: URL) -> URLRequest {
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue

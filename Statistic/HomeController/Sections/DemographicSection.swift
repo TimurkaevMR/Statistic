@@ -36,7 +36,7 @@ final class DemographicSection: UIView {
     private func setupUI() {
         titleLabel.text = "Пол и возраст"
         
-        separator.backgroundColor = .ypGrayLight
+        separator.backgroundColor = .statGrayLight
         separator.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(titleLabel)

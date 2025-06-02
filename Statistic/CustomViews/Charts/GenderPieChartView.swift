@@ -12,10 +12,37 @@ import DGCharts
 final class GenderPieChartView: UIView {
     
     private let pieChartView = PieChartView()
-    private let maleLabel = UILabel()
-    private let femaleLabel = UILabel()
-    private let maleDot = UIView()
-    private let femaleDot = UIView()
+    private let maleLabel = {
+        let label = UILabel()
+        label.font = .medium13()
+        label.textColor = .statBlack
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    private let femaleLabel = {
+        let label = UILabel()
+        label.font = .medium13()
+        label.textColor = .statBlack
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    private let maleDot = {
+        let uiView = UIView()
+        uiView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return uiView
+    }()
+    
+    private let femaleDot = {
+        let uiView = UIView()
+        uiView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return uiView
+    }()
     
     private let dotSize: CGFloat = 10
     private let borderWidth: CGFloat = 6
@@ -23,7 +50,7 @@ final class GenderPieChartView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .ypWhite
+        backgroundColor = .statWhite
         layer.cornerRadius = 16
         layer.masksToBounds = true
         setupPieChart()
@@ -59,22 +86,15 @@ final class GenderPieChartView: UIView {
     }
     
     private func setupLabelsAndDots() {
-        maleDot.backgroundColor = .ypRed
+        maleDot.backgroundColor = .statRed
         maleDot.layer.cornerRadius = dotSize / 2
-        femaleDot.backgroundColor = .ypOrange
+        femaleDot.backgroundColor = .statOrange
         femaleDot.layer.cornerRadius = dotSize / 2
-                
-        [maleDot, maleLabel,
-         femaleDot, femaleLabel].forEach({
-            
-            addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            
-            if let label = $0 as? UILabel {
-                label.font = .medium13()
-                label.textColor = .ypBlack
-            }
-        })
+        
+        addSubview(maleDot)
+        addSubview(maleLabel)
+        addSubview(femaleDot)
+        addSubview(femaleLabel)
         
         NSLayoutConstraint.activate([
             maleDot.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 22),
@@ -103,7 +123,7 @@ final class GenderPieChartView: UIView {
         
         let dataSet = PieChartDataSet(entries: entries, label: "")
         
-        dataSet.colors = [.ypRed, .ypOrange]
+        dataSet.colors = [.statRed, .statOrange]
         
         dataSet.drawValuesEnabled = false
         dataSet.sliceSpace = 4

@@ -96,7 +96,7 @@ final class HomeViewController: UIViewController {
 
 private extension HomeViewController {
     func setupUI() {
-        view.backgroundColor = .ypGrayLight
+        view.backgroundColor = .statGrayLight
         
         setupNavigationTitle()
         setupScrollView()
