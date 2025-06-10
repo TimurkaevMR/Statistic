@@ -17,6 +17,7 @@ public protocol UsersBaseProtocol {
 public actor UsersRealmService: UsersBaseProtocol {
     private let configuration: Realm.Configuration
     
+    
     public init() {
         self.configuration = .defaultConfiguration
     }
